@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>現場安全巡視 v0.3.2｜森建設工業DX</title>
+<meta name="theme-color" content="#0b5cab">
+<meta name="description" content="森建設工業 現場安全巡視点検アプリ">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#18324a;--muted:#66788a;--line:#d6e0ea;--blue:#0b5cab;--blue2:#e8f2fb;--teal:#0a7f82;--orange:#c86b16;--red:#b42318;--shadow:0 8px 24px rgba(25,55,80,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Meiryo",sans-serif}.app-header{display:flex;justify-content:space-between;gap:16px;padding:18px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.eyebrow{font-size:12px;color:var(--muted);font-weight:700}.app-header h1{font-size:22px;margin:3px 0}.subline{font-size:13px;color:var(--muted)}.status-wrap{display:flex;align-items:center;gap:8px}.status-badge,.version,.legend-chip{font-size:12px;padding:6px 9px;border-radius:999px;background:var(--blue2);color:var(--blue);white-space:nowrap}.app-shell{max-width:1280px;margin:0 auto;padding:18px}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin-bottom:16px}.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.section-head h2{font-size:17px;margin:0 0 4px}.hint{margin:0;color:var(--muted);font-size:12px;line-height:1.55}.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}.field label,.form-grid label{font-size:12px;font-weight:700;color:#4b6074;display:block}.input-row{display:flex;gap:6px;margin-top:5px}.input-row input,.input-row textarea,.field input,.field select,.field textarea,.form-grid input,.form-grid select{width:100%;border:1px solid #bfcddb;border-radius:10px;padding:11px;font-size:16px;color:var(--text);background:#fff;font-family:inherit}.input-row textarea{min-height:72px;resize:vertical}.voice{flex:0 0 44px;border:1px solid #9db3c5;background:#eef6fd;color:#0b5cab;border-radius:10px;font-size:19px;cursor:pointer}.voice.listening{background:#ffe6e3;border-color:#db6a61;color:#b42318;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.55}}
+.btn{border:1px solid #b7c6d4;background:#fff;color:var(--text);padding:10px 14px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer}.btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn-next{background:#0f6f73;border-color:#0f6f73;color:#fff}.btn-accent{background:var(--teal);border-color:var(--teal);color:#fff}.btn-orange{background:var(--orange);border-color:var(--orange);color:#fff}.btn-danger{background:#fff3f1;border-color:#efb4ae;color:var(--red)}.btn-light{padding:7px 10px}.btn:disabled{opacity:.5;cursor:not-allowed}.file-btn{display:inline-flex;align-items:center}.action-bar{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 26px}.action-bar .btn{min-width:120px}.hidden{display:none!important}
+.identity-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.9fr);gap:18px;margin-top:14px}.choice-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.choice-chip{display:flex;align-items:center;gap:6px;border:1px solid #b7c6d4;border-radius:999px;padding:8px 12px;background:#fff;font-size:13px;font-weight:700;cursor:pointer}.choice-chip:has(input:checked){background:var(--blue2);border-color:#7ea9cd;color:var(--blue)}.identity-preview{border:1px dashed #b7c6d4;border-radius:14px;min-height:160px;padding:14px;display:flex;align-items:center;justify-content:center;background:#fafcfe}.seal-wrap{text-align:center}.seal{width:92px;height:92px;border:3px solid #c52f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c52f2f;background:#fff;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:700;font-size:23px;line-height:1;letter-spacing:2px;writing-mode:vertical-rl;text-orientation:upright;box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 3px #c52f2f}.seal-caption{margin-top:8px;font-size:12px;color:var(--muted)}.photo-preview{max-width:150px;width:100%;height:150px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.photo-empty{text-align:center;color:var(--muted);font-size:13px}.photo-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.seal-edit{display:grid;grid-template-columns:1fr auto;gap:6px;margin-top:10px;max-width:360px}.seal-edit input{border:1px solid #bfcddb;border-radius:10px;padding:10px;font-size:16px}.small{font-size:12px;color:var(--muted);line-height:1.55}
+.summary{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.pill{font-size:12px;padding:7px 10px;border-radius:999px;background:#eef3f7;font-weight:700}.pill.bad{background:#fff0ed;color:var(--red)}.pill.na{background:#edf0f3;color:#52616f}.pill.unsaved{background:#fff4dc;color:#8b5a00}.template-tools{display:flex;gap:8px;flex-wrap:wrap}.edit-help{margin:10px 0;padding:10px 12px;background:#fff8e6;border:1px solid #f0cc7a;border-radius:10px;font-size:12px;color:#76520b}.patrol-scroll{overflow-x:auto}.patrol-table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:920px}.patrol-table th,.patrol-table td{border:1px solid #b5c2cd;padding:7px;vertical-align:middle}.patrol-table thead th{background:#dce8f2;color:#183a56;text-align:center;font-size:12px}.patrol-table .no{width:48px;text-align:center}.patrol-table .item{width:37%}.patrol-table .judge{width:250px}.patrol-table .note{width:auto}.section-row td{background:#e9eef2;font-weight:800;color:#334e63;padding:8px}.item-label{line-height:1.55}.judge-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.judge-btn{border:1px solid #aab5bf;border-radius:8px;padding:9px 3px;background:#fff;font-weight:800;cursor:pointer;white-space:nowrap}.judge-btn.good.selected{background:#dff4e7;border-color:#55a976;color:#126b37}.judge-btn.bad.selected{background:#ffe1df;border-color:#d46a65;color:#a21d18}.judge-btn.na.selected{background:#e8ecf0;border-color:#8e99a3;color:#45525d}.judge-btn .mark{font-size:18px;margin-right:2px}.note-wrap{display:flex;gap:5px;align-items:stretch}.note-wrap textarea{min-height:56px;resize:vertical;flex:1;border:1px solid #b6c1ca;border-radius:8px;padding:8px;font:inherit}.note-wrap.inactive textarea{background:#f4f6f7;color:#9ba3a8}.note-wrap .voice{height:auto}.item-edit-wrap{display:grid;grid-template-columns:minmax(0,1fr) 44px auto;gap:6px;align-items:stretch}.item-edit-wrap textarea{width:100%;min-height:58px;border:1px solid #91abc0;border-radius:8px;padding:8px;font:inherit;resize:vertical;background:#fffef7}.item-delete{border:1px solid #e4aaa5;background:#fff3f1;color:var(--red);border-radius:8px;font-weight:700;padding:6px 9px;cursor:pointer}.add-row td{background:#fbfcfd;text-align:right}.add-item{font-size:12px}.editing-mask{color:var(--muted);font-size:12px;text-align:center}.remarks-box{margin-top:12px}.remarks-box label{font-size:12px;font-weight:700;color:#4b6074}.remarks-box .input-row{margin-top:5px}
+.batch-panel{background:#fffaf0;border-color:#efd59f}.batch-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}.batch-note{font-size:12px;color:#73571c;line-height:1.55;margin-top:8px}.checkline{display:flex;align-items:center;gap:6px;font-size:13px;margin-top:10px}.history-list{display:grid;gap:8px;margin-top:12px}.history-item{border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;justify-content:space-between;align-items:center;gap:10px}.history-main{min-width:0}.history-title{font-weight:800}.history-sub{font-size:12px;color:var(--muted);margin-top:2px}.history-actions{display:flex;gap:6px;flex-wrap:wrap}.badge{display:inline-block;margin-left:5px;padding:3px 7px;border-radius:999px;background:#e8eff5;font-size:11px;font-weight:700}.badge.copy{background:#fff0c4;color:#775400}.badge.draft{background:#fff0e4;color:#9a4c09}dialog{border:0;border-radius:14px;padding:0;box-shadow:0 24px 70px rgba(0,0,0,.2);width:min(900px,94vw);max-height:88vh}dialog::backdrop{background:rgba(9,27,42,.35)}.dialog-card{padding:16px;max-height:88vh;overflow:auto}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#17334b;color:#fff;padding:10px 14px;border-radius:10px;opacity:0;pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1}
+@media(max-width:900px){.app-header{position:static;padding:14px 16px}.app-header h1{font-size:19px}.app-shell{padding:12px}.form-grid{grid-template-columns:1fr 1fr}.identity-grid{grid-template-columns:1fr}.batch-grid{grid-template-columns:1fr 1fr}.panel{border-radius:13px;padding:13px}.action-bar .btn{flex:1 1 145px}}
+@media(max-width:560px){.form-grid,.batch-grid{grid-template-columns:1fr}.section-head{align-items:center}.app-header{display:block}.status-wrap{margin-top:8px}.action-bar .btn{flex:1 1 140px}.identity-preview{min-height:140px}.seal{width:82px;height:82px;font-size:21px}}
+</style>
+</head>
+<body>
+<header class="app-header">
+  <div>
+    <div class="eyebrow"><a href="https://taguchi503.github.io/moriken-dx/" style="color:inherit;text-decoration:none">← ポータル</a>　森建設工業株式会社｜現場DX｜安全管理</div>
+    <h1>現場安全巡視</h1>
+    <div class="subline">現場安全巡視点検表をスマホ・PCから記録</div>
+  </div>
+  <div class="status-wrap">
+    <span id="draftBadge" class="status-badge">自動下書き</span>
+    <span class="version">v0.3.2</span>
+  </div>
+</header>
+<main class="app-shell">
+  <section class="panel">
+    <div class="section-head">
+      <div><h2>巡視情報</h2><p class="hint">基本情報を入力します。文字入力欄はマイクから音声入力できます。</p></div>
+      <button id="newBtn" class="btn btn-light" type="button">新規</button>
+    </div>
+    <div class="form-grid">
+      <label>工事名<div class="input-row"><input id="projectName" type="text" placeholder="例：○○地区工事"><button class="voice" data-voice="projectName" type="button">🎤</button></div></label>
+      <label>巡視日<input id="workDate" type="date"></label>
+      <label>巡視時刻<input id="patrolTime" type="time"></label>
+      <label>天候<div class="input-row"><input id="weather" type="text" placeholder="例：晴れ"><button class="voice" data-voice="weather" type="button">🎤</button></div></label>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><div><h2>巡視者</h2><p class="hint">記録には「電子印鑑」または「写真」のどちらか一方を付けます。</p></div></div>
+    <div class="identity-grid">
+      <div>
+        <div class="field"><label>巡視者氏名</label><div class="input-row"><input id="inspector" type="text" placeholder="例：佐々木かなめ"><button class="voice" data-voice="inspector" type="button">🎤</button></div></div>
+        <div class="choice-row">
+          <label class="choice-chip"><input type="radio" name="identityMode" value="seal" checked> 電子印鑑</label>
+          <label class="choice-chip"><input type="radio" name="identityMode" value="photo"> 写真</label>
+        </div>
+        <div id="sealControls">
+          <div class="seal-edit"><input id="sealText" type="text" maxlength="4" placeholder="印鑑文字"><button id="autoSealBtn" class="btn btn-light" type="button">苗字を再取得</button></div>
+          <p class="small">例：「佐々木かなめ」「佐々木 要」→「佐々木」。自動判定が違う場合だけ印鑑文字を修正してください。</p>
+        </div>
+        <div id="photoControls" class="hidden">
+          <div class="photo-actions"><label class="btn" for="photoInput">写真を選ぶ／撮る</label><input id="photoInput" type="file" accept="image/*" hidden><button id="removePhoto" class="btn btn-light" type="button">写真を外す</button></div>
+          <p class="small">顔・全身などの区分は設けません。巡視者確認用の写真を1枚設定します。</p>
+        </div>
+      </div>
+      <div class="identity-preview" id="identityPreview"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="section-head">
+      <div><h2>巡視結果</h2><p class="hint">○＝良好　×＝不安全・指摘あり　／＝該当なし。×のときだけ右側へ巡視者指摘・是正事項を記録します。</p></div>
+      <div class="template-tools">
+        <button id="editItemsBtn" class="btn btn-light" type="button">点検項目を編集</button>
+        <button id="resetItemsBtn" class="btn btn-light hidden" type="button">初期項目に戻す</button>
+      </div>
+    </div>
+    <div id="editHelp" class="edit-help hidden">点検項目を直接書き換えできます。不要な行は削除、区分ごとに新しい項目を追加できます。変更した内容は次回以降の標準項目として保存されます。</div>
+    <div class="summary">
+      <span class="pill" id="donePill">確認済 0 / 30</span>
+      <span class="pill bad" id="badPill">× 0件</span>
+      <span class="pill na" id="naPill">該当なし 0件</span>
+      <span class="pill unsaved" id="saveState">編集中</span>
+    </div>
+    <div class="patrol-scroll">
+      <table class="patrol-table">
+        <thead><tr><th class="no">No.</th><th class="item">点検項目</th><th class="judge">判定</th><th class="note">巡視者指摘・是正事項</th></tr></thead>
+        <tbody id="checkBody"></tbody>
+      </table>
+    </div>
+    <div class="remarks-box"><label>全体備考</label><div class="input-row"><textarea id="remarks" placeholder="全体に関する補足事項"></textarea><button class="voice" data-voice="remarks" type="button">🎤</button></div></div>
+  </section>
+
+  <section class="panel batch-panel">
+    <div class="section-head"><div><h2>期間へコピー</h2><p class="hint">同じ内容を複数日に複製したいときに使います。</p></div></div>
+    <div class="batch-grid">
+      <div class="field"><label>開始日</label><input id="batchStart" type="date"></div>
+      <div class="field"><label>終了日</label><input id="batchEnd" type="date"></div>
+      <div class="field"><label>対象日</label><select id="batchDays"><option value="all">すべての日</option><option value="noSun">日曜を除く</option><option value="weekday">土日を除く</option></select></div>
+    </div>
+    <div class="batch-note">コピーした日付は「要確認の下書き」として作成します。各日を開いて内容を確認後、「端末に保存」で確定してください。</div>
+    <div class="action-bar" style="margin-bottom:0"><button id="batchCreate" class="btn btn-orange" type="button">この日の内容を期間へコピー</button></div>
+  </section>
+
+  <section class="action-bar">
+    <button id="saveBtn" class="btn btn-primary" type="button">端末に保存</button>
+    <button id="saveNextBtn" class="btn btn-next" type="button">保存して次の巡視</button>
+    <button id="historyBtn" class="btn" type="button">保存データ</button>
+    <button id="exportBtn" class="btn" type="button">バックアップ出力</button>
+    <label class="btn file-btn">バックアップ読込<input id="importFile" type="file" accept="application/json,.json" hidden></label>
+    <button id="excelBtn" class="btn" type="button">Excel帳票</button>
+    <button id="blankExcelBtn" class="btn" type="button">空白Excel様式</button>
+    <button id="printBtn" class="btn btn-accent" type="button">PDF・印刷</button>
+  </section>
+</main>
+
+<dialog id="historyDialog"><div class="dialog-card"><div class="section-head"><div><h2>保存データ</h2><p class="hint">保存した巡視記録を開く・出力・削除できます。</p></div><button class="btn btn-light" id="closeHistory" type="button">閉じる</button></div><div id="historyList" class="history-list"></div></div></dialog>
+<div id="toast" class="toast"></div>
+<script>
+(()=>{
+'use strict';
+const APP_VERSION='0.3.2';
+const STORAGE_KEY='moriken_safety_patrol_v1';
+const SETTINGS_KEY='moriken_safety_patrol_settings_v1';
+const TEMPLATE_KEY='moriken_safety_patrol_template_v1';
+const DRAFT_KEY='moriken_safety_patrol_draft_v1';
+const PHOTO_LIBRARY_KEY='moriken_safety_patrol_photos_v1';
+const MAX_HISTORY=100;
+const DEFAULT_TEMPLATE=[
+{id:'d1',section:'作業員',label:'作業員の体調'},
+{id:'d2',section:'作業員',label:'作業員の服装（靴・手袋・安全帯）'},
+{id:'d3',section:'作業員',label:'保安帽の着用状況（あごひも等）'},
+{id:'d4',section:'作業時の保安状況',label:'オペレーターの資格証・免許証の携帯'},
+{id:'d5',section:'作業時の保安状況',label:'作業ヤードの明示状況'},
+{id:'d6',section:'作業時の保安状況',label:'車輌系建設機械の始業点検'},
+{id:'d7',section:'作業時の保安状況',label:'交通誘導員の配置・誘導状況'},
+{id:'d8',section:'作業時の保安状況',label:'公道・工事用道路の状態・汚れ'},
+{id:'d9',section:'作業時の保安状況',label:'ダンプトラックの走行状況・積載ラインの確認'},
+{id:'d10',section:'作業時の保安状況',label:'作業終了時の重機の置き場'},
+{id:'d11',section:'作業時の保安状況',label:'重機の施錠状況'},
+{id:'d12',section:'作業時の保安状況',label:'隣接構造物への影響・対策'},
+{id:'d13',section:'現場内の保安状況',label:'現場の整理整頓状況'},
+{id:'d14',section:'現場内の保安状況',label:'作業員の足場の状況'},
+{id:'d15',section:'現場内の保安状況',label:'玉掛け作業の適正合図の連係状況'},
+{id:'d16',section:'現場内の保安状況',label:'クレーンの能力適正、作業方法'},
+{id:'d17',section:'現場内の保安状況',label:'ワイヤーの点検・状態'},
+{id:'d18',section:'現場内の保安状況',label:'作業半径内の立入禁止措置'},
+{id:'d19',section:'現場内の保安状況',label:'エンジン機械の始業点検・作動状況'},
+{id:'d20',section:'現場内の保安状況',label:'電動工具の始業点検・安全装置の状態'},
+{id:'d21',section:'現場内の保安状況',label:'保護めがね・防塵マスクの着用'},
+{id:'d22',section:'事務所・休憩所・資材置き場等',label:'KYT活動の実施状況'},
+{id:'d23',section:'事務所・休憩所・資材置き場等',label:'現場事務所・休憩所の清掃'},
+{id:'d24',section:'事務所・休憩所・資材置き場等',label:'資材の置き方・飛散防止措置'},
+{id:'d25',section:'事務所・休憩所・資材置き場等',label:'消火器・救急箱の備え付け・整備'},
+{id:'d26',section:'事務所・休憩所・資材置き場等',label:'有資格者・緊急時の連絡表の掲示'},
+{id:'d27',section:'事務所・休憩所・資材置き場等',label:'工事看板の設置・破損状況'},
+{id:'d28',section:'事務所・休憩所・資材置き場等',label:'トイレの清掃・使用品の有無'},
+{id:'d29',section:'事務所・休憩所・資材置き場等',label:'電気設備の点検'},
+{id:'d30',section:'事務所・休憩所・資材置き場等',label:'工事車両の駐車状況'}
+];
+const $=id=>document.getElementById(id);
+const clone=v=>JSON.parse(JSON.stringify(v));
+const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const dateISO=(d=new Date())=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const timeNow=()=>String(new Date().getHours()).padStart(2,'0')+':'+String(new Date().getMinutes()).padStart(2,'0');
+const uid=()=> 'patrol_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);
+let toastTimer=null,recognition=null,editMode=false;
+let template=loadTemplate();
+let photoLibrary=loadJson(PHOTO_LIBRARY_KEY,{});
+let history=loadHistory().map(normalizeRecord);
+let state=loadDraft()||newBlank();
+function loadJson(key,fallback){try{const v=JSON.parse(localStorage.getItem(key)||'null');return v??fallback}catch{return fallback}}
+function loadTemplate(){const t=loadJson(TEMPLATE_KEY,null);return Array.isArray(t)&&t.length?t:clone(DEFAULT_TEMPLATE)}
+function loadHistory(){const h=loadJson(STORAGE_KEY,[]);return Array.isArray(h)?h:[]}
+function loadDraft(){const d=loadJson(DRAFT_KEY,null);return d?normalizeRecord(d):null}
+function loadSettings(){return loadJson(SETTINGS_KEY,{})}
+function photoHash(data){let h=2166136261;for(let i=0;i<data.length;i+=97){h^=data.charCodeAt(i);h=Math.imul(h,16777619)}return 'p_'+(h>>>0).toString(36)+'_'+data.length}
+function compactRecord(r){const c=clone(r);if(c.photoData){const key=photoHash(c.photoData);photoLibrary[key]=c.photoData;c.photoRef=key;c.photoData=''}return c}
+function persistHistory(){try{const compact=history.slice(0,MAX_HISTORY).map(compactRecord);localStorage.setItem(PHOTO_LIBRARY_KEY,JSON.stringify(photoLibrary));localStorage.setItem(STORAGE_KEY,JSON.stringify(compact));return true}catch{toast('保存容量が不足しました。写真を減らすかバックアップしてください');return false}}
+function persistTemplate(){try{localStorage.setItem(TEMPLATE_KEY,JSON.stringify(template));return true}catch{toast('点検項目の保存に失敗しました');return false}}
+function persistTemplateFromState(){template=clone(state.items);persistTemplate()}
+function persistDraft(){syncMeta(false);try{localStorage.setItem(DRAFT_KEY,JSON.stringify(state));$('draftBadge').textContent='自動下書き保存済'}catch{}setTimeout(()=>{$('draftBadge').textContent='自動下書き'},1200)}
+function normalizeRecord(r){
+  const items=Array.isArray(r.items)&&r.items.length?r.items.map((x,i)=>({id:x.id||('legacy_'+i),section:x.section||'その他',label:x.label||''})):clone(template);
+  const checks=items.map((it,i)=>{let old=(r.checks||[]).find(x=>x.itemId===it.id);if(!old)old=(r.checks||[]).find(x=>Number(x.no)===i+1)||{};let st=old.status||'';if(st==='対象外')st='na';return {itemId:it.id,status:st,note:old.note||''}});
+  const restoredPhoto=r.photoData||(r.photoRef&&photoLibrary[r.photoRef])||'';
+  const mode=r.identityMode||(restoredPhoto?'photo':'seal');
+  return {...r,items,checks,identityMode:mode,sealText:r.sealText||deriveSurname(r.inspector||''),photoData:restoredPhoto,remarks:r.remarks||'',batchMeta:r.batchMeta||null,status:r.status||'draft'};
+}
+function newBlank(){const s=loadSettings();const items=clone(template);return {id:uid(),status:'draft',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString(),projectName:s.projectName||'',workDate:dateISO(),patrolTime:timeNow(),weather:'',inspector:s.inspector||'',identityMode:s.identityMode||'seal',sealText:s.sealText||deriveSurname(s.inspector||''),photoData:s.photoData||'',remarks:'',items,checks:items.map(x=>({itemId:x.id,status:'',note:''})),batchMeta:null}}
+function getCheck(id){return state.checks.find(x=>x.itemId===id)}
+function sections(items=state.items){return [...new Set(items.map(x=>x.section))]}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2800)}
+function markDirty(){state.updatedAt=new Date().toISOString();$('saveState').textContent='未保存';debouncedDraft()}
+let draftTimer=null;function debouncedDraft(){clearTimeout(draftTimer);draftTimer=setTimeout(persistDraft,350)}
+function deriveSurname(name){
+  let s=String(name||'').trim().replace(/[　]+/g,' ');if(!s)return'';
+  if(/\s/.test(s))return s.split(/\s+/)[0];
+  const known=['佐々木','長谷川','小笠原','五十嵐','佐々木','細矢','田口','佐藤','木村','須田','吉田','高橋','伊藤','渡辺','斎藤','齋藤','小林','加藤','阿部','後藤','石川','三浦','藤原','工藤'];
+  const hit=known.sort((a,b)=>b.length-a.length).find(k=>s.startsWith(k));if(hit)return hit;
+  const kanaIndex=[...s].findIndex(ch=>/[ぁ-んァ-ヶー]/.test(ch));if(kanaIndex>0)return [...s].slice(0,kanaIndex).join('');
+  const m=s.match(/^([一-龯々]{2,3})/);return m?m[1].slice(0,2):s.slice(0,2);
+}
+function syncMeta(mark=true){state.projectName=$('projectName').value;state.workDate=$('workDate').value;state.patrolTime=$('patrolTime').value;state.weather=$('weather').value;state.inspector=$('inspector').value;state.identityMode=document.querySelector('input[name="identityMode"]:checked')?.value||'seal';state.sealText=$('sealText').value.trim();state.remarks=$('remarks').value;if(mark)markDirty()}
+function fillMeta(){
+  $('projectName').value=state.projectName||'';$('workDate').value=state.workDate||dateISO();$('patrolTime').value=state.patrolTime||timeNow();$('weather').value=state.weather||'';$('inspector').value=state.inspector||'';$('sealText').value=state.sealText||deriveSurname(state.inspector||'');$('remarks').value=state.remarks||'';
+  document.querySelectorAll('input[name="identityMode"]').forEach(r=>r.checked=r.value===state.identityMode);$('batchStart').value=state.workDate;$('batchEnd').value=state.workDate;$('saveState').textContent=state.status==='complete'?'保存済':'編集中';renderIdentity();renderChecklist();
+}
+function renderIdentity(){
+  const sealMode=state.identityMode!=='photo';$('sealControls').classList.toggle('hidden',!sealMode);$('photoControls').classList.toggle('hidden',sealMode);const p=$('identityPreview');
+  if(sealMode){const txt=(state.sealText||deriveSurname(state.inspector)||'印');p.innerHTML=`<div class="seal-wrap"><div class="seal">${esc(txt)}</div><div class="seal-caption">電子印鑑プレビュー</div></div>`}
+  else if(state.photoData){p.innerHTML=`<img class="photo-preview" src="${state.photoData}" alt="巡視者写真">`}
+  else p.innerHTML='<div class="photo-empty">写真がまだ設定されていません</div>';
+}
+function renderChecklist(){
+  let html='';let no=0;
+  for(const sec of sections()){
+    html+=`<tr class="section-row"><td colspan="4">${esc(sec)}</td></tr>`;
+    for(const item of state.items.filter(x=>x.section===sec)){
+      no++;const c=getCheck(item.id)||{itemId:item.id,status:'',note:''};if(!getCheck(item.id))state.checks.push(c);
+      if(editMode){
+        html+=`<tr data-id="${esc(item.id)}"><td class="no">${no}</td><td class="item-label"><div class="item-edit-wrap"><textarea data-item-label="${esc(item.id)}">${esc(item.label)}</textarea><button class="voice" type="button" data-voice-item="${esc(item.id)}">🎤</button><button class="item-delete" type="button" data-delete-item="${esc(item.id)}">削除</button></div></td><td class="judge"><div class="editing-mask">項目編集中</div></td><td class="note"><div class="editing-mask">編集終了後に判定</div></td></tr>`;
+      }else{
+        const inactive=c.status!=='bad';
+        html+=`<tr data-id="${esc(item.id)}"><td class="no">${no}</td><td class="item-label">${esc(item.label)}</td><td class="judge"><div class="judge-buttons"><button class="judge-btn good ${c.status==='good'?'selected':''}" type="button" data-status="good"><span class="mark">○</span>良好</button><button class="judge-btn bad ${c.status==='bad'?'selected':''}" type="button" data-status="bad"><span class="mark">×</span>不良</button><button class="judge-btn na ${c.status==='na'?'selected':''}" type="button" data-status="na"><span class="mark">／</span>該当なし</button></div></td><td class="note"><div class="note-wrap ${inactive?'inactive':''}"><textarea data-note="${esc(item.id)}" ${inactive?'readonly':''} placeholder="${c.status==='bad'?'指摘内容と是正事項を入力':'×のときに入力'}">${esc(c.note||'')}</textarea><button class="voice" type="button" data-voice-note="${esc(item.id)}" ${inactive?'disabled':''}>🎤</button></div></td></tr>`;
+      }
+    }
+    if(editMode)html+=`<tr class="add-row"><td colspan="4"><button class="btn btn-light add-item" type="button" data-add-section="${esc(sec)}">＋ この区分に項目追加</button></td></tr>`;
+  }
+  $('checkBody').innerHTML=html;updateSummary();
+}
+function updateSummary(){const total=state.items.length,done=state.checks.filter(x=>state.items.some(i=>i.id===x.itemId)&&x.status).length,bad=state.checks.filter(x=>state.items.some(i=>i.id===x.itemId)&&x.status==='bad').length,na=state.checks.filter(x=>state.items.some(i=>i.id===x.itemId)&&x.status==='na').length;$('donePill').textContent=`確認済 ${done} / ${total}`;$('badPill').textContent=`× ${bad}件`;$('naPill').textContent=`該当なし ${na}件`}
+function setStatus(id,status){const c=getCheck(id);if(!c)return;c.status=c.status===status?'':status;if(c.status!=='bad'&&c.note)c.note='';markDirty();renderChecklist();if(c.status==='bad')setTimeout(()=>document.querySelector(`textarea[data-note="${CSS.escape(id)}"]`)?.focus(),0)}
+function toggleEdit(){editMode=!editMode;$('editItemsBtn').textContent=editMode?'項目編集を終了':'点検項目を編集';$('resetItemsBtn').classList.toggle('hidden',!editMode);$('editHelp').classList.toggle('hidden',!editMode);if(!editMode){persistTemplateFromState();toast('点検項目を標準設定として保存しました')}renderChecklist()}
+function addItem(section){const id='c_'+Date.now()+'_'+Math.random().toString(36).slice(2,6);const idx=state.items.map(x=>x.section).lastIndexOf(section);state.items.splice(idx+1,0,{id,section,label:'新しい点検項目'});state.checks.push({itemId:id,status:'',note:''});persistTemplateFromState();markDirty();renderChecklist();setTimeout(()=>{const ta=document.querySelector(`textarea[data-item-label="${CSS.escape(id)}"]`);ta?.select()},0)}
+function deleteItem(id){const item=state.items.find(x=>x.id===id);if(!item)return;if(!confirm(`「${item.label}」を削除しますか？`))return;state.items=state.items.filter(x=>x.id!==id);state.checks=state.checks.filter(x=>x.itemId!==id);persistTemplateFromState();markDirty();renderChecklist()}
+function resetItems(){if(!confirm('点検項目を初期30項目に戻しますか？現在の項目編集内容は失われます。'))return;state.items=clone(DEFAULT_TEMPLATE);state.checks=state.items.map(i=>{const old=getCheck(i.id);return old?old:{itemId:i.id,status:'',note:''}});template=clone(DEFAULT_TEMPLATE);persistTemplate();markDirty();renderChecklist();toast('初期項目に戻しました')}
+function validate(complete=true){syncMeta(false);const miss=[];if(!state.projectName.trim())miss.push('工事名');if(!state.workDate)miss.push('巡視日');if(!state.inspector.trim())miss.push('巡視者氏名');if(miss.length){toast(miss.join('・')+'を入力してください');return false}if(state.identityMode==='photo'&&!state.photoData){toast('写真を設定してください');return false}if(state.identityMode==='seal'&&!state.sealText.trim()){toast('電子印鑑の文字を確認してください');return false}if(complete){const activeIds=new Set(state.items.map(x=>x.id));const u=state.checks.filter(x=>activeIds.has(x.itemId)&&!x.status);if(u.length){toast(`未判定が ${u.length}項目あります`);return false}const bad=state.checks.filter(x=>activeIds.has(x.itemId)&&x.status==='bad'&&!x.note.trim());if(bad.length){toast(`×の項目で是正事項未入力が ${bad.length}件あります`);return false}}return true}
+function saveRecord(){if(!validate(true))return;state.status='complete';state.updatedAt=new Date().toISOString();const idx=history.findIndex(x=>x.id===state.id);if(idx>=0)history[idx]=clone(state);else history.unshift(clone(state));history.sort((a,b)=>String(b.workDate).localeCompare(String(a.workDate))||String(b.updatedAt).localeCompare(String(a.updatedAt)));history=history.slice(0,MAX_HISTORY);if(!persistHistory())return;localStorage.setItem(SETTINGS_KEY,JSON.stringify({projectName:state.projectName,inspector:state.inspector,identityMode:state.identityMode,sealText:state.sealText,photoData:state.photoData}));localStorage.removeItem(DRAFT_KEY);$('saveState').textContent='保存済';toast('巡視記録を端末に保存しました');renderHistory()}
+function newRecord(){if(!confirm('現在の入力内容を閉じて、新しい巡視を作りますか？'))return;state=newBlank();localStorage.removeItem(DRAFT_KEY);editMode=false;$('editItemsBtn').textContent='点検項目を編集';$('resetItemsBtn').classList.add('hidden');$('editHelp').classList.add('hidden');fillMeta();window.scrollTo({top:0,behavior:'smooth'})}
+function startNextPatrol(){state=newBlank();localStorage.removeItem(DRAFT_KEY);editMode=false;$('editItemsBtn').textContent='点検項目を編集';$('resetItemsBtn').classList.add('hidden');$('editHelp').classList.add('hidden');fillMeta();window.scrollTo({top:0,behavior:'smooth'});toast('次の巡視を開始しました')}
+function saveAndNext(){if(!validate(true))return;saveRecord();if($('saveState').textContent==='保存済')startNextPatrol()}
+function loadRecord(id){const r=history.find(x=>x.id===id);if(!r)return;state=normalizeRecord(clone(r));editMode=false;fillMeta();$('historyDialog').close();window.scrollTo(0,0)}
+function deleteRecord(id){const r=history.find(x=>x.id===id);if(!r)return;if(!confirm(`${r.workDate} の記録を削除しますか？`))return;history=history.filter(x=>x.id!==id);persistHistory();renderHistory();toast('削除しました')}
+function renderHistory(){const box=$('historyList');if(!history.length){box.innerHTML='<div class="small" style="padding:28px;text-align:center">保存データはまだありません</div>';return}box.innerHTML=[...history].sort((a,b)=>String(b.workDate).localeCompare(String(a.workDate))).map(r=>{const bad=(r.checks||[]).filter(x=>x.status==='bad').length;return `<div class="history-item"><div class="history-main"><div class="history-title">${esc(r.workDate)}　${esc(r.projectName)}${r.batchMeta?'<span class="badge copy">期間コピー</span>':''}${r.status!=='complete'?'<span class="badge draft">要確認</span>':''}</div><div class="history-sub">巡視者：${esc(r.inspector)}　× ${bad}件${r.batchMeta?`　元日：${esc(r.batchMeta.sourceDate)}`:''}</div></div><div class="history-actions"><button class="btn btn-light" data-open="${esc(r.id)}">開く</button><button class="btn btn-light" data-xls="${esc(r.id)}">Excel</button><button class="btn btn-light" data-print="${esc(r.id)}">PDF・印刷</button><button class="btn btn-danger btn-light" data-del="${esc(r.id)}">削除</button></div></div>`}).join('')}
+function statusMark(s){return s==='good'?'○':s==='bad'?'×':s==='na'?'／':''}
+function dateJP(s){if(!s)return'';const [y,m,d]=s.split('-');return `${y}年${Number(m)}月${Number(d)}日`}
+function identityHtml(r){if(r.identityMode==='photo')return r.photoData?`<img src="${r.photoData}" style="width:82px;height:82px;object-fit:cover;border:1px solid #777">`:'写真未設定';const t=esc(r.sealText||deriveSurname(r.inspector)||'印');return `<div style="width:70px;height:70px;border:2px solid #c52f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c52f2f;font-family:serif;font-weight:bold;font-size:18px;writing-mode:vertical-rl;margin:auto">${t}</div>`}
+function reportHtml(r){let rows='';let no=0;for(const sec of sections(r.items)){rows+=`<tr><td colspan="4" style="background:#e8edf1;font-weight:bold">${esc(sec)}</td></tr>`;for(const item of r.items.filter(x=>x.section===sec)){no++;const c=(r.checks||[]).find(x=>x.itemId===item.id)||{};rows+=`<tr><td style="text-align:center;width:38px">${no}</td><td>${esc(item.label)}</td><td style="text-align:center;font-size:18px;font-weight:bold;width:58px">${statusMark(c.status)}</td><td style="width:38%;white-space:pre-wrap">${esc(c.note||'')}</td></tr>`}}
+const batch=r.batchMeta?`<div style="font-size:9px;color:#666;margin-top:5px">期間コピー：元日 ${esc(r.batchMeta.sourceDate)} ／ 作成 ${esc(new Date(r.batchMeta.createdAt).toLocaleString('ja-JP'))}</div>`:'';
+return `<!doctype html><html><head><meta charset="utf-8"><style>@page{size:A4 portrait;margin:9mm}body{font-family:Meiryo,sans-serif;color:#111}h2{text-align:center;margin:4px 0 8px;font-size:17px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #555;padding:4px;font-size:10px;vertical-align:middle}th{background:#dce8f2}.meta td,.meta th{font-size:10px}.identity{text-align:center;width:95px}.note{white-space:pre-wrap}</style></head><body><h2>現場安全巡視点検表</h2><table class="meta"><tr><th>工事名</th><td colspan="3">${esc(r.projectName)}</td><th rowspan="3">巡視者<br>${r.identityMode==='photo'?'写真':'電子印鑑'}</th><td rowspan="3" class="identity">${identityHtml(r)}</td></tr><tr><th>巡視日</th><td>${esc(dateJP(r.workDate))}</td><th>巡視時刻</th><td>${esc(r.patrolTime||'')}</td></tr><tr><th>天候</th><td>${esc(r.weather||'')}</td><th>巡視者</th><td>${esc(r.inspector||'')}</td></tr></table><br><table><thead><tr><th>No.</th><th>点検項目</th><th>判定</th><th>巡視者指摘・是正事項</th></tr></thead><tbody>${rows}<tr><th colspan="2">全体備考</th><td colspan="2" class="note">${esc(r.remarks||'')}</td></tr></tbody></table>${batch}<div style="font-size:9px;color:#777;margin-top:5px">森建設工業DX 現場安全巡視 v${APP_VERSION}</div></body></html>`}
+function printRecord(r){if(!validateForOutput(r))return;const w=window.open('','_blank');if(!w){toast('ポップアップを許可してください');return}w.document.write(reportHtml(r));w.document.close();w.onload=()=>setTimeout(()=>w.print(),180)}
+function validateForOutput(r){if(!r.projectName||!r.workDate||!r.inspector){toast('工事名・巡視日・巡視者氏名を入力してください');return false}return true}
+function exportExcel(r){if(!validateForOutput(r))return;const html='\ufeff'+reportHtml(r);const blob=new Blob([html],{type:'application/vnd.ms-excel;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`現場安全巡視_${r.workDate||'未設定'}_${(r.inspector||'巡視者').replace(/[\\/:*?"<>|]/g,'_')}.xls`;document.body.appendChild(a);a.click();const url=a.href;a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Excel帳票を出力しました')}
+function blankReportHtml(){let rows='',no=0;for(const sec of sections(template)){rows+=`<tr><td colspan="4" style="background:#e8edf1;font-weight:bold">${esc(sec)}</td></tr>`;for(const item of template.filter(x=>x.section===sec)){no++;rows+=`<tr><td style="text-align:center;width:38px">${no}</td><td>${esc(item.label)}</td><td style="text-align:center;font-size:18px;font-weight:bold;width:58px"></td><td style="width:38%;height:28px"></td></tr>`}}return `<!doctype html><html><head><meta charset="utf-8"><style>@page{size:A4 portrait;margin:9mm}body{font-family:Meiryo,sans-serif;color:#111}h2{text-align:center;margin:4px 0 8px;font-size:17px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #555;padding:4px;font-size:10px;vertical-align:middle}th{background:#dce8f2}.meta td,.meta th{font-size:10px}.identity{text-align:center;width:95px}</style></head><body><h2>現場安全巡視点検表</h2><table class="meta"><tr><th>工事名</th><td colspan="3"></td><th rowspan="3">巡視者<br>写真／電子印鑑</th><td rowspan="3" class="identity"></td></tr><tr><th>巡視日</th><td></td><th>巡視時刻</th><td></td></tr><tr><th>天候</th><td></td><th>巡視者</th><td></td></tr></table><br><table><thead><tr><th>No.</th><th>点検項目</th><th>判定</th><th>巡視者指摘・是正事項</th></tr></thead><tbody>${rows}<tr><th colspan="2">全体備考</th><td colspan="2" style="height:36px"></td></tr></tbody></table><div style="font-size:9px;color:#777;margin-top:5px">森建設工業DX 現場安全巡視 v${APP_VERSION}</div></body></html>`}
+function exportBlankExcel(){const html='\ufeff'+blankReportHtml();const blob=new Blob([html],{type:'application/vnd.ms-excel;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='現場安全巡視点検表_空白様式.xls';document.body.appendChild(a);a.click();const url=a.href;a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('空白Excel様式を出力しました')}
+function exportBackup(){syncMeta(false);const data={app:'moriken-safety-patrol',version:APP_VERSION,exportedAt:new Date().toISOString(),template,photoLibrary,history,state};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`現場安全巡視_バックアップ_${dateISO()}.json`;document.body.appendChild(a);a.click();const url=a.href;a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+async function importBackup(file){try{const data=JSON.parse(await file.text());if(!data||!Array.isArray(data.history))throw new Error();if(Array.isArray(data.template)&&data.template.length){template=data.template;persistTemplate()}if(data.photoLibrary&&typeof data.photoLibrary==='object'){photoLibrary=data.photoLibrary;localStorage.setItem(PHOTO_LIBRARY_KEY,JSON.stringify(photoLibrary))}history=data.history.map(normalizeRecord);persistHistory();if(data.state)state=normalizeRecord(data.state);fillMeta();renderHistory();toast('バックアップを読み込みました')}catch{toast('バックアップファイルを読み込めませんでした')}}
+function dateRange(start,end){const out=[];const a=new Date(start+'T00:00:00'),b=new Date(end+'T00:00:00');if(isNaN(a)||isNaN(b)||a>b)return out;for(let d=new Date(a);d<=b;d.setDate(d.getDate()+1))out.push(dateISO(d));return out}
+function allowedDay(iso,mode){const n=new Date(iso+'T00:00:00').getDay();if(mode==='noSun')return n!==0;if(mode==='weekday')return n!==0&&n!==6;return true}
+function batchCreate(){syncMeta(false);if(!state.projectName||!state.workDate||!state.inspector){toast('工事名・巡視日・巡視者氏名を入力してください');return}const start=$('batchStart').value,end=$('batchEnd').value,mode=$('batchDays').value;const days=dateRange(start,end).filter(d=>allowedDay(d,mode));if(!days.length){toast('対象日がありません');return}if(days.length>120){toast('一度に作成できるのは120日までです');return}if(!confirm(`${days.length}日分を要確認の下書きとして作成しますか？`))return;const createdAt=new Date().toISOString();let made=0,skipped=0;for(const day of days){if(history.some(x=>x.projectName===state.projectName&&x.workDate===day)){skipped++;continue}const r=clone(state);r.id=uid();r.workDate=day;r.status='draft';r.createdAt=createdAt;r.updatedAt=createdAt;r.batchMeta={sourceDate:state.workDate,createdAt,mode};history.push(r);made++}persistHistory();renderHistory();toast(`期間コピー：${made}件作成、${skipped}件スキップ`)}
+async function compressImage(file){return new Promise((resolve,reject)=>{const img=new Image(),url=URL.createObjectURL(file);img.onload=()=>{try{const max=360,scale=Math.min(1,max/Math.max(img.width,img.height)),w=Math.max(1,Math.round(img.width*scale)),h=Math.max(1,Math.round(img.height*scale)),c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);const data=c.toDataURL('image/jpeg',.62);URL.revokeObjectURL(url);resolve(data)}catch(e){URL.revokeObjectURL(url);reject(e)}};img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error('image'))};img.src=url})}
+function voiceSupported(){return !!(window.SpeechRecognition||window.webkitSpeechRecognition)}
+function startVoice(target,button){if(!voiceSupported()){toast('音声入力はChrome / Edgeで利用してください');return}try{try{recognition?.abort()}catch{}const SR=window.SpeechRecognition||window.webkitSpeechRecognition;recognition=new SR();recognition.lang='ja-JP';recognition.interimResults=false;recognition.continuous=false;button?.classList.add('listening');recognition.onresult=e=>{const t=[...e.results].map(x=>x[0].transcript).join('');if(target.tagName==='TEXTAREA'&&target.value.trim())target.value=target.value.trim()+' '+t;else target.value=t;target.dispatchEvent(new Event('input',{bubbles:true}))};recognition.onerror=()=>toast('音声入力を開始できませんでした');recognition.onend=()=>button?.classList.remove('listening');recognition.start()}catch{button?.classList.remove('listening');toast('音声入力を開始できませんでした')}}
+function bind(){
+  ['projectName','workDate','patrolTime','weather','remarks'].forEach(id=>$(id).addEventListener('input',()=>syncMeta(true)));
+  $('inspector').addEventListener('input',()=>{state.inspector=$('inspector').value;state.sealText=deriveSurname(state.inspector);$('sealText').value=state.sealText;markDirty();renderIdentity()});
+  $('sealText').addEventListener('input',()=>{state.sealText=$('sealText').value;markDirty();renderIdentity()});
+  $('autoSealBtn').onclick=()=>{state.sealText=deriveSurname($('inspector').value);$('sealText').value=state.sealText;markDirty();renderIdentity()};
+  document.querySelectorAll('input[name="identityMode"]').forEach(r=>r.addEventListener('change',()=>{state.identityMode=r.value;markDirty();renderIdentity()}));
+  $('photoInput').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{state.photoData=await compressImage(f);markDirty();renderIdentity();toast('写真を設定しました')}catch{toast('写真を読み込めませんでした')}e.target.value=''};
+  $('removePhoto').onclick=()=>{state.photoData='';markDirty();renderIdentity()};
+  document.body.addEventListener('click',e=>{const b=e.target.closest('[data-voice]');if(b)startVoice($(b.dataset.voice),b)});
+  $('checkBody').onclick=e=>{const tr=e.target.closest('tr[data-id]');const id=tr?.dataset.id;const j=e.target.closest('.judge-btn');if(j&&id){setStatus(id,j.dataset.status);return}const vn=e.target.closest('[data-voice-note]');if(vn){const ta=document.querySelector(`textarea[data-note="${CSS.escape(vn.dataset.voiceNote)}"]`);if(ta)startVoice(ta,vn);return}const vi=e.target.closest('[data-voice-item]');if(vi){const ta=document.querySelector(`textarea[data-item-label="${CSS.escape(vi.dataset.voiceItem)}"]`);if(ta)startVoice(ta,vi);return}const del=e.target.closest('[data-delete-item]');if(del){deleteItem(del.dataset.deleteItem);return}const add=e.target.closest('[data-add-section]');if(add){addItem(add.dataset.addSection);return}};
+  $('checkBody').oninput=e=>{if(e.target.matches('textarea[data-note]')){const c=getCheck(e.target.dataset.note);if(c){c.note=e.target.value;markDirty()}}if(e.target.matches('textarea[data-item-label]')){const it=state.items.find(x=>x.id===e.target.dataset.itemLabel);if(it){it.label=e.target.value;persistTemplateFromState();markDirty()}}};
+  $('editItemsBtn').onclick=toggleEdit;$('resetItemsBtn').onclick=resetItems;$('newBtn').onclick=newRecord;$('saveBtn').onclick=saveRecord;$('saveNextBtn').onclick=saveAndNext;
+  $('historyBtn').onclick=()=>{$('historyDialog').showModal();renderHistory()};$('closeHistory').onclick=()=>$('historyDialog').close();
+  $('historyList').onclick=e=>{const o=e.target.closest('[data-open]'),x=e.target.closest('[data-xls]'),p=e.target.closest('[data-print]'),d=e.target.closest('[data-del]');if(o)loadRecord(o.dataset.open);if(x){const r=history.find(q=>q.id===x.dataset.xls);if(r)exportExcel(r)}if(p){const r=history.find(q=>q.id===p.dataset.print);if(r)printRecord(r)}if(d)deleteRecord(d.dataset.del)};
+  $('excelBtn').onclick=()=>{syncMeta(false);exportExcel(state)};$('blankExcelBtn').onclick=exportBlankExcel;$('printBtn').onclick=()=>{syncMeta(false);printRecord(state)};$('exportBtn').onclick=exportBackup;$('importFile').onchange=e=>{const f=e.target.files?.[0];if(f)importBackup(f);e.target.value=''};$('batchCreate').onclick=batchCreate;
+}
+function init(){fillMeta();renderHistory();bind()}
+init();
+})();
+</script>
+
+<script>
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>

@@ -1,9 +1,9 @@
 {
   "appId": "safety-patrol",
   "name": "現場安全巡視",
-  "version": "0.3.3",
+  "version": "0.3.5",
   "updatedAt": "2026/11/23",
   "description": "現場安全巡視点検表の入力・是正記録・電子印鑑/写真・期間コピー・元帳票様式Excel/PDF出力",
   "note": "安全管理 ＞ 安全巡視",
-  "releaseNotes": "元の現場安全巡視点検表様式にExcel/PDF出力を戻し、本物の.xlsx出力・空白.xlsxに対応。音声入力末尾の句読点を自動除去。"
+  "releaseNotes": "不良（×）でも指摘・是正事項を空欄のまま保存・Excel・PDF出力可能に変更。アプリ内に変更履歴（バージョンアップ情報）を追加。"
 }

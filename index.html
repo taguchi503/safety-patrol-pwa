@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>現場安全巡視 v0.3.3｜森建設工業DX</title>
+<title>現場安全巡視 v0.3.5｜森建設工業DX</title>
 <meta name="theme-color" content="#0b5cab">
 <meta name="description" content="森建設工業 現場安全巡視点検アプリ">
 <link rel="manifest" href="./manifest.webmanifest">
@@ -15,6 +15,8 @@
 .identity-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.9fr);gap:18px;margin-top:14px}.choice-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.choice-chip{display:flex;align-items:center;gap:6px;border:1px solid #b7c6d4;border-radius:999px;padding:8px 12px;background:#fff;font-size:13px;font-weight:700;cursor:pointer}.choice-chip:has(input:checked){background:var(--blue2);border-color:#7ea9cd;color:var(--blue)}.identity-preview{border:1px dashed #b7c6d4;border-radius:14px;min-height:160px;padding:14px;display:flex;align-items:center;justify-content:center;background:#fafcfe}.seal-wrap{text-align:center}.seal{width:92px;height:92px;border:3px solid #c52f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c52f2f;background:#fff;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:700;font-size:23px;line-height:1;letter-spacing:2px;writing-mode:vertical-rl;text-orientation:upright;box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 3px #c52f2f}.seal-caption{margin-top:8px;font-size:12px;color:var(--muted)}.photo-preview{max-width:150px;width:100%;height:150px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.photo-empty{text-align:center;color:var(--muted);font-size:13px}.photo-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.seal-edit{display:grid;grid-template-columns:1fr auto;gap:6px;margin-top:10px;max-width:360px}.seal-edit input{border:1px solid #bfcddb;border-radius:10px;padding:10px;font-size:16px}.small{font-size:12px;color:var(--muted);line-height:1.55}
 .summary{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.pill{font-size:12px;padding:7px 10px;border-radius:999px;background:#eef3f7;font-weight:700}.pill.bad{background:#fff0ed;color:var(--red)}.pill.na{background:#edf0f3;color:#52616f}.pill.unsaved{background:#fff4dc;color:#8b5a00}.template-tools{display:flex;gap:8px;flex-wrap:wrap}.edit-help{margin:10px 0;padding:10px 12px;background:#fff8e6;border:1px solid #f0cc7a;border-radius:10px;font-size:12px;color:#76520b}.patrol-scroll{overflow-x:auto}.patrol-table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:920px}.patrol-table th,.patrol-table td{border:1px solid #b5c2cd;padding:7px;vertical-align:middle}.patrol-table thead th{background:#dce8f2;color:#183a56;text-align:center;font-size:12px}.patrol-table .no{width:48px;text-align:center}.patrol-table .item{width:37%}.patrol-table .judge{width:250px}.patrol-table .note{width:auto}.section-row td{background:#e9eef2;font-weight:800;color:#334e63;padding:8px}.item-label{line-height:1.55}.judge-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.judge-btn{border:1px solid #aab5bf;border-radius:8px;padding:9px 3px;background:#fff;font-weight:800;cursor:pointer;white-space:nowrap}.judge-btn.good.selected{background:#dff4e7;border-color:#55a976;color:#126b37}.judge-btn.bad.selected{background:#ffe1df;border-color:#d46a65;color:#a21d18}.judge-btn.na.selected{background:#e8ecf0;border-color:#8e99a3;color:#45525d}.judge-btn .mark{font-size:18px;margin-right:2px}.note-wrap{display:flex;gap:5px;align-items:stretch}.note-wrap textarea{min-height:56px;resize:vertical;flex:1;border:1px solid #b6c1ca;border-radius:8px;padding:8px;font:inherit}.note-wrap.inactive textarea{background:#f4f6f7;color:#9ba3a8}.note-wrap .voice{height:auto}.item-edit-wrap{display:grid;grid-template-columns:minmax(0,1fr) 44px auto;gap:6px;align-items:stretch}.item-edit-wrap textarea{width:100%;min-height:58px;border:1px solid #91abc0;border-radius:8px;padding:8px;font:inherit;resize:vertical;background:#fffef7}.item-delete{border:1px solid #e4aaa5;background:#fff3f1;color:var(--red);border-radius:8px;font-weight:700;padding:6px 9px;cursor:pointer}.add-row td{background:#fbfcfd;text-align:right}.add-item{font-size:12px}.editing-mask{color:var(--muted);font-size:12px;text-align:center}.remarks-box{margin-top:12px}.remarks-box label{font-size:12px;font-weight:700;color:#4b6074}.remarks-box .input-row{margin-top:5px}
 .batch-panel{background:#fffaf0;border-color:#efd59f}.batch-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}.batch-note{font-size:12px;color:#73571c;line-height:1.55;margin-top:8px}.checkline{display:flex;align-items:center;gap:6px;font-size:13px;margin-top:10px}.history-list{display:grid;gap:8px;margin-top:12px}.history-item{border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;justify-content:space-between;align-items:center;gap:10px}.history-main{min-width:0}.history-title{font-weight:800}.history-sub{font-size:12px;color:var(--muted);margin-top:2px}.history-actions{display:flex;gap:6px;flex-wrap:wrap}.badge{display:inline-block;margin-left:5px;padding:3px 7px;border-radius:999px;background:#e8eff5;font-size:11px;font-weight:700}.badge.copy{background:#fff0c4;color:#775400}.badge.draft{background:#fff0e4;color:#9a4c09}dialog{border:0;border-radius:14px;padding:0;box-shadow:0 24px 70px rgba(0,0,0,.2);width:min(900px,94vw);max-height:88vh}dialog::backdrop{background:rgba(9,27,42,.35)}.dialog-card{padding:16px;max-height:88vh;overflow:auto}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#17334b;color:#fff;padding:10px 14px;border-radius:10px;opacity:0;pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1}
+
+.release-history-panel details{border:1px solid var(--line);border-radius:12px;background:#fbfdff}.release-history-panel summary{cursor:pointer;padding:13px 14px;font-weight:800;color:var(--blue);list-style:none}.release-history-panel summary::-webkit-details-marker{display:none}.release-history-panel summary::before{content:"＋";display:inline-block;width:1.5em;color:var(--blue)}.release-history-panel details[open] summary::before{content:"－"}.release-history{padding:0 14px 14px;display:grid;gap:10px}.release-entry{border-top:1px solid var(--line);padding-top:10px}.release-entry.current{background:#f3f8fd;border:1px solid #cfe0ef;border-radius:10px;padding:10px}.release-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.release-head span{font-size:12px;color:var(--muted)}.release-entry ul{margin:7px 0 0 1.2em;padding:0;color:#41566a;font-size:13px;line-height:1.65}
 @media(max-width:900px){.app-header{position:static;padding:14px 16px}.app-header h1{font-size:19px}.app-shell{padding:12px}.form-grid{grid-template-columns:1fr 1fr}.identity-grid{grid-template-columns:1fr}.batch-grid{grid-template-columns:1fr 1fr}.panel{border-radius:13px;padding:13px}.action-bar .btn{flex:1 1 145px}}
 @media(max-width:560px){.form-grid,.batch-grid{grid-template-columns:1fr}.section-head{align-items:center}.app-header{display:block}.status-wrap{margin-top:8px}.action-bar .btn{flex:1 1 140px}.identity-preview{min-height:140px}.seal{width:82px;height:82px;font-size:21px}}
 </style>
@@ -28,7 +30,7 @@
   </div>
   <div class="status-wrap">
     <span id="draftBadge" class="status-badge">自動下書き</span>
-    <span class="version">v0.3.3</span>
+    <span class="version">v0.3.5</span>
   </div>
 </header>
 <main class="app-shell">
@@ -69,7 +71,7 @@
 
   <section class="panel">
     <div class="section-head">
-      <div><h2>巡視結果</h2><p class="hint">○＝良好　×＝不安全・指摘あり　／＝該当なし。×のときだけ右側へ巡視者指摘・是正事項を記録します。</p></div>
+      <div><h2>巡視結果</h2><p class="hint">○＝良好　×＝不安全・指摘あり　／＝該当なし。×のときは、必要に応じて右側へ巡視者指摘・是正事項を記録できます。</p></div>
       <div class="template-tools">
         <button id="editItemsBtn" class="btn btn-light" type="button">点検項目を編集</button>
         <button id="resetItemsBtn" class="btn btn-light hidden" type="button">初期項目に戻す</button>
@@ -102,6 +104,68 @@
     <div class="action-bar" style="margin-bottom:0"><button id="batchCreate" class="btn btn-orange" type="button">この日の内容を期間へコピー</button></div>
   </section>
 
+  <section class="panel release-history-panel">
+    <details>
+      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.5）</summary>
+      <div class="release-history">
+        <div class="release-entry current">
+          <div class="release-head"><b>v0.3.5</b><span>2026/11/23</span></div>
+          <ul>
+            <li>×（不良）でも「巡視者指摘・是正事項」を空欄のまま保存・Excel出力・PDF印刷できるよう変更</li>
+            <li>コンペネアプリにならい、アプリ内でバージョンアップ情報・変更履歴を確認できる欄を追加</li>
+          </ul>
+        </div>
+        <div class="release-entry">
+          <div class="release-head"><b>v0.3.4</b><span>2026/11/23</span></div>
+          <ul><li>×（不良）時の指摘・是正事項を一時的に必須化（v0.3.5で任意入力へ変更）</li></ul>
+        </div>
+        <div class="release-entry">
+          <div class="release-head"><b>v0.3.3</b><span>2026/11/23</span></div>
+          <ul>
+            <li>Excel帳票・空白Excel様式を元の「現場安全巡視点検表」様式へ戻し、本物の.xlsx出力に変更</li>
+            <li>○／×／該当なし（／）、巡視者名、写真／電子印鑑、是正事項を元帳票へ反映</li>
+            <li>音声入力の末尾に付く句読点を自動で除去</li>
+          </ul>
+        </div>
+        <div class="release-entry">
+          <div class="release-head"><b>v0.3.2</b><span>2026/11/22</span></div>
+          <ul>
+            <li>下部操作をコンペネアプリ準拠の8機能構成へ整理</li>
+            <li>「保存して次の巡視」「空白Excel様式」を追加</li>
+          </ul>
+        </div>
+        <div class="release-entry">
+          <div class="release-head"><b>v0.3.1</b><span>2026/11/22</span></div>
+          <ul>
+            <li>写真保存を軽量化し、期間コピー時に同じ写真を重複保存しない方式へ改善</li>
+            <li>点検項目の編集内容を即時保存するよう改善し、保存容量不足時のエラー表示を追加</li>
+          </ul>
+        </div>
+        <div class="release-entry">
+          <div class="release-head"><b>v0.3.0</b><span>2026/11/20</span></div>
+          <ul>
+            <li>巡視者の「写真／電子印鑑」切替を追加し、氏名から苗字印を自動生成</li>
+            <li>点検項目の編集・追加・削除、音声入力、コンペネ型の操作構成を追加</li>
+          </ul>
+        </div>
+        <div class="release-entry">
+          <div class="release-head"><b>v0.2.0</b><span>2026/11/20</span></div>
+          <ul>
+            <li>Excel帳票を意識した横表型の入力画面へ刷新</li>
+            <li>○／×／該当なし、右側是正欄、音声入力、期間コピーを追加</li>
+          </ul>
+        </div>
+        <div class="release-entry">
+          <div class="release-head"><b>v0.1.0</b><span>2026/11/20</span></div>
+          <ul>
+            <li>元の現場安全巡視点検表30項目を基にした初版</li>
+            <li>良好／不良／対象外、保存履歴、PDF・印刷、バックアップを実装</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </section>
+
   <section class="action-bar">
     <button id="saveBtn" class="btn btn-primary" type="button">端末に保存</button>
     <button id="saveNextBtn" class="btn btn-next" type="button">保存して次の巡視</button>
@@ -119,7 +183,7 @@
 <script>
 (()=>{
 'use strict';
-const APP_VERSION='0.3.3';
+const APP_VERSION='0.3.5';
 const STORAGE_KEY='moriken_safety_patrol_v1';
 const SETTINGS_KEY='moriken_safety_patrol_settings_v1';
 const TEMPLATE_KEY='moriken_safety_patrol_template_v1';
@@ -222,7 +286,7 @@ function renderChecklist(){
         html+=`<tr data-id="${esc(item.id)}"><td class="no">${no}</td><td class="item-label"><div class="item-edit-wrap"><textarea data-item-label="${esc(item.id)}">${esc(item.label)}</textarea><button class="voice" type="button" data-voice-item="${esc(item.id)}">🎤</button><button class="item-delete" type="button" data-delete-item="${esc(item.id)}">削除</button></div></td><td class="judge"><div class="editing-mask">項目編集中</div></td><td class="note"><div class="editing-mask">編集終了後に判定</div></td></tr>`;
       }else{
         const inactive=c.status!=='bad';
-        html+=`<tr data-id="${esc(item.id)}"><td class="no">${no}</td><td class="item-label">${esc(item.label)}</td><td class="judge"><div class="judge-buttons"><button class="judge-btn good ${c.status==='good'?'selected':''}" type="button" data-status="good"><span class="mark">○</span>良好</button><button class="judge-btn bad ${c.status==='bad'?'selected':''}" type="button" data-status="bad"><span class="mark">×</span>不良</button><button class="judge-btn na ${c.status==='na'?'selected':''}" type="button" data-status="na"><span class="mark">／</span>該当なし</button></div></td><td class="note"><div class="note-wrap ${inactive?'inactive':''}"><textarea data-note="${esc(item.id)}" ${inactive?'readonly':''} placeholder="${c.status==='bad'?'指摘内容と是正事項を入力':'×のときに入力'}">${esc(c.note||'')}</textarea><button class="voice" type="button" data-voice-note="${esc(item.id)}" ${inactive?'disabled':''}>🎤</button></div></td></tr>`;
+        html+=`<tr data-id="${esc(item.id)}"><td class="no">${no}</td><td class="item-label">${esc(item.label)}</td><td class="judge"><div class="judge-buttons"><button class="judge-btn good ${c.status==='good'?'selected':''}" type="button" data-status="good"><span class="mark">○</span>良好</button><button class="judge-btn bad ${c.status==='bad'?'selected':''}" type="button" data-status="bad"><span class="mark">×</span>不良</button><button class="judge-btn na ${c.status==='na'?'selected':''}" type="button" data-status="na"><span class="mark">／</span>該当なし</button></div></td><td class="note"><div class="note-wrap ${inactive?'inactive':''}"><textarea data-note="${esc(item.id)}" ${inactive?'readonly':''} placeholder="${c.status==='bad'?'必要に応じて指摘・是正事項を入力':'×のときに入力'}">${esc(c.note||'')}</textarea><button class="voice" type="button" data-voice-note="${esc(item.id)}" ${inactive?'disabled':''}>🎤</button></div></td></tr>`;
       }
     }
     if(editMode)html+=`<tr class="add-row"><td colspan="4"><button class="btn btn-light add-item" type="button" data-add-section="${esc(sec)}">＋ この区分に項目追加</button></td></tr>`;
@@ -235,7 +299,7 @@ function toggleEdit(){editMode=!editMode;$('editItemsBtn').textContent=editMode?
 function addItem(section){if(state.items.length>=35){toast('Excel帳票に合わせ、点検項目は最大35項目です');return}const id='c_'+Date.now()+'_'+Math.random().toString(36).slice(2,6);const idx=state.items.map(x=>x.section).lastIndexOf(section);state.items.splice(idx+1,0,{id,section,label:'新しい点検項目'});state.checks.push({itemId:id,status:'',note:''});persistTemplateFromState();markDirty();renderChecklist();setTimeout(()=>{const ta=document.querySelector(`textarea[data-item-label="${CSS.escape(id)}"]`);ta?.select()},0)}
 function deleteItem(id){const item=state.items.find(x=>x.id===id);if(!item)return;if(!confirm(`「${item.label}」を削除しますか？`))return;state.items=state.items.filter(x=>x.id!==id);state.checks=state.checks.filter(x=>x.itemId!==id);persistTemplateFromState();markDirty();renderChecklist()}
 function resetItems(){if(!confirm('点検項目を初期30項目に戻しますか？現在の項目編集内容は失われます。'))return;state.items=clone(DEFAULT_TEMPLATE);state.checks=state.items.map(i=>{const old=getCheck(i.id);return old?old:{itemId:i.id,status:'',note:''}});template=clone(DEFAULT_TEMPLATE);persistTemplate();markDirty();renderChecklist();toast('初期項目に戻しました')}
-function validate(complete=true){syncMeta(false);const miss=[];if(!state.projectName.trim())miss.push('工事名');if(!state.workDate)miss.push('巡視日');if(!state.inspector.trim())miss.push('巡視者氏名');if(miss.length){toast(miss.join('・')+'を入力してください');return false}if(state.identityMode==='photo'&&!state.photoData){toast('写真を設定してください');return false}if(state.identityMode==='seal'&&!state.sealText.trim()){toast('電子印鑑の文字を確認してください');return false}if(complete){const activeIds=new Set(state.items.map(x=>x.id));const u=state.checks.filter(x=>activeIds.has(x.itemId)&&!x.status);if(u.length){toast(`未判定が ${u.length}項目あります`);return false}const bad=state.checks.filter(x=>activeIds.has(x.itemId)&&x.status==='bad'&&!x.note.trim());if(bad.length){toast(`×の項目で是正事項未入力が ${bad.length}件あります`);return false}}return true}
+function validate(complete=true){syncMeta(false);const miss=[];if(!state.projectName.trim())miss.push('工事名');if(!state.workDate)miss.push('巡視日');if(!state.inspector.trim())miss.push('巡視者氏名');if(miss.length){toast(miss.join('・')+'を入力してください');return false}if(state.identityMode==='photo'&&!state.photoData){toast('写真を設定してください');return false}if(state.identityMode==='seal'&&!state.sealText.trim()){toast('電子印鑑の文字を確認してください');return false}if(complete){const activeIds=new Set(state.items.map(x=>x.id));const u=state.checks.filter(x=>activeIds.has(x.itemId)&&!x.status);if(u.length){toast(`未判定が ${u.length}項目あります`);return false}}return true}
 function saveRecord(){if(!validate(true))return;state.status='complete';state.updatedAt=new Date().toISOString();const idx=history.findIndex(x=>x.id===state.id);if(idx>=0)history[idx]=clone(state);else history.unshift(clone(state));history.sort((a,b)=>String(b.workDate).localeCompare(String(a.workDate))||String(b.updatedAt).localeCompare(String(a.updatedAt)));history=history.slice(0,MAX_HISTORY);if(!persistHistory())return;localStorage.setItem(SETTINGS_KEY,JSON.stringify({projectName:state.projectName,inspector:state.inspector,identityMode:state.identityMode,sealText:state.sealText,photoData:state.photoData}));localStorage.removeItem(DRAFT_KEY);$('saveState').textContent='保存済';toast('巡視記録を端末に保存しました');renderHistory()}
 function newRecord(){if(!confirm('現在の入力内容を閉じて、新しい巡視を作りますか？'))return;state=newBlank();localStorage.removeItem(DRAFT_KEY);editMode=false;$('editItemsBtn').textContent='点検項目を編集';$('resetItemsBtn').classList.add('hidden');$('editHelp').classList.add('hidden');fillMeta();window.scrollTo({top:0,behavior:'smooth'})}
 function startNextPatrol(){state=newBlank();localStorage.removeItem(DRAFT_KEY);editMode=false;$('editItemsBtn').textContent='点検項目を編集';$('resetItemsBtn').classList.add('hidden');$('editHelp').classList.add('hidden');fillMeta();window.scrollTo({top:0,behavior:'smooth'});toast('次の巡視を開始しました')}

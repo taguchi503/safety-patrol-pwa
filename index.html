@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>現場安全巡視 v0.3.7｜森建設工業DX</title>
 <meta name="theme-color" content="#0b5cab">
 <meta name="description" content="森建設工業 現場安全巡視点検アプリ">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
+<title>現場安全巡視 v0.3.8｜森建設工業DX</title>
 <style>
 :root{--bg:#f4f7fb;--card:#fff;--text:#18324a;--muted:#66788a;--line:#d6e0ea;--blue:#0b5cab;--blue2:#e8f2fb;--teal:#0a7f82;--orange:#c86b16;--red:#b42318;--shadow:0 8px 24px rgba(25,55,80,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Meiryo",sans-serif}.app-header{display:flex;justify-content:space-between;gap:16px;padding:18px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.eyebrow{font-size:12px;color:var(--muted);font-weight:700}.app-header h1{font-size:22px;margin:3px 0}.subline{font-size:13px;color:var(--muted)}.status-wrap{display:flex;align-items:center;gap:8px}.status-badge,.version,.legend-chip{font-size:12px;padding:6px 9px;border-radius:999px;background:var(--blue2);color:var(--blue);white-space:nowrap}.app-shell{max-width:1280px;margin:0 auto;padding:18px}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin-bottom:16px}.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.section-head h2{font-size:17px;margin:0 0 4px}.hint{margin:0;color:var(--muted);font-size:12px;line-height:1.55}.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}.field label,.form-grid label{font-size:12px;font-weight:700;color:#4b6074;display:block}.input-row{display:flex;gap:6px;margin-top:5px}.input-row input,.input-row textarea,.field input,.field select,.field textarea,.form-grid input,.form-grid select{width:100%;border:1px solid #bfcddb;border-radius:10px;padding:11px;font-size:16px;color:var(--text);background:#fff;font-family:inherit}.input-row textarea{min-height:72px;resize:vertical}.voice{flex:0 0 44px;border:1px solid #9db3c5;background:#eef6fd;color:#0b5cab;border-radius:10px;font-size:19px;cursor:pointer}.voice.listening{background:#ffe6e3;border-color:#db6a61;color:#b42318;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.55}}
@@ -15,11 +15,14 @@
 .identity-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(330px,.9fr);gap:18px;margin-top:14px}.choice-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.choice-chip{display:flex;align-items:center;gap:6px;border:1px solid #b7c6d4;border-radius:999px;padding:8px 12px;background:#fff;font-size:13px;font-weight:700;cursor:pointer}.choice-chip:has(input:checked){background:var(--blue2);border-color:#7ea9cd;color:var(--blue)}.identity-preview{border:1px dashed #b7c6d4;border-radius:14px;min-height:160px;padding:14px;display:flex;align-items:center;justify-content:center;background:#fafcfe}.seal-wrap{text-align:center}.seal{width:92px;height:92px;border:3px solid #c52f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c52f2f;background:#fff;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:700;font-size:23px;line-height:1;letter-spacing:2px;writing-mode:vertical-rl;text-orientation:upright;box-shadow:inset 0 0 0 2px #fff,inset 0 0 0 3px #c52f2f}.seal-caption{margin-top:8px;font-size:12px;color:var(--muted)}.photo-preview{max-width:150px;width:100%;height:150px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.photo-empty{text-align:center;color:var(--muted);font-size:13px}.photo-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.seal-edit{display:grid;grid-template-columns:1fr auto;gap:6px;margin-top:10px;max-width:360px}.seal-edit input{border:1px solid #bfcddb;border-radius:10px;padding:10px;font-size:16px}.small{font-size:12px;color:var(--muted);line-height:1.55}
 .summary{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.pill{font-size:12px;padding:7px 10px;border-radius:999px;background:#eef3f7;font-weight:700}.pill.bad{background:#fff0ed;color:var(--red)}.pill.na{background:#edf0f3;color:#52616f}.pill.unsaved{background:#fff4dc;color:#8b5a00}.template-tools{display:flex;gap:8px;flex-wrap:wrap}.edit-help{margin:10px 0;padding:10px 12px;background:#fff8e6;border:1px solid #f0cc7a;border-radius:10px;font-size:12px;color:#76520b}.patrol-scroll{overflow-x:auto}.patrol-table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:920px}.patrol-table th,.patrol-table td{border:1px solid #b5c2cd;padding:7px;vertical-align:middle}.patrol-table thead th{background:#dce8f2;color:#183a56;text-align:center;font-size:12px}.patrol-table .no{width:48px;text-align:center}.patrol-table .item{width:37%}.patrol-table .judge{width:250px}.patrol-table .note{width:auto}.section-row td{background:#e9eef2;font-weight:800;color:#334e63;padding:8px}.item-label{line-height:1.55}.judge-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.judge-btn{border:1px solid #aab5bf;border-radius:8px;padding:9px 3px;background:#fff;font-weight:800;cursor:pointer;white-space:nowrap}.judge-btn.good.selected{background:#dff4e7;border-color:#55a976;color:#126b37}.judge-btn.bad.selected{background:#ffe1df;border-color:#d46a65;color:#a21d18}.judge-btn.na.selected{background:#e8ecf0;border-color:#8e99a3;color:#45525d}.judge-btn .mark{font-size:18px;margin-right:2px}.note-wrap{display:flex;gap:5px;align-items:stretch}.note-wrap textarea{min-height:56px;resize:vertical;flex:1;border:1px solid #b6c1ca;border-radius:8px;padding:8px;font:inherit}.note-wrap.inactive textarea{background:#f4f6f7;color:#9ba3a8}.note-wrap .voice{height:auto}.item-edit-wrap{display:grid;grid-template-columns:minmax(0,1fr) 44px auto;gap:6px;align-items:stretch}.item-edit-wrap textarea{width:100%;min-height:58px;border:1px solid #91abc0;border-radius:8px;padding:8px;font:inherit;resize:vertical;background:#fffef7}.item-delete{border:1px solid #e4aaa5;background:#fff3f1;color:var(--red);border-radius:8px;font-weight:700;padding:6px 9px;cursor:pointer}.add-row td{background:#fbfcfd;text-align:right}.add-item{font-size:12px}.editing-mask{color:var(--muted);font-size:12px;text-align:center}.remarks-box{margin-top:12px}.remarks-box label{font-size:12px;font-weight:700;color:#4b6074}.remarks-box .input-row{margin-top:5px}
 .batch-panel{background:#fffaf0;border-color:#efd59f}.batch-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px}.batch-note{font-size:12px;color:#73571c;line-height:1.55;margin-top:8px}.checkline{display:flex;align-items:center;gap:6px;font-size:13px;margin-top:10px}.history-list{display:grid;gap:8px;margin-top:12px}.history-item{border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;justify-content:space-between;align-items:center;gap:10px}.history-main{min-width:0}.history-title{font-weight:800}.history-sub{font-size:12px;color:var(--muted);margin-top:2px}.history-actions{display:flex;gap:6px;flex-wrap:wrap}.badge{display:inline-block;margin-left:5px;padding:3px 7px;border-radius:999px;background:#e8eff5;font-size:11px;font-weight:700}.badge.copy{background:#fff0c4;color:#775400}.badge.draft{background:#fff0e4;color:#9a4c09}dialog{border:0;border-radius:14px;padding:0;box-shadow:0 24px 70px rgba(0,0,0,.2);width:min(900px,94vw);max-height:88vh}dialog::backdrop{background:rgba(9,27,42,.35)}.dialog-card{padding:16px;max-height:88vh;overflow:auto}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#17334b;color:#fff;padding:10px 14px;border-radius:10px;opacity:0;pointer-events:none;transition:.2s;z-index:50}.toast.show{opacity:1}
+@media(max-width:900px){.app-header{position:static;padding:14px 16px}.app-header h1{font-size:19px}.app-shell{padding:12px}.form-grid{grid-template-columns:1fr 1fr}.identity-grid{grid-template-columns:1fr}.batch-grid{grid-template-columns:1fr 1fr}.panel{border-radius:13px;padding:13px}.action-bar .btn{flex:1 1 145px}}
+@media(max-width:560px){.form-grid,.batch-grid{grid-template-columns:1fr}.section-head{align-items:center}.app-header{display:block}.status-wrap{margin-top:8px}.action-bar .btn{flex:1 1 140px}.identity-preview{min-height:140px}.seal{width:82px;height:82px;font-size:21px}}
 
 .release-history-panel details{border:1px solid var(--line);border-radius:12px;background:#fbfdff}.release-history-panel summary{cursor:pointer;padding:13px 14px;font-weight:800;color:var(--blue);list-style:none}.release-history-panel summary::-webkit-details-marker{display:none}.release-history-panel summary::before{content:"＋";display:inline-block;width:1.5em;color:var(--blue)}.release-history-panel details[open] summary::before{content:"－"}.release-history{padding:0 14px 14px;display:grid;gap:10px}.release-entry{border-top:1px solid var(--line);padding-top:10px}.release-entry.current{background:#f3f8fd;border:1px solid #cfe0ef;border-radius:10px;padding:10px}.release-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.release-head span{font-size:12px;color:var(--muted)}.release-entry ul{margin:7px 0 0 1.2em;padding:0;color:#41566a;font-size:13px;line-height:1.65}
-@media(max-width:900px){.app-header{position:static;padding:14px 16px}.app-header h1{font-size:19px}.app-shell{padding:12px}.form-grid{grid-template-columns:1fr 1fr}.identity-grid{grid-template-columns:1fr}.batch-grid{grid-template-columns:1fr 1fr}.panel{border-radius:13px;padding:13px}.action-bar .btn{flex:1 1 145px}}
-@media(max-width:560px){.form-grid,.batch-grid{grid-template-columns:1fr}.section-head{align-items:stretch;flex-wrap:wrap}.template-tools{flex:1 0 100%;width:100%}.template-tools .btn{flex:1}.app-header{display:block}.status-wrap{margin-top:8px}.action-bar .btn{flex:1 1 140px}.identity-preview{min-height:140px}.seal{width:82px;height:82px;font-size:21px}
-  /* 巡視結果はスマホ縦画面で横スクロールさせず、1項目1カードで表示 */
+.help-bar{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 16px}.guide-list{margin:8px 0 0 1.25em;padding:0;line-height:1.7}.guide-list li{margin:3px 0}.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.guide-card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfdff}.guide-card h3{font-size:15px;margin:0 0 6px}.guide-chip{display:inline-block;padding:3px 8px;border-radius:999px;background:#e8f2fb;color:#0b5cab;font-size:11px;font-weight:800;margin-bottom:6px}.guide-note{font-size:12px;color:var(--muted);line-height:1.65}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:14px}
+.history-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:12px 0 4px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#f8fbfe}.history-toolbar .checkline{margin:0}.history-bulk-actions{display:flex;gap:8px;flex-wrap:wrap}.history-select{display:flex;align-items:flex-start;gap:9px;min-width:0;flex:1}.history-select input{width:19px;height:19px;margin-top:2px;accent-color:var(--blue);flex:0 0 auto}.history-item.selected{border-color:#7ea9cd;background:#f3f8fd}
+@media(max-width:700px){.guide-grid{display:block}.guide-card+.guide-card{margin-top:10px}.history-toolbar{display:grid;grid-template-columns:1fr}.history-bulk-actions .btn{flex:1 1 150px}}
+@media(max-width:560px){
   .patrol-scroll{overflow-x:visible}
   .patrol-table{display:block;width:100%;min-width:0;border-collapse:separate;table-layout:auto}
   .patrol-table thead{display:none}
@@ -33,17 +36,14 @@
   .judge-buttons{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%}
   .judge-btn{min-width:0;padding:8px 2px;font-size:11.5px;line-height:1.15;white-space:normal}
   .judge-btn .mark{display:block;margin:0 0 2px;font-size:20px;line-height:1}
-  .note-wrap{width:100%}
-  .note-wrap textarea{min-width:0;min-height:54px;font-size:14px}
-  .note-wrap .voice{flex:0 0 42px}
-  .section-row{display:block;width:100%;margin:14px 0 6px}
-  .section-row td{display:block;width:100%;border:0!important;border-radius:9px;padding:8px 10px;background:#e9eef2}
-  .add-row{display:block;width:100%;margin:-2px 0 12px}
-  .add-row td{display:block;width:100%;border:0!important;padding:0}
-  .add-row .add-item{width:100%}
-  .item-edit-wrap{grid-template-columns:minmax(0,1fr) 42px;gap:6px}
-  .item-edit-wrap .item-delete{grid-column:1/-1;width:100%}
+  .note-wrap{width:100%}.note-wrap textarea{min-width:0;min-height:54px;font-size:14px}.note-wrap .voice{flex:0 0 42px}
+  .section-row{display:block;width:100%;margin:14px 0 6px}.section-row td{display:block;width:100%;border:0!important;border-radius:9px;padding:8px 10px;background:#e9eef2}
+  .add-row{display:block;width:100%;margin:-2px 0 12px}.add-row td{display:block;width:100%;border:0!important;padding:0}.add-row .add-item{width:100%}
+  .item-edit-wrap{grid-template-columns:minmax(0,1fr) 42px;gap:6px}.item-edit-wrap .item-delete{grid-column:1/-1;width:100%}
+  .template-tools{flex:1 0 100%;width:100%}.template-tools .btn{flex:1}
 }
+
+.help-top-panel{border-color:#9fc5e8;background:#f7fbff}.help-top-panel .help-bar{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}.help-top-panel .help-bar .btn{min-width:150px;min-height:44px;display:flex;align-items:center;justify-content:center;line-height:1.3;padding:10px 14px}@media(max-width:560px){.help-top-panel .help-bar .btn{flex:1 1 140px}}
 </style>
 </head>
 <body>
@@ -55,10 +55,20 @@
   </div>
   <div class="status-wrap">
     <span id="draftBadge" class="status-badge">自動下書き</span>
-    <span class="version">v0.3.7</span>
+    <span class="version">v0.3.8</span>
   </div>
 </header>
 <main class="app-shell">
+  <section class="panel help-top-panel">
+    <div class="section-head">
+      <div><h2>取扱説明書</h2><p class="hint">操作に迷ったときはここから確認できます。初めて使う場合は「かんたん取説」から確認してください。</p></div>
+    </div>
+    <div class="help-bar">
+      <button id="quickGuideBtn" class="btn btn-primary" type="button">？ かんたん取説</button>
+      <button id="detailGuideBtn" class="btn" type="button">？ 詳細取説</button>
+    </div>
+  </section>
+
   <section class="panel">
     <div class="section-head">
       <div><h2>巡視情報</h2><p class="hint">基本情報を入力します。文字入力欄はマイクから音声入力できます。</p></div>
@@ -131,77 +141,17 @@
 
   <section class="panel release-history-panel">
     <details>
-      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.7）</summary>
+      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.8）</summary>
       <div class="release-history">
-        <div class="release-entry current">
-          <div class="release-head"><b>v0.3.7</b><span>2026/11/23</span></div>
-          <ul>
-            <li>Excel帳票・空白Excel様式の出力スクリプト読み込み漏れを修正</li>
-            <li>完成版としてZIP構成・スマホ表示・保存・帳票出力・バージョン情報を再点検</li>
-            <li>スマホの「点検項目を編集」ボタンを全幅表示へ調整</li>
-          </ul>
-        </div>
-        <div class="release-entry">
-          <div class="release-head"><b>v0.3.6</b><span>2026/11/23</span></div>
-          <ul>
-            <li>スマホ縦画面の巡視結果をカード表示へ変更し、横スクロールなしで○／×／該当なしを選択可能に改善</li>
-            <li>PC・タブレットでは従来の表形式を維持</li>
-          </ul>
-        </div>
-        <div class="release-entry">
-          <div class="release-head"><b>v0.3.5</b><span>2026/11/23</span></div>
-          <ul>
-            <li>×（不良）でも「巡視者指摘・是正事項」を空欄のまま保存・Excel出力・PDF印刷できるよう変更</li>
-            <li>コンペネアプリにならい、アプリ内でバージョンアップ情報・変更履歴を確認できる欄を追加</li>
-          </ul>
-        </div>
-        <div class="release-entry">
-          <div class="release-head"><b>v0.3.4</b><span>2026/11/23</span></div>
-          <ul><li>×（不良）時の指摘・是正事項を一時的に必須化（v0.3.5で任意入力へ変更）</li></ul>
-        </div>
-        <div class="release-entry">
-          <div class="release-head"><b>v0.3.3</b><span>2026/11/23</span></div>
-          <ul>
-            <li>Excel帳票・空白Excel様式を元の「現場安全巡視点検表」様式へ戻し、本物の.xlsx出力に変更</li>
-            <li>○／×／該当なし（／）、巡視者名、写真／電子印鑑、是正事項を元帳票へ反映</li>
-            <li>音声入力の末尾に付く句読点を自動で除去</li>
-          </ul>
-        </div>
-        <div class="release-entry">
-          <div class="release-head"><b>v0.3.2</b><span>2026/11/22</span></div>
-          <ul>
-            <li>下部操作をコンペネアプリ準拠の8機能構成へ整理</li>
-            <li>「保存して次の巡視」「空白Excel様式」を追加</li>
-          </ul>
-        </div>
-        <div class="release-entry">
-          <div class="release-head"><b>v0.3.1</b><span>2026/11/22</span></div>
-          <ul>
-            <li>写真保存を軽量化し、期間コピー時に同じ写真を重複保存しない方式へ改善</li>
-            <li>点検項目の編集内容を即時保存するよう改善し、保存容量不足時のエラー表示を追加</li>
-          </ul>
-        </div>
-        <div class="release-entry">
-          <div class="release-head"><b>v0.3.0</b><span>2026/11/20</span></div>
-          <ul>
-            <li>巡視者の「写真／電子印鑑」切替を追加し、氏名から苗字印を自動生成</li>
-            <li>点検項目の編集・追加・削除、音声入力、コンペネ型の操作構成を追加</li>
-          </ul>
-        </div>
-        <div class="release-entry">
-          <div class="release-head"><b>v0.2.0</b><span>2026/11/20</span></div>
-          <ul>
-            <li>Excel帳票を意識した横表型の入力画面へ刷新</li>
-            <li>○／×／該当なし、右側是正欄、音声入力、期間コピーを追加</li>
-          </ul>
-        </div>
-        <div class="release-entry">
-          <div class="release-head"><b>v0.1.0</b><span>2026/11/20</span></div>
-          <ul>
-            <li>元の現場安全巡視点検表30項目を基にした初版</li>
-            <li>良好／不良／対象外、保存履歴、PDF・印刷、バックアップを実装</li>
-          </ul>
-        </div>
+        <div class="release-entry current"><div class="release-head"><b>v0.3.8</b><span>2026/11/24</span></div><ul><li>保存データを複数選択して一括PDF・印刷できる機能を追加</li><li>アプリ内に「かんたん取説」「詳細取説」を追加</li><li>v0.3.7の保存キー・保存データ形式・Excel帳票出力を変更せず維持</li></ul></div>
+        <div class="release-entry"><div class="release-head"><b>v0.3.7</b><span>2026/11/23</span></div><ul><li>Excel帳票・空白Excel様式の出力スクリプト読み込み漏れを修正</li><li>完成版としてZIP構成・スマホ表示・保存・帳票出力・バージョン情報を再点検</li><li>スマホの「点検項目を編集」ボタンを全幅表示へ調整</li></ul></div>
+        <div class="release-entry"><div class="release-head"><b>v0.3.6</b><span>2026/11/23</span></div><ul><li>スマホ縦画面の巡視結果をカード表示へ変更し、横スクロールなしで○／×／該当なしを選択可能に改善</li><li>PC・タブレットでは従来の表形式を維持</li></ul></div>
+        <div class="release-entry"><div class="release-head"><b>v0.3.5</b><span>2026/11/23</span></div><ul><li>×（不良）でも「巡視者指摘・是正事項」を空欄のまま保存・Excel出力・PDF印刷できるよう変更</li><li>アプリ内でバージョンアップ情報・変更履歴を確認できる欄を追加</li></ul></div>
+        <div class="release-entry"><div class="release-head"><b>v0.3.4</b><span>2026/11/23</span></div><ul><li>×（不良）時の指摘・是正事項を一時的に必須化（v0.3.5で任意入力へ変更）</li></ul></div>
+        <div class="release-entry"><div class="release-head"><b>v0.3.3</b><span>2026/11/23</span></div><ul><li>Excel帳票・空白Excel様式を元の「現場安全巡視点検表」様式へ戻し、本物の.xlsx出力に変更</li><li>○／×／該当なし、巡視者名、写真／電子印鑑、是正事項を元帳票へ反映</li><li>音声入力の末尾に付く句読点を自動で除去</li></ul></div>
+        <div class="release-entry"><div class="release-head"><b>v0.3.2</b><span>2026/11/22</span></div><ul><li>下部操作をコンペネアプリ準拠の8機能構成へ整理</li><li>「保存して次の巡視」「空白Excel様式」を追加</li></ul></div>
+        <div class="release-entry"><div class="release-head"><b>v0.3.1</b><span>2026/11/22</span></div><ul><li>写真保存を軽量化し、期間コピー時に同じ写真を重複保存しない方式へ改善</li><li>点検項目の編集内容を即時保存するよう改善し、保存容量不足時のエラー表示を追加</li></ul></div>
+        <div class="release-entry"><div class="release-head"><b>v0.3.0</b><span>2026/11/20</span></div><ul><li>巡視者の「写真／電子印鑑」切替を追加し、氏名から苗字印を自動生成</li><li>点検項目の編集・追加・削除、音声入力、コンペネ型の操作構成を追加</li></ul></div>
       </div>
     </details>
   </section>
@@ -218,13 +168,15 @@
   </section>
 </main>
 
-<dialog id="historyDialog"><div class="dialog-card"><div class="section-head"><div><h2>保存データ</h2><p class="hint">保存した巡視記録を開く・出力・削除できます。</p></div><button class="btn btn-light" id="closeHistory" type="button">閉じる</button></div><div id="historyList" class="history-list"></div></div></dialog>
+<dialog id="historyDialog"><div class="dialog-card"><div class="section-head"><div><h2>保存データ</h2><p class="hint">保存した巡視記録を開く・出力・削除できます。複数選択して一括PDF・印刷もできます。</p></div><button class="btn btn-light" id="closeHistory" type="button">閉じる</button></div><div class="history-toolbar"><label class="checkline"><input id="historySelectAll" type="checkbox"> 一覧を全選択</label><span id="historySelectedCount" class="small">0件選択中</span><div class="history-bulk-actions"><button id="bulkPrintBtn" class="btn btn-accent" type="button" disabled>選択データを一括PDF・印刷</button><button id="bulkClearBtn" class="btn btn-light" type="button">選択解除</button></div></div><div id="historyList" class="history-list"></div></div></dialog>
+<dialog id="quickGuideDialog"><div class="dialog-card"><div class="section-head"><div><h2>かんたん取説</h2><p class="hint">基本操作だけを短く確認できます。</p></div><button class="btn btn-light" id="closeQuickGuide" type="button">閉じる</button></div><ol class="guide-list"><li><b>巡視情報</b>：工事名・巡視日・巡視時刻・天候を入力。</li><li><b>巡視者</b>：氏名を入力し、電子印鑑または巡視者写真1枚を選択。</li><li><b>巡視結果</b>：30項目を「○ 良好／× 不良／／ 該当なし」で判定。</li><li><b>指摘・是正欄</b>：必要な場合だけ入力。×でも空欄のまま保存できます。</li><li><b>保存</b>：「端末に保存」。続ける場合は「保存して次の巡視」。</li><li><b>帳票</b>：Excel帳票／空白Excel様式／PDF・印刷。</li><li><b>一括PDF・印刷</b>：「保存データ」で複数選択して実行。</li><li><b>バックアップ</b>：定期的にJSONバックアップを出力。</li></ol><div class="dialog-actions"><button id="openDetailFromQuick" class="btn" type="button">詳細取説へ</button><button id="closeQuickGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
+<dialog id="detailGuideDialog"><div class="dialog-card"><div class="section-head"><div><h2>詳細取説</h2><p class="hint">現行機能だけを項目別に説明します。</p></div><button class="btn btn-light" id="closeDetailGuide" type="button">閉じる</button></div><div class="guide-grid"><section class="guide-card"><span class="guide-chip">基本情報</span><h3>巡視情報</h3><ul class="guide-list"><li>工事名・巡視日・巡視時刻・天候を入力します。</li><li>マイクボタンのある文字欄は音声入力できます。末尾の句読点は自動除去します。</li></ul></section><section class="guide-card"><span class="guide-chip">巡視者</span><h3>電子印鑑／写真</h3><ul class="guide-list"><li>巡視者氏名を入力し、電子印鑑または写真を選びます。</li><li>写真は巡視者確認用の1枚です。</li><li>電子印鑑は苗字を自動取得し、必要時だけ文字を修正します。</li></ul></section><section class="guide-card"><span class="guide-chip">点検</span><h3>30項目の判定</h3><ul class="guide-list"><li>○＝良好、×＝不良、／＝該当なし。</li><li>×の指摘・是正事項は任意入力です。</li><li>点検項目は編集・追加・削除でき、初期30項目へ戻せます。</li></ul></section><section class="guide-card"><span class="guide-chip">期間コピー</span><h3>複数日の下書き</h3><ul class="guide-list"><li>開始日・終了日・対象日を指定し、同じ内容を複数日にコピーします。</li><li>コピー記録は要確認の下書きです。各日を確認して保存してください。</li></ul></section><section class="guide-card"><span class="guide-chip">保存</span><h3>保存データ</h3><ul class="guide-list"><li>最大100件まで端末保存します。</li><li>保存データは開く・Excel・PDF/印刷・削除ができます。</li><li>チェックした複数データを一括PDF・印刷できます。</li></ul></section><section class="guide-card"><span class="guide-chip">Excel</span><h3>元帳票様式.xlsx</h3><ul class="guide-list"><li>Excel帳票は元の「現場安全巡視点検表」様式で.xlsx出力します。</li><li>電子印鑑／写真も帳票へ画像として反映します。</li><li>空白Excel様式も同じ元帳票様式です。</li></ul></section><section class="guide-card"><span class="guide-chip">PDF</span><h3>PDF・印刷</h3><ul class="guide-list"><li>現在表示中の巡視記録を印刷画面へ出します。</li><li>保存データ画面では選択した複数記録を連続ページとして一括印刷できます。</li></ul></section><section class="guide-card"><span class="guide-chip">保全</span><h3>バックアップ</h3><ul class="guide-list"><li>履歴・入力中データ・点検項目テンプレート・巡視者写真ライブラリをJSONで退避します。</li><li>機種変更やブラウザデータ削除前は必ずバックアップしてください。</li></ul></section></div><p class="guide-note">対象バージョン：v0.3.8。保存キーはv0.3.7と同じため、v0.3.7の既存データをそのまま引き継ぎます。</p><div class="dialog-actions"><button id="closeDetailGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
 <div id="toast" class="toast"></div>
 <script src="./excel-export.js"></script>
 <script>
 (()=>{
 'use strict';
-const APP_VERSION='0.3.7';
+const APP_VERSION='0.3.8';
 const STORAGE_KEY='moriken_safety_patrol_v1';
 const SETTINGS_KEY='moriken_safety_patrol_settings_v1';
 const TEMPLATE_KEY='moriken_safety_patrol_template_v1';
@@ -270,6 +222,7 @@ const dateISO=(d=new Date())=>d.getFullYear()+'-'+String(d.getMonth()+1).padStar
 const timeNow=()=>String(new Date().getHours()).padStart(2,'0')+':'+String(new Date().getMinutes()).padStart(2,'0');
 const uid=()=> 'patrol_'+Date.now()+'_'+Math.random().toString(36).slice(2,8);
 let toastTimer=null,recognition=null,editMode=false;
+let selectedHistoryIds=new Set();
 let template=loadTemplate();
 let photoLibrary=loadJson(PHOTO_LIBRARY_KEY,{});
 let history=loadHistory().map(normalizeRecord);
@@ -327,7 +280,7 @@ function renderChecklist(){
         html+=`<tr data-id="${esc(item.id)}"><td class="no">${no}</td><td class="item-label"><div class="item-edit-wrap"><textarea data-item-label="${esc(item.id)}">${esc(item.label)}</textarea><button class="voice" type="button" data-voice-item="${esc(item.id)}">🎤</button><button class="item-delete" type="button" data-delete-item="${esc(item.id)}">削除</button></div></td><td class="judge"><div class="editing-mask">項目編集中</div></td><td class="note"><div class="editing-mask">編集終了後に判定</div></td></tr>`;
       }else{
         const inactive=c.status!=='bad';
-        html+=`<tr data-id="${esc(item.id)}"><td class="no">${no}</td><td class="item-label">${esc(item.label)}</td><td class="judge"><div class="judge-buttons"><button class="judge-btn good ${c.status==='good'?'selected':''}" type="button" data-status="good"><span class="mark">○</span>良好</button><button class="judge-btn bad ${c.status==='bad'?'selected':''}" type="button" data-status="bad"><span class="mark">×</span>不良</button><button class="judge-btn na ${c.status==='na'?'selected':''}" type="button" data-status="na"><span class="mark">／</span>該当なし</button></div></td><td class="note"><div class="note-wrap ${inactive?'inactive':''}"><textarea data-note="${esc(item.id)}" ${inactive?'readonly':''} placeholder="${c.status==='bad'?'必要に応じて指摘・是正事項を入力':'×のときに入力'}">${esc(c.note||'')}</textarea><button class="voice" type="button" data-voice-note="${esc(item.id)}" ${inactive?'disabled':''}>🎤</button></div></td></tr>`;
+        html+=`<tr data-id="${esc(item.id)}"><td class="no">${no}</td><td class="item-label">${esc(item.label)}</td><td class="judge"><div class="judge-buttons"><button class="judge-btn good ${c.status==='good'?'selected':''}" type="button" data-status="good"><span class="mark">○</span>良好</button><button class="judge-btn bad ${c.status==='bad'?'selected':''}" type="button" data-status="bad"><span class="mark">×</span>不良</button><button class="judge-btn na ${c.status==='na'?'selected':''}" type="button" data-status="na"><span class="mark">／</span>該当なし</button></div></td><td class="note"><div class="note-wrap ${inactive?'inactive':''}"><textarea data-note="${esc(item.id)}" ${inactive?'readonly':''} placeholder="${c.status==='bad'?'指摘内容と是正事項を入力':'×のときに入力'}">${esc(c.note||'')}</textarea><button class="voice" type="button" data-voice-note="${esc(item.id)}" ${inactive?'disabled':''}>🎤</button></div></td></tr>`;
       }
     }
     if(editMode)html+=`<tr class="add-row"><td colspan="4"><button class="btn btn-light add-item" type="button" data-add-section="${esc(sec)}">＋ この区分に項目追加</button></td></tr>`;
@@ -337,7 +290,7 @@ function renderChecklist(){
 function updateSummary(){const total=state.items.length,done=state.checks.filter(x=>state.items.some(i=>i.id===x.itemId)&&x.status).length,bad=state.checks.filter(x=>state.items.some(i=>i.id===x.itemId)&&x.status==='bad').length,na=state.checks.filter(x=>state.items.some(i=>i.id===x.itemId)&&x.status==='na').length;$('donePill').textContent=`確認済 ${done} / ${total}`;$('badPill').textContent=`× ${bad}件`;$('naPill').textContent=`該当なし ${na}件`}
 function setStatus(id,status){const c=getCheck(id);if(!c)return;c.status=c.status===status?'':status;if(c.status!=='bad'&&c.note)c.note='';markDirty();renderChecklist();if(c.status==='bad')setTimeout(()=>document.querySelector(`textarea[data-note="${CSS.escape(id)}"]`)?.focus(),0)}
 function toggleEdit(){editMode=!editMode;$('editItemsBtn').textContent=editMode?'項目編集を終了':'点検項目を編集';$('resetItemsBtn').classList.toggle('hidden',!editMode);$('editHelp').classList.toggle('hidden',!editMode);if(!editMode){persistTemplateFromState();toast('点検項目を標準設定として保存しました')}renderChecklist()}
-function addItem(section){if(state.items.length>=35){toast('Excel帳票に合わせ、点検項目は最大35項目です');return}const id='c_'+Date.now()+'_'+Math.random().toString(36).slice(2,6);const idx=state.items.map(x=>x.section).lastIndexOf(section);state.items.splice(idx+1,0,{id,section,label:'新しい点検項目'});state.checks.push({itemId:id,status:'',note:''});persistTemplateFromState();markDirty();renderChecklist();setTimeout(()=>{const ta=document.querySelector(`textarea[data-item-label="${CSS.escape(id)}"]`);ta?.select()},0)}
+function addItem(section){const id='c_'+Date.now()+'_'+Math.random().toString(36).slice(2,6);const idx=state.items.map(x=>x.section).lastIndexOf(section);state.items.splice(idx+1,0,{id,section,label:'新しい点検項目'});state.checks.push({itemId:id,status:'',note:''});persistTemplateFromState();markDirty();renderChecklist();setTimeout(()=>{const ta=document.querySelector(`textarea[data-item-label="${CSS.escape(id)}"]`);ta?.select()},0)}
 function deleteItem(id){const item=state.items.find(x=>x.id===id);if(!item)return;if(!confirm(`「${item.label}」を削除しますか？`))return;state.items=state.items.filter(x=>x.id!==id);state.checks=state.checks.filter(x=>x.itemId!==id);persistTemplateFromState();markDirty();renderChecklist()}
 function resetItems(){if(!confirm('点検項目を初期30項目に戻しますか？現在の項目編集内容は失われます。'))return;state.items=clone(DEFAULT_TEMPLATE);state.checks=state.items.map(i=>{const old=getCheck(i.id);return old?old:{itemId:i.id,status:'',note:''}});template=clone(DEFAULT_TEMPLATE);persistTemplate();markDirty();renderChecklist();toast('初期項目に戻しました')}
 function validate(complete=true){syncMeta(false);const miss=[];if(!state.projectName.trim())miss.push('工事名');if(!state.workDate)miss.push('巡視日');if(!state.inspector.trim())miss.push('巡視者氏名');if(miss.length){toast(miss.join('・')+'を入力してください');return false}if(state.identityMode==='photo'&&!state.photoData){toast('写真を設定してください');return false}if(state.identityMode==='seal'&&!state.sealText.trim()){toast('電子印鑑の文字を確認してください');return false}if(complete){const activeIds=new Set(state.items.map(x=>x.id));const u=state.checks.filter(x=>activeIds.has(x.itemId)&&!x.status);if(u.length){toast(`未判定が ${u.length}項目あります`);return false}}return true}
@@ -346,39 +299,18 @@ function newRecord(){if(!confirm('現在の入力内容を閉じて、新しい�
 function startNextPatrol(){state=newBlank();localStorage.removeItem(DRAFT_KEY);editMode=false;$('editItemsBtn').textContent='点検項目を編集';$('resetItemsBtn').classList.add('hidden');$('editHelp').classList.add('hidden');fillMeta();window.scrollTo({top:0,behavior:'smooth'});toast('次の巡視を開始しました')}
 function saveAndNext(){if(!validate(true))return;saveRecord();if($('saveState').textContent==='保存済')startNextPatrol()}
 function loadRecord(id){const r=history.find(x=>x.id===id);if(!r)return;state=normalizeRecord(clone(r));editMode=false;fillMeta();$('historyDialog').close();window.scrollTo(0,0)}
-function deleteRecord(id){const r=history.find(x=>x.id===id);if(!r)return;if(!confirm(`${r.workDate} の記録を削除しますか？`))return;history=history.filter(x=>x.id!==id);persistHistory();renderHistory();toast('削除しました')}
-function renderHistory(){const box=$('historyList');if(!history.length){box.innerHTML='<div class="small" style="padding:28px;text-align:center">保存データはまだありません</div>';return}box.innerHTML=[...history].sort((a,b)=>String(b.workDate).localeCompare(String(a.workDate))).map(r=>{const bad=(r.checks||[]).filter(x=>x.status==='bad').length;return `<div class="history-item"><div class="history-main"><div class="history-title">${esc(r.workDate)}　${esc(r.projectName)}${r.batchMeta?'<span class="badge copy">期間コピー</span>':''}${r.status!=='complete'?'<span class="badge draft">要確認</span>':''}</div><div class="history-sub">巡視者：${esc(r.inspector)}　× ${bad}件${r.batchMeta?`　元日：${esc(r.batchMeta.sourceDate)}`:''}</div></div><div class="history-actions"><button class="btn btn-light" data-open="${esc(r.id)}">開く</button><button class="btn btn-light" data-xls="${esc(r.id)}">Excel</button><button class="btn btn-light" data-print="${esc(r.id)}">PDF・印刷</button><button class="btn btn-danger btn-light" data-del="${esc(r.id)}">削除</button></div></div>`}).join('')}
+function deleteRecord(id){const r=history.find(x=>x.id===id);if(!r)return;if(!confirm(`${r.workDate} の記録を削除しますか？`))return;history=history.filter(x=>x.id!==id);selectedHistoryIds.delete(id);persistHistory();renderHistory();toast('削除しました')}
+function renderHistory(){const box=$('historyList');const validIds=new Set(history.map(r=>r.id));selectedHistoryIds=new Set([...selectedHistoryIds].filter(id=>validIds.has(id)));if(!history.length){box.innerHTML='<div class="small" style="padding:28px;text-align:center">保存データはまだありません</div>';updateHistorySelectionUi();return}box.innerHTML=[...history].sort((a,b)=>String(b.workDate).localeCompare(String(a.workDate))).map(r=>{const bad=(r.checks||[]).filter(x=>x.status==='bad').length;const selected=selectedHistoryIds.has(r.id);return `<div class="history-item ${selected?'selected':''}"><label class="history-select"><input type="checkbox" data-select="${esc(r.id)}" ${selected?'checked':''}><div class="history-main"><div class="history-title">${esc(r.workDate)}　${esc(r.projectName)}${r.batchMeta?'<span class="badge copy">期間コピー</span>':''}${r.status!=='complete'?'<span class="badge draft">要確認</span>':''}</div><div class="history-sub">巡視者：${esc(r.inspector)}　× ${bad}件${r.batchMeta?`　元日：${esc(r.batchMeta.sourceDate)}`:''}</div></div></label><div class="history-actions"><button class="btn btn-light" data-open="${esc(r.id)}">開く</button><button class="btn btn-light" data-xls="${esc(r.id)}">Excel</button><button class="btn btn-light" data-print="${esc(r.id)}">PDF・印刷</button><button class="btn btn-danger btn-light" data-del="${esc(r.id)}">削除</button></div></div>`}).join('');updateHistorySelectionUi()}
+function updateHistorySelectionUi(){const count=selectedHistoryIds.size;$('historySelectedCount').textContent=`${count}件選択中`;$('bulkPrintBtn').disabled=count===0;const all=$('historySelectAll');all.checked=history.length>0&&count===history.length;all.indeterminate=count>0&&count<history.length}
+function clearHistorySelection(){selectedHistoryIds.clear();renderHistory()}
+function selectedHistoryRecords(){return history.filter(r=>selectedHistoryIds.has(r.id)).sort((a,b)=>String(a.workDate).localeCompare(String(b.workDate))||String(a.updatedAt).localeCompare(String(b.updatedAt)))}
+function printSelectedRecords(){const records=selectedHistoryRecords();if(!records.length){toast('一括PDF・印刷するデータを選択してください');return}for(const r of records){if(!validateForOutput(r))return}const w=window.open('','_blank');if(!w){toast('ポップアップを許可してください');return}const pages=records.map((r,i)=>{const html=reportHtml(r);const body=(html.match(/<body>([\s\S]*?)<\/body>/i)||[])[1]||html;return `<section class="bulk-page" style="break-after:${i===records.length-1?'auto':'page'};page-break-after:${i===records.length-1?'auto':'always'}">${body}</section>`}).join('');w.document.write(`<!doctype html><html><head><meta charset="utf-8"><style>@page{size:A4 portrait;margin:9mm}body{font-family:Meiryo,sans-serif;color:#111;margin:0}h2{text-align:center;margin:4px 0 8px;font-size:17px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #555;padding:4px;font-size:10px;vertical-align:middle}th{background:#dce8f2}.meta td,.meta th{font-size:10px}.identity{text-align:center;width:95px}.note{white-space:pre-wrap}.bulk-page{margin:0;padding:0}</style></head><body>${pages}</body></html>`);w.document.close();w.onload=()=>setTimeout(()=>w.print(),220)}
 function statusMark(s){return s==='good'?'○':s==='bad'?'×':s==='na'?'／':''}
 function dateJP(s){if(!s)return'';const [y,m,d]=s.split('-');return `${y}年${Number(m)}月${Number(d)}日`}
 function identityHtml(r){if(r.identityMode==='photo')return r.photoData?`<img src="${r.photoData}" style="width:82px;height:82px;object-fit:cover;border:1px solid #777">`:'写真未設定';const t=esc(r.sealText||deriveSurname(r.inspector)||'印');return `<div style="width:70px;height:70px;border:2px solid #c52f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c52f2f;font-family:serif;font-weight:bold;font-size:18px;writing-mode:vertical-rl;margin:auto">${t}</div>`}
-function reportHtml(r){
-  let rows='',no=0;
-  for(const sec of sections(r.items)){
-    rows+=`<tr class="sec"><td></td><td colspan="3">　【${esc(sec)}】</td><td></td><td></td><td colspan="6"></td></tr>`;
-    for(const item of r.items.filter(x=>x.section===sec)){
-      no++;const c=(r.checks||[]).find(x=>x.itemId===item.id)||{};
-      const good=c.status==='good'?'○':c.status==='na'?'／':'';
-      const bad=c.status==='bad'?'×':c.status==='na'?'／':'';
-      rows+=`<tr><td class="no">${no}</td><td colspan="3" class="itemtxt">${esc(item.label)}</td><td class="judge">${good}</td><td class="judge">${bad}</td><td colspan="6" class="note">${esc(c.note||'')}</td></tr>`;
-    }
-  }
-  const batch=r.batchMeta?`<div class="batchnote">期間コピー：元日 ${esc(r.batchMeta.sourceDate)} ／ 作成 ${esc(new Date(r.batchMeta.createdAt).toLocaleString('ja-JP'))}</div>`:'';
-  return `<!doctype html><html><head><meta charset="utf-8"><style>
-  @page{size:A4 portrait;margin:7mm}*{box-sizing:border-box}body{font-family:"MS PMincho","ＭＳ Ｐ明朝",serif;color:#111;margin:0}table{border-collapse:collapse;width:100%;table-layout:fixed}td,th{border:1px solid #111;padding:2px 3px;font-size:9.5px;vertical-align:middle}.nob{border:0}.center{text-align:center}.title{font-family:"MS PGothic","ＭＳ Ｐゴシック",sans-serif;font-size:15px;text-align:center}.head td{height:20px}.approval{height:42px;text-align:center}.checkhead{height:28px;text-align:center}.sec td{background:#fff;font-weight:bold}.no{text-align:center;width:4%}.itemtxt{font-size:10px}.judge{text-align:center;font-weight:bold;font-size:16px}.note{white-space:pre-wrap}.remarks{height:48px;white-space:pre-wrap}.identity{height:55px;text-align:center}.batchnote{font-size:8px;color:#666;margin-top:4px}
-  </style></head><body>
-  <table class="head"><colgroup><col style="width:6%"><col style="width:11%"><col style="width:6%"><col style="width:22%"><col style="width:5%"><col style="width:5%"><col style="width:12%"><col style="width:9%"><col style="width:9%"><col style="width:5%"><col style="width:5%"><col style="width:5%"></colgroup>
-  <tr><td class="nob"></td><td class="center">工事名</td><td colspan="5" class="center">${esc(r.projectName)}</td><td colspan="5" class="nob"></td></tr>
-  <tr><td class="nob"></td><td colspan="6" class="title">現場安全巡視点検表</td><td colspan="5" class="nob"></td></tr>
-  <tr><td class="nob"></td><td class="center">作業日</td><td colspan="5" class="center">${esc(dateJP(r.workDate))}</td><td class="center">現場代理人</td><td class="center">監理技術者</td><td colspan="3" class="center">安全巡視員</td></tr>
-  <tr><td class="nob"></td><td class="center">点検時刻</td><td colspan="2" class="center">${esc(r.patrolTime||'')}</td><td class="center">天候</td><td colspan="2" class="center">${esc(r.weather||'')}</td><td rowspan="2" class="approval"></td><td rowspan="2" class="approval"></td><td colspan="3" rowspan="2" class="identity">${identityHtml(r)}</td></tr>
-  <tr><td class="nob"></td><td class="center">巡視員名</td><td colspan="3" class="center">${esc(r.inspector||'')}</td><td class="center">印</td><td></td></tr>
-  </table><div style="height:5px"></div>
-  <table><colgroup><col style="width:6%"><col style="width:11%"><col style="width:6%"><col style="width:22%"><col style="width:5%"><col style="width:5%"><col style="width:12%"><col style="width:9%"><col style="width:9%"><col style="width:5%"><col style="width:5%"><col style="width:5%"></colgroup>
-  <tr class="checkhead"><th colspan="4">点検項目・内容</th><th>良好</th><th>不良</th><th colspan="6">指摘事項および是正内容</th></tr>
-  ${rows}
-  <tr><th colspan="4">備　　考</th><td colspan="2"></td><td colspan="6" class="remarks">${esc(r.remarks||'')}</td></tr>
-  </table>${batch}<div style="font-size:8px;color:#777;margin-top:3px">森建設工業DX 現場安全巡視 v${APP_VERSION}</div></body></html>`;
-}
+function reportHtml(r){let rows='';let no=0;for(const sec of sections(r.items)){rows+=`<tr><td colspan="4" style="background:#e8edf1;font-weight:bold">${esc(sec)}</td></tr>`;for(const item of r.items.filter(x=>x.section===sec)){no++;const c=(r.checks||[]).find(x=>x.itemId===item.id)||{};rows+=`<tr><td style="text-align:center;width:38px">${no}</td><td>${esc(item.label)}</td><td style="text-align:center;font-size:18px;font-weight:bold;width:58px">${statusMark(c.status)}</td><td style="width:38%;white-space:pre-wrap">${esc(c.note||'')}</td></tr>`}}
+const batch=r.batchMeta?`<div style="font-size:9px;color:#666;margin-top:5px">期間コピー：元日 ${esc(r.batchMeta.sourceDate)} ／ 作成 ${esc(new Date(r.batchMeta.createdAt).toLocaleString('ja-JP'))}</div>`:'';
+return `<!doctype html><html><head><meta charset="utf-8"><style>@page{size:A4 portrait;margin:9mm}body{font-family:Meiryo,sans-serif;color:#111}h2{text-align:center;margin:4px 0 8px;font-size:17px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #555;padding:4px;font-size:10px;vertical-align:middle}th{background:#dce8f2}.meta td,.meta th{font-size:10px}.identity{text-align:center;width:95px}.note{white-space:pre-wrap}</style></head><body><h2>現場安全巡視点検表</h2><table class="meta"><tr><th>工事名</th><td colspan="3">${esc(r.projectName)}</td><th rowspan="3">巡視者<br>${r.identityMode==='photo'?'写真':'電子印鑑'}</th><td rowspan="3" class="identity">${identityHtml(r)}</td></tr><tr><th>巡視日</th><td>${esc(dateJP(r.workDate))}</td><th>巡視時刻</th><td>${esc(r.patrolTime||'')}</td></tr><tr><th>天候</th><td>${esc(r.weather||'')}</td><th>巡視者</th><td>${esc(r.inspector||'')}</td></tr></table><br><table><thead><tr><th>No.</th><th>点検項目</th><th>判定</th><th>巡視者指摘・是正事項</th></tr></thead><tbody>${rows}<tr><th colspan="2">全体備考</th><td colspan="2" class="note">${esc(r.remarks||'')}</td></tr></tbody></table>${batch}<div style="font-size:9px;color:#777;margin-top:5px">森建設工業DX 現場安全巡視 v${APP_VERSION}</div></body></html>`}
 function printRecord(r){if(!validateForOutput(r))return;const w=window.open('','_blank');if(!w){toast('ポップアップを許可してください');return}w.document.write(reportHtml(r));w.document.close();w.onload=()=>setTimeout(()=>w.print(),180)}
 function validateForOutput(r){if(!r.projectName||!r.workDate||!r.inspector){toast('工事名・巡視日・巡視者氏名を入力してください');return false}return true}
 function imageLoad(src){return new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src})}
@@ -407,14 +339,16 @@ function bind(){
   $('checkBody').oninput=e=>{if(e.target.matches('textarea[data-note]')){const c=getCheck(e.target.dataset.note);if(c){c.note=e.target.value;markDirty()}}if(e.target.matches('textarea[data-item-label]')){const it=state.items.find(x=>x.id===e.target.dataset.itemLabel);if(it){it.label=e.target.value;persistTemplateFromState();markDirty()}}};
   $('editItemsBtn').onclick=toggleEdit;$('resetItemsBtn').onclick=resetItems;$('newBtn').onclick=newRecord;$('saveBtn').onclick=saveRecord;$('saveNextBtn').onclick=saveAndNext;
   $('historyBtn').onclick=()=>{$('historyDialog').showModal();renderHistory()};$('closeHistory').onclick=()=>$('historyDialog').close();
+  $('historySelectAll').onchange=e=>{selectedHistoryIds=e.target.checked?new Set(history.map(r=>r.id)):new Set();renderHistory()};$('bulkClearBtn').onclick=clearHistorySelection;$('bulkPrintBtn').onclick=printSelectedRecords;
+  $('historyList').onchange=e=>{const s=e.target.closest('[data-select]');if(!s)return;if(s.checked)selectedHistoryIds.add(s.dataset.select);else selectedHistoryIds.delete(s.dataset.select);s.closest('.history-item')?.classList.toggle('selected',s.checked);updateHistorySelectionUi()};
   $('historyList').onclick=e=>{const o=e.target.closest('[data-open]'),x=e.target.closest('[data-xls]'),p=e.target.closest('[data-print]'),d=e.target.closest('[data-del]');if(o)loadRecord(o.dataset.open);if(x){const r=history.find(q=>q.id===x.dataset.xls);if(r)exportExcel(r)}if(p){const r=history.find(q=>q.id===p.dataset.print);if(r)printRecord(r)}if(d)deleteRecord(d.dataset.del)};
+  $('quickGuideBtn').onclick=()=>$('quickGuideDialog').showModal();$('detailGuideBtn').onclick=()=>$('detailGuideDialog').showModal();$('closeQuickGuide').onclick=()=>$('quickGuideDialog').close();$('closeQuickGuide2').onclick=()=>$('quickGuideDialog').close();$('openDetailFromQuick').onclick=()=>{$('quickGuideDialog').close();$('detailGuideDialog').showModal()};$('closeDetailGuide').onclick=()=>$('detailGuideDialog').close();$('closeDetailGuide2').onclick=()=>$('detailGuideDialog').close();
   $('excelBtn').onclick=()=>{syncMeta(false);exportExcel(state)};$('blankExcelBtn').onclick=exportBlankExcel;$('printBtn').onclick=()=>{syncMeta(false);printRecord(state)};$('exportBtn').onclick=exportBackup;$('importFile').onchange=e=>{const f=e.target.files?.[0];if(f)importBackup(f);e.target.value=''};$('batchCreate').onclick=batchCreate;
 }
 function init(){fillMeta();renderHistory();bind()}
 init();
 })();
 </script>
-
 <script>
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
   window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>現場安全巡視 v0.3.6｜森建設工業DX</title>
+<title>現場安全巡視 v0.3.7｜森建設工業DX</title>
 <meta name="theme-color" content="#0b5cab">
 <meta name="description" content="森建設工業 現場安全巡視点検アプリ">
 <link rel="manifest" href="./manifest.webmanifest">
@@ -18,7 +18,7 @@
 
 .release-history-panel details{border:1px solid var(--line);border-radius:12px;background:#fbfdff}.release-history-panel summary{cursor:pointer;padding:13px 14px;font-weight:800;color:var(--blue);list-style:none}.release-history-panel summary::-webkit-details-marker{display:none}.release-history-panel summary::before{content:"＋";display:inline-block;width:1.5em;color:var(--blue)}.release-history-panel details[open] summary::before{content:"－"}.release-history{padding:0 14px 14px;display:grid;gap:10px}.release-entry{border-top:1px solid var(--line);padding-top:10px}.release-entry.current{background:#f3f8fd;border:1px solid #cfe0ef;border-radius:10px;padding:10px}.release-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.release-head span{font-size:12px;color:var(--muted)}.release-entry ul{margin:7px 0 0 1.2em;padding:0;color:#41566a;font-size:13px;line-height:1.65}
 @media(max-width:900px){.app-header{position:static;padding:14px 16px}.app-header h1{font-size:19px}.app-shell{padding:12px}.form-grid{grid-template-columns:1fr 1fr}.identity-grid{grid-template-columns:1fr}.batch-grid{grid-template-columns:1fr 1fr}.panel{border-radius:13px;padding:13px}.action-bar .btn{flex:1 1 145px}}
-@media(max-width:560px){.form-grid,.batch-grid{grid-template-columns:1fr}.section-head{align-items:center}.app-header{display:block}.status-wrap{margin-top:8px}.action-bar .btn{flex:1 1 140px}.identity-preview{min-height:140px}.seal{width:82px;height:82px;font-size:21px}
+@media(max-width:560px){.form-grid,.batch-grid{grid-template-columns:1fr}.section-head{align-items:stretch;flex-wrap:wrap}.template-tools{flex:1 0 100%;width:100%}.template-tools .btn{flex:1}.app-header{display:block}.status-wrap{margin-top:8px}.action-bar .btn{flex:1 1 140px}.identity-preview{min-height:140px}.seal{width:82px;height:82px;font-size:21px}
   /* 巡視結果はスマホ縦画面で横スクロールさせず、1項目1カードで表示 */
   .patrol-scroll{overflow-x:visible}
   .patrol-table{display:block;width:100%;min-width:0;border-collapse:separate;table-layout:auto}
@@ -55,7 +55,7 @@
   </div>
   <div class="status-wrap">
     <span id="draftBadge" class="status-badge">自動下書き</span>
-    <span class="version">v0.3.6</span>
+    <span class="version">v0.3.7</span>
   </div>
 </header>
 <main class="app-shell">
@@ -96,7 +96,7 @@
 
   <section class="panel">
     <div class="section-head">
-      <div><h2>巡視結果</h2><p class="hint">○＝良好　×＝不安全・指摘あり　／＝該当なし。×のときは、必要に応じて右側へ巡視者指摘・是正事項を記録できます。</p></div>
+      <div><h2>巡視結果</h2><p class="hint">○＝良好　×＝不安全・指摘あり　／＝該当なし。×のときは、必要に応じて指摘・是正欄へ記録できます。</p></div>
       <div class="template-tools">
         <button id="editItemsBtn" class="btn btn-light" type="button">点検項目を編集</button>
         <button id="resetItemsBtn" class="btn btn-light hidden" type="button">初期項目に戻す</button>
@@ -131,9 +131,17 @@
 
   <section class="panel release-history-panel">
     <details>
-      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.6）</summary>
+      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.7）</summary>
       <div class="release-history">
         <div class="release-entry current">
+          <div class="release-head"><b>v0.3.7</b><span>2026/11/23</span></div>
+          <ul>
+            <li>Excel帳票・空白Excel様式の出力スクリプト読み込み漏れを修正</li>
+            <li>完成版としてZIP構成・スマホ表示・保存・帳票出力・バージョン情報を再点検</li>
+            <li>スマホの「点検項目を編集」ボタンを全幅表示へ調整</li>
+          </ul>
+        </div>
+        <div class="release-entry">
           <div class="release-head"><b>v0.3.6</b><span>2026/11/23</span></div>
           <ul>
             <li>スマホ縦画面の巡視結果をカード表示へ変更し、横スクロールなしで○／×／該当なしを選択可能に改善</li>
@@ -212,10 +220,11 @@
 
 <dialog id="historyDialog"><div class="dialog-card"><div class="section-head"><div><h2>保存データ</h2><p class="hint">保存した巡視記録を開く・出力・削除できます。</p></div><button class="btn btn-light" id="closeHistory" type="button">閉じる</button></div><div id="historyList" class="history-list"></div></div></dialog>
 <div id="toast" class="toast"></div>
+<script src="./excel-export.js"></script>
 <script>
 (()=>{
 'use strict';
-const APP_VERSION='0.3.6';
+const APP_VERSION='0.3.7';
 const STORAGE_KEY='moriken_safety_patrol_v1';
 const SETTINGS_KEY='moriken_safety_patrol_settings_v1';
 const TEMPLATE_KEY='moriken_safety_patrol_template_v1';

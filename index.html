@@ -44,6 +44,35 @@
 }
 
 .help-top-panel{border-color:#9fc5e8;background:#f7fbff}.help-top-panel .help-bar{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}.help-top-panel .help-bar .btn{min-width:150px;min-height:44px;display:flex;align-items:center;justify-content:center;line-height:1.3;padding:10px 14px}@media(max-width:560px){.help-top-panel .help-bar .btn{flex:1 1 140px}}
+
+/* v0.3.9 display hotfix: Android patrol heading + guide viewer */
+.patrol-section-head{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:start!important;gap:12px!important;flex-wrap:nowrap!important}
+.patrol-section-head .patrol-heading-copy{display:block!important;min-width:0!important;width:100%!important;max-width:none!important;flex:none!important}
+.patrol-section-head .patrol-heading-copy h2,.patrol-section-head .patrol-heading-copy .hint{writing-mode:horizontal-tb!important;text-orientation:mixed!important;white-space:normal!important;width:100%!important;max-width:none!important}
+.patrol-section-head .patrol-heading-copy .hint{word-break:normal!important;overflow-wrap:break-word!important;line-break:auto!important;line-height:1.65!important}
+.guide-dialog-card{overflow:hidden!important;display:flex!important;flex-direction:column!important;max-height:92dvh!important}
+.guide-dialog-head{flex:0 0 auto!important}
+.guide-image-controls{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;margin:10px 0 8px}
+.guide-image-controls .guide-zoom-btn{min-width:88px;padding:8px 10px}
+.guide-zoom-label{min-width:92px;text-align:center;font-size:12px;font-weight:800;color:var(--blue);background:var(--blue2);border-radius:999px;padding:7px 10px}
+.guide-image-wrap{flex:1 1 auto!important;height:min(62dvh,650px)!important;min-height:260px!important;max-height:650px!important;margin:0 0 9px!important;border:1px solid var(--line)!important;border-radius:12px!important;background:#eef3f7!important;padding:8px!important;overflow:auto!important;display:flex!important;align-items:flex-start!important;justify-content:center!important;overscroll-behavior:contain}
+.guide-image-wrap img{display:block!important;max-width:none!important;max-height:none!important;width:auto;height:auto!important;object-fit:contain!important;flex:0 0 auto!important;border-radius:6px;background:#fff}
+.guide-caption,.guide-image-actions{flex:0 0 auto}
+@media(max-width:900px){
+ .patrol-section-head{grid-template-columns:1fr!important;display:grid!important}
+ .patrol-section-head .patrol-heading-copy{grid-column:1!important;width:100%!important;min-width:100%!important}
+ .patrol-section-head .template-tools{grid-column:1!important;width:100%!important}
+ .guide-dialog-card{padding:12px!important}
+ .guide-image-wrap{height:58dvh!important;min-height:240px!important}
+}
+@media(max-width:560px){
+ .patrol-section-head .patrol-heading-copy .hint{font-size:12px!important;line-height:1.7!important}
+ .patrol-section-head .template-tools{display:grid!important;grid-template-columns:1fr!important}
+ .patrol-section-head .template-tools .btn{width:100%!important}
+ .guide-image-controls{display:grid!important;grid-template-columns:1fr 1fr!important}
+ .guide-image-controls .guide-zoom-btn,.guide-zoom-label{width:100%!important;min-width:0!important}
+ .guide-image-wrap{height:55dvh!important;min-height:220px!important;padding:5px!important}
+}
 </style>
 </head>
 <body>
@@ -105,8 +134,8 @@
   </section>
 
   <section class="panel">
-    <div class="section-head">
-      <div><h2>巡視結果</h2><p class="hint">○＝良好　×＝不安全・指摘あり　／＝該当なし。×のときは、必要に応じて指摘・是正欄へ記録できます。</p></div>
+    <div class="section-head patrol-section-head">
+      <div class="patrol-heading-copy"><h2>巡視結果</h2><p class="hint">○＝良好　×＝不安全・指摘あり　／＝該当なし。×のときは、必要に応じて指摘・是正欄へ記録できます。</p></div>
       <div class="template-tools">
         <button id="editItemsBtn" class="btn btn-light" type="button">点検項目を編集</button>
         <button id="resetItemsBtn" class="btn btn-light hidden" type="button">初期項目に戻す</button>
@@ -169,8 +198,8 @@
 </main>
 
 <dialog id="historyDialog"><div class="dialog-card"><div class="section-head"><div><h2>保存データ</h2><p class="hint">保存した巡視記録を開く・出力・削除できます。複数選択して一括PDF・印刷もできます。</p></div><button class="btn btn-light" id="closeHistory" type="button">閉じる</button></div><div class="history-toolbar"><label class="checkline"><input id="historySelectAll" type="checkbox"> 一覧を全選択</label><span id="historySelectedCount" class="small">0件選択中</span><div class="history-bulk-actions"><button id="bulkPrintBtn" class="btn btn-accent" type="button" disabled>選択データを一括PDF・印刷</button><button id="bulkClearBtn" class="btn btn-light" type="button">選択解除</button></div></div><div id="historyList" class="history-list"></div></div></dialog>
-<dialog id="quickGuideDialog"><div class="dialog-card"><div class="section-head"><div><h2>かんたん取説</h2><p class="hint">画像つきの簡易版です。まずはこちらを確認してください。</p></div><button class="btn btn-light" id="closeQuickGuide" type="button">閉じる</button></div><div class="guide-image-wrap"><img src="./guide-quick.png" alt="現場安全巡視アプリ かんたん取説"></div><p class="guide-caption">入力から保存、保存データ、一括PDF・印刷までを1枚で確認できます。</p><div class="guide-image-actions"><a class="btn btn-light" href="./guide-quick.png" target="_blank" rel="noopener">画像を拡大表示</a><button id="openDetailFromQuick" class="btn" type="button">詳細取説へ</button><button id="closeQuickGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
-<dialog id="detailGuideDialog"><div class="dialog-card"><div class="section-head"><div><h2>詳細取説</h2><p class="hint">各機能を画面付きで詳しく確認できます。</p></div><button class="btn btn-light" id="closeDetailGuide" type="button">閉じる</button></div><div class="guide-image-wrap"><img src="./guide-detail.png" alt="現場安全巡視アプリ 詳細取説"></div><p class="guide-caption">巡視情報、巡視者、30項目判定、期間コピー、保存データ、一括PDF・印刷、Excel帳票、バックアップまで説明しています。</p><div class="guide-image-actions"><a class="btn btn-light" href="./guide-detail.png" target="_blank" rel="noopener">画像を拡大表示</a><button id="closeDetailGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
+<dialog id="quickGuideDialog"><div class="dialog-card guide-dialog-card"><div class="section-head guide-dialog-head"><div><h2>かんたん取説</h2><p class="hint">最初は全体が1画面に収まる大きさで表示します。</p></div><button class="btn btn-light" id="closeQuickGuide" type="button">閉じる</button></div><div class="guide-image-controls" aria-label="画像の表示倍率"><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="out" data-guide-target="quickGuideImage">－ 縮小</button><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="fit" data-guide-target="quickGuideImage">全体表示</button><span class="guide-zoom-label" id="quickGuideZoomLabel">全体 100%</span><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="in" data-guide-target="quickGuideImage">＋ 拡大</button></div><div class="guide-image-wrap"><img id="quickGuideImage" src="./guide-quick.png" alt="現場安全巡視アプリ かんたん取説"></div><p class="guide-caption">入力から保存、保存データ、一括PDF・印刷までを1枚で確認できます。</p><div class="guide-image-actions"><button id="openDetailFromQuick" class="btn" type="button">詳細取説へ</button><button id="closeQuickGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
+<dialog id="detailGuideDialog"><div class="dialog-card guide-dialog-card"><div class="section-head guide-dialog-head"><div><h2>詳細取説</h2><p class="hint">最初は全体が1画面に収まる大きさで表示します。</p></div><button class="btn btn-light" id="closeDetailGuide" type="button">閉じる</button></div><div class="guide-image-controls" aria-label="画像の表示倍率"><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="out" data-guide-target="detailGuideImage">－ 縮小</button><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="fit" data-guide-target="detailGuideImage">全体表示</button><span class="guide-zoom-label" id="detailGuideZoomLabel">全体 100%</span><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="in" data-guide-target="detailGuideImage">＋ 拡大</button></div><div class="guide-image-wrap"><img id="detailGuideImage" src="./guide-detail.png" alt="現場安全巡視アプリ 詳細取説"></div><p class="guide-caption">巡視情報、巡視者、30項目判定、期間コピー、保存データ、一括PDF・印刷、Excel帳票、バックアップまで説明しています。</p><div class="guide-image-actions"><button id="closeDetailGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
 <div id="toast" class="toast"></div>
 <script src="./excel-export.js"></script>
 <script>
@@ -347,6 +376,37 @@ function bind(){
 }
 function init(){fillMeta();renderHistory();bind()}
 init();
+})();
+</script>
+
+<script>
+(()=>{
+  const state=new Map();
+  function labelFor(id){return document.getElementById(id==='quickGuideImage'?'quickGuideZoomLabel':'detailGuideZoomLabel')}
+  function apply(id,zoom=1){
+    const img=document.getElementById(id); if(!img)return;
+    const wrap=img.closest('.guide-image-wrap'); if(!wrap)return;
+    const nw=img.naturalWidth||1, nh=img.naturalHeight||1;
+    const aw=Math.max(50,wrap.clientWidth-16), ah=Math.max(50,wrap.clientHeight-16);
+    const fit=Math.min(aw/nw,ah/nh,1);
+    zoom=Math.max(.5,Math.min(3,zoom)); state.set(id,zoom);
+    const width=Math.max(1,Math.round(nw*fit*zoom));
+    img.style.width=width+'px'; img.style.height='auto';
+    wrap.style.justifyContent=width<=aw?'center':'flex-start';
+    wrap.scrollLeft=0; wrap.scrollTop=0;
+    const lab=labelFor(id); if(lab)lab.textContent=(zoom===1?'全体 ':'')+Math.round(zoom*100)+'%';
+  }
+  function fit(id){apply(id,1)}
+  function afterOpen(id){requestAnimationFrame(()=>requestAnimationFrame(()=>fit(id)))}
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('[data-guide-zoom]');
+    if(b){const id=b.dataset.guideTarget;const cur=state.get(id)||1;const a=b.dataset.guideZoom;if(a==='fit')fit(id);else apply(id,a==='in'?cur*1.25:cur*.8);return}
+    if(e.target.closest('#quickGuideBtn'))afterOpen('quickGuideImage');
+    if(e.target.closest('#detailGuideBtn'))afterOpen('detailGuideImage');
+    if(e.target.closest('#openDetailFromQuick'))setTimeout(()=>afterOpen('detailGuideImage'),0);
+  });
+  for(const id of ['quickGuideImage','detailGuideImage']){const im=document.getElementById(id);if(im){if(im.complete)setTimeout(()=>fit(id),0);else im.addEventListener('load',()=>fit(id),{once:true})}}
+  window.addEventListener('resize',()=>{for(const id of ['quickGuideImage','detailGuideImage']){const im=document.getElementById(id);if(im?.closest('dialog')?.open)apply(id,state.get(id)||1)}});
 })();
 </script>
 <script>

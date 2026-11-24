@@ -7,7 +7,7 @@
 <meta name="description" content="森建設工業 現場安全巡視点検アプリ">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
-<title>現場安全巡視 v0.3.8｜森建設工業DX</title>
+<title>現場安全巡視 v0.3.9｜森建設工業DX</title>
 <style>
 :root{--bg:#f4f7fb;--card:#fff;--text:#18324a;--muted:#66788a;--line:#d6e0ea;--blue:#0b5cab;--blue2:#e8f2fb;--teal:#0a7f82;--orange:#c86b16;--red:#b42318;--shadow:0 8px 24px rgba(25,55,80,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Meiryo",sans-serif}.app-header{display:flex;justify-content:space-between;gap:16px;padding:18px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.eyebrow{font-size:12px;color:var(--muted);font-weight:700}.app-header h1{font-size:22px;margin:3px 0}.subline{font-size:13px;color:var(--muted)}.status-wrap{display:flex;align-items:center;gap:8px}.status-badge,.version,.legend-chip{font-size:12px;padding:6px 9px;border-radius:999px;background:var(--blue2);color:var(--blue);white-space:nowrap}.app-shell{max-width:1280px;margin:0 auto;padding:18px}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin-bottom:16px}.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.section-head h2{font-size:17px;margin:0 0 4px}.hint{margin:0;color:var(--muted);font-size:12px;line-height:1.55}.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}.field label,.form-grid label{font-size:12px;font-weight:700;color:#4b6074;display:block}.input-row{display:flex;gap:6px;margin-top:5px}.input-row input,.input-row textarea,.field input,.field select,.field textarea,.form-grid input,.form-grid select{width:100%;border:1px solid #bfcddb;border-radius:10px;padding:11px;font-size:16px;color:var(--text);background:#fff;font-family:inherit}.input-row textarea{min-height:72px;resize:vertical}.voice{flex:0 0 44px;border:1px solid #9db3c5;background:#eef6fd;color:#0b5cab;border-radius:10px;font-size:19px;cursor:pointer}.voice.listening{background:#ffe6e3;border-color:#db6a61;color:#b42318;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.55}}
@@ -55,7 +55,7 @@
   </div>
   <div class="status-wrap">
     <span id="draftBadge" class="status-badge">自動下書き</span>
-    <span class="version">v0.3.8</span>
+    <span class="version">v0.3.9</span>
   </div>
 </header>
 <main class="app-shell">
@@ -141,9 +141,9 @@
 
   <section class="panel release-history-panel">
     <details>
-      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.8）</summary>
+      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.9）</summary>
       <div class="release-history">
-        <div class="release-entry current"><div class="release-head"><b>v0.3.8</b><span>2026/11/24</span></div><ul><li>保存データを複数選択して一括PDF・印刷できる機能を追加</li><li>アプリ内に「かんたん取説」「詳細取説」を追加</li><li>v0.3.7の保存キー・保存データ形式・Excel帳票出力を変更せず維持</li></ul></div>
+        <div class="release-entry current"><div class="release-head"><b>v0.3.9</b><span>2026/11/24</span></div><ul><li>保存データを複数選択して一括PDF・印刷できる機能を追加</li><li>アプリ内に「かんたん取説」「詳細取説」を追加</li><li>v0.3.7の保存キー・保存データ形式・Excel帳票出力を変更せず維持</li></ul></div>
         <div class="release-entry"><div class="release-head"><b>v0.3.7</b><span>2026/11/23</span></div><ul><li>Excel帳票・空白Excel様式の出力スクリプト読み込み漏れを修正</li><li>完成版としてZIP構成・スマホ表示・保存・帳票出力・バージョン情報を再点検</li><li>スマホの「点検項目を編集」ボタンを全幅表示へ調整</li></ul></div>
         <div class="release-entry"><div class="release-head"><b>v0.3.6</b><span>2026/11/23</span></div><ul><li>スマホ縦画面の巡視結果をカード表示へ変更し、横スクロールなしで○／×／該当なしを選択可能に改善</li><li>PC・タブレットでは従来の表形式を維持</li></ul></div>
         <div class="release-entry"><div class="release-head"><b>v0.3.5</b><span>2026/11/23</span></div><ul><li>×（不良）でも「巡視者指摘・是正事項」を空欄のまま保存・Excel出力・PDF印刷できるよう変更</li><li>アプリ内でバージョンアップ情報・変更履歴を確認できる欄を追加</li></ul></div>
@@ -169,14 +169,14 @@
 </main>
 
 <dialog id="historyDialog"><div class="dialog-card"><div class="section-head"><div><h2>保存データ</h2><p class="hint">保存した巡視記録を開く・出力・削除できます。複数選択して一括PDF・印刷もできます。</p></div><button class="btn btn-light" id="closeHistory" type="button">閉じる</button></div><div class="history-toolbar"><label class="checkline"><input id="historySelectAll" type="checkbox"> 一覧を全選択</label><span id="historySelectedCount" class="small">0件選択中</span><div class="history-bulk-actions"><button id="bulkPrintBtn" class="btn btn-accent" type="button" disabled>選択データを一括PDF・印刷</button><button id="bulkClearBtn" class="btn btn-light" type="button">選択解除</button></div></div><div id="historyList" class="history-list"></div></div></dialog>
-<dialog id="quickGuideDialog"><div class="dialog-card"><div class="section-head"><div><h2>かんたん取説</h2><p class="hint">基本操作だけを短く確認できます。</p></div><button class="btn btn-light" id="closeQuickGuide" type="button">閉じる</button></div><ol class="guide-list"><li><b>巡視情報</b>：工事名・巡視日・巡視時刻・天候を入力。</li><li><b>巡視者</b>：氏名を入力し、電子印鑑または巡視者写真1枚を選択。</li><li><b>巡視結果</b>：30項目を「○ 良好／× 不良／／ 該当なし」で判定。</li><li><b>指摘・是正欄</b>：必要な場合だけ入力。×でも空欄のまま保存できます。</li><li><b>保存</b>：「端末に保存」。続ける場合は「保存して次の巡視」。</li><li><b>帳票</b>：Excel帳票／空白Excel様式／PDF・印刷。</li><li><b>一括PDF・印刷</b>：「保存データ」で複数選択して実行。</li><li><b>バックアップ</b>：定期的にJSONバックアップを出力。</li></ol><div class="dialog-actions"><button id="openDetailFromQuick" class="btn" type="button">詳細取説へ</button><button id="closeQuickGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
-<dialog id="detailGuideDialog"><div class="dialog-card"><div class="section-head"><div><h2>詳細取説</h2><p class="hint">現行機能だけを項目別に説明します。</p></div><button class="btn btn-light" id="closeDetailGuide" type="button">閉じる</button></div><div class="guide-grid"><section class="guide-card"><span class="guide-chip">基本情報</span><h3>巡視情報</h3><ul class="guide-list"><li>工事名・巡視日・巡視時刻・天候を入力します。</li><li>マイクボタンのある文字欄は音声入力できます。末尾の句読点は自動除去します。</li></ul></section><section class="guide-card"><span class="guide-chip">巡視者</span><h3>電子印鑑／写真</h3><ul class="guide-list"><li>巡視者氏名を入力し、電子印鑑または写真を選びます。</li><li>写真は巡視者確認用の1枚です。</li><li>電子印鑑は苗字を自動取得し、必要時だけ文字を修正します。</li></ul></section><section class="guide-card"><span class="guide-chip">点検</span><h3>30項目の判定</h3><ul class="guide-list"><li>○＝良好、×＝不良、／＝該当なし。</li><li>×の指摘・是正事項は任意入力です。</li><li>点検項目は編集・追加・削除でき、初期30項目へ戻せます。</li></ul></section><section class="guide-card"><span class="guide-chip">期間コピー</span><h3>複数日の下書き</h3><ul class="guide-list"><li>開始日・終了日・対象日を指定し、同じ内容を複数日にコピーします。</li><li>コピー記録は要確認の下書きです。各日を確認して保存してください。</li></ul></section><section class="guide-card"><span class="guide-chip">保存</span><h3>保存データ</h3><ul class="guide-list"><li>最大100件まで端末保存します。</li><li>保存データは開く・Excel・PDF/印刷・削除ができます。</li><li>チェックした複数データを一括PDF・印刷できます。</li></ul></section><section class="guide-card"><span class="guide-chip">Excel</span><h3>元帳票様式.xlsx</h3><ul class="guide-list"><li>Excel帳票は元の「現場安全巡視点検表」様式で.xlsx出力します。</li><li>電子印鑑／写真も帳票へ画像として反映します。</li><li>空白Excel様式も同じ元帳票様式です。</li></ul></section><section class="guide-card"><span class="guide-chip">PDF</span><h3>PDF・印刷</h3><ul class="guide-list"><li>現在表示中の巡視記録を印刷画面へ出します。</li><li>保存データ画面では選択した複数記録を連続ページとして一括印刷できます。</li></ul></section><section class="guide-card"><span class="guide-chip">保全</span><h3>バックアップ</h3><ul class="guide-list"><li>履歴・入力中データ・点検項目テンプレート・巡視者写真ライブラリをJSONで退避します。</li><li>機種変更やブラウザデータ削除前は必ずバックアップしてください。</li></ul></section></div><p class="guide-note">対象バージョン：v0.3.8。保存キーはv0.3.7と同じため、v0.3.7の既存データをそのまま引き継ぎます。</p><div class="dialog-actions"><button id="closeDetailGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
+<dialog id="quickGuideDialog"><div class="dialog-card"><div class="section-head"><div><h2>かんたん取説</h2><p class="hint">画像つきの簡易版です。まずはこちらを確認してください。</p></div><button class="btn btn-light" id="closeQuickGuide" type="button">閉じる</button></div><div class="guide-image-wrap"><img src="./guide-quick.png" alt="現場安全巡視アプリ かんたん取説" loading="lazy"></div><p class="guide-caption">実画面をベースに、入力の流れ・保存・帳票出力・保存データの一括PDF/印刷までを見やすくまとめた簡易ガイドです。</p><div class="guide-image-actions"><button id="openDetailFromQuick" class="btn" type="button">詳細取説へ</button><button id="closeQuickGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
+<dialog id="detailGuideDialog"><div class="dialog-card"><div class="section-head"><div><h2>詳細取説</h2><p class="hint">画像つきの詳細版です。各機能を画面付きで確認できます。</p></div><button class="btn btn-light" id="closeDetailGuide" type="button">閉じる</button></div><div class="guide-image-wrap"><img src="./guide-detail.png" alt="現場安全巡視アプリ 詳細取説" loading="lazy"></div><p class="guide-caption">巡視情報、巡視者、30項目判定、期間コピー、保存データ、一括PDF/印刷、Excel帳票、PDF・印刷、バックアップまでを画面付きで説明した詳細ガイドです。</p><div class="guide-image-actions"><button id="closeDetailGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
 <div id="toast" class="toast"></div>
 <script src="./excel-export.js"></script>
 <script>
 (()=>{
 'use strict';
-const APP_VERSION='0.3.8';
+const APP_VERSION='0.3.9';
 const STORAGE_KEY='moriken_safety_patrol_v1';
 const SETTINGS_KEY='moriken_safety_patrol_settings_v1';
 const TEMPLATE_KEY='moriken_safety_patrol_template_v1';

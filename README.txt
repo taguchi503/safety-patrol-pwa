@@ -1,24 +1,24 @@
-現場安全巡視 v0.3.8
-森建設工業DX「安全管理 ＞ 安全巡視」用PWA。
+GitHub公開版 safety-patrol-pwa へ上書きする更新ファイルです。
 
-主な機能
-- ○良好 / ×不良 / ／該当なし
-- 不良時の巡視者指摘・是正事項（任意入力）
-- 音声入力
-- 巡視者の写真または電子印鑑
-- 点検項目の編集・追加・削除
-- 期間コピー（要確認下書き）
-- 端末保存 / 保存して次の巡視 / 保存データ
-- 保存データの複数選択 / 一括PDF・印刷
-- JSONバックアップ出力・読込
-- Excel帳票 / 空白Excel様式 / PDF・印刷
-- アプリ内 かんたん取説 / 詳細取説
+【v0.3.9 変更内容】
+- アプリ内の「かんたん取説」「詳細取説」を画像付きガイドへ変更
+- guide-quick.png / guide-detail.png を追加
+- 画像付き取説はオフライン表示対応
 
-v0.3.8: 保存データの複数選択・一括PDF/印刷、アプリ内かんたん取説・詳細取説を追加。
-v0.3.7: Excel帳票・空白Excel様式の出力スクリプト読み込み漏れを修正。
-v0.3.6: スマホ縦画面の巡視結果を1項目1カード表示に変更。
-v0.3.5: ×不良でも是正欄は任意入力。保存・Excel・PDFを空欄のまま実行可能。
-v0.3.3: 元帳票様式の本物のExcel(.xlsx)出力、空白Excel、音声入力末尾句読点除去に対応。
+【上書きするファイル】
+- index.html
+- service-worker.js
+- version.json
+- app-info.json
+- CHANGELOG.md
+- README.txt
+- guide-quick.png
+- guide-detail.png
 
-この差替え用パッケージには変更ファイルのみを収録しています。
-既存の excel-export.js、manifest.webmanifest、icon.svg、templates/safety-patrol-template.xlsx は削除せず、そのまま残してください。
+【削除しないファイル】
+- excel-export.js
+- manifest.webmanifest
+- icon.svg
+- templates/safety-patrol-template.xlsx
+
+既存の保存データ・保存キーは維持しています。

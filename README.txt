@@ -1,24 +1,14 @@
-GitHub公開版 safety-patrol-pwa へ上書きする更新ファイルです。
+GitHub公開版 safety-patrol-pwa へ上書きする v0.3.9 更新ファイルです。
 
-【v0.3.9 変更内容】
-- アプリ内の「かんたん取説」「詳細取説」を画像付きガイドへ変更
-- guide-quick.png / guide-detail.png を追加
-- 画像付き取説はオフライン表示対応
+【変更内容】
+- 画像付き「かんたん取説」「詳細取説」
+- 取説画像の縦横比維持・拡大表示
+- スマホの「巡視結果」見出し・説明文の縦詰まり修正
 
-【上書きするファイル】
-- index.html
-- service-worker.js
-- version.json
-- app-info.json
-- CHANGELOG.md
-- README.txt
-- guide-quick.png
-- guide-detail.png
+【上書き】
+index.html / service-worker.js / version.json / app-info.json / CHANGELOG.md / README.txt / guide-quick.png / guide-detail.png
 
-【削除しないファイル】
-- excel-export.js
-- manifest.webmanifest
-- icon.svg
-- templates/safety-patrol-template.xlsx
+【削除しない】
+excel-export.js / manifest.webmanifest / icon.svg / templates/safety-patrol-template.xlsx
 
-既存の保存データ・保存キーは維持しています。
+保存キー・保存データ形式は変更していません。

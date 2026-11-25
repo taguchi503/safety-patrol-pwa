@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b5cab">
-<meta name="app-revision" content="v0.3.12-r1">
+<meta name="app-revision" content="v1.0.0-r1">
 <meta name="description" content="森建設工業 現場安全巡視点検アプリ">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
-<title>現場安全巡視 v0.3.12｜森建設工業DX</title>
+<title>現場安全巡視 v1.0.0｜森建設工業DX</title>
 <style>
 :root{--bg:#f4f7fb;--card:#fff;--text:#18324a;--muted:#66788a;--line:#d6e0ea;--blue:#0b5cab;--blue2:#e8f2fb;--teal:#0a7f82;--orange:#c86b16;--red:#b42318;--shadow:0 8px 24px rgba(25,55,80,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Meiryo",sans-serif}.app-header{display:flex;justify-content:space-between;gap:16px;padding:18px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.eyebrow{font-size:12px;color:var(--muted);font-weight:700}.app-header h1{font-size:22px;margin:3px 0}.subline{font-size:13px;color:var(--muted)}.status-wrap{display:flex;align-items:center;gap:8px}.status-badge,.version,.legend-chip{font-size:12px;padding:6px 9px;border-radius:999px;background:var(--blue2);color:var(--blue);white-space:nowrap}.app-shell{max-width:1280px;margin:0 auto;padding:18px}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin-bottom:16px}.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.section-head>div:first-child{flex:1 1 auto;min-width:0}.section-head h2{font-size:17px;margin:0 0 4px}.hint{margin:0;color:var(--muted);font-size:12px;line-height:1.55;word-break:normal;overflow-wrap:break-word}.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}.field label,.form-grid label{font-size:12px;font-weight:700;color:#4b6074;display:block}.input-row{display:flex;gap:6px;margin-top:5px}.input-row input,.input-row textarea,.field input,.field select,.field textarea,.form-grid input,.form-grid select{width:100%;border:1px solid #bfcddb;border-radius:10px;padding:11px;font-size:16px;color:var(--text);background:#fff;font-family:inherit}.input-row textarea{min-height:72px;resize:vertical}.voice{flex:0 0 44px;border:1px solid #9db3c5;background:#eef6fd;color:#0b5cab;border-radius:10px;font-size:19px;cursor:pointer}.voice.listening{background:#ffe6e3;border-color:#db6a61;color:#b42318;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.55}}
@@ -130,7 +130,7 @@
   </div>
   <div class="status-wrap">
     <span id="draftBadge" class="status-badge">自動下書き</span>
-    <span class="version">v0.3.12</span>
+    <span class="version">v1.0.0</span>
   </div>
 </header>
 <main class="app-shell">
@@ -216,8 +216,8 @@
 
   <section class="panel release-history-panel">
     <details>
-      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.12）</summary>
-      <div class="release-history"><div class="release-entry current"><div class="release-title">v0.3.12 <span>2026-11-25</span></div><ul><li>PDF帳票の巡視員名横の「印」欄を削除し、氏名欄に統合</li><li>巡視者写真の撮影用と端末写真の選択用ボタンを分離。撮影では前面カメラを優先</li><li>画像付き取説を更新。既存の保存データ・A4 PDF・一括出力・Excel・キャッシュ更新を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.11 <span>2026-11-25</span></div><ul><li>印刷用HTMLをA4縦のPDF実ファイルに変更。通常30項目・備考を1件1ページに収めるよう修正</li><li>現在の記録・保存データの個別出力・一括出力で同じPDF方式を使用。iPhone/iPadでは共有画面から印刷可能</li><li>長文は文字を切り捨てず、収まらない場合のみ続紙へ出力</li><li>既存のExcel帳票、保存キー、写真、下書き、設定、点検項目、画像キャッシュ保護を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.10 <span>2026-11-25</span></div><ul><li>取説画像とアプリアイコンの旧キャッシュのみ自動削除・更新</li><li>保存履歴・巡視者写真・下書き・設定・点検項目を保持</li><li>最新版の取得が完了してから更新を有効化。既存機能と表示を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.9 <span>2026-11-24</span></div><ul><li>「かんたん取説」「詳細取説」を画像付きガイドに変更</li><li>取説画像の縦横比を維持して表示し、拡大表示にも対応</li><li>スマホで「巡視結果」の見出し・説明文が縦詰まりしないようレイアウトを修正</li><li>保存キー・保存データ形式・一括PDF/印刷・元帳票.xlsx出力はv0.3.8から変更なし</li></ul></div>
+      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v1.0.0）</summary>
+      <div class="release-history"><div class="release-entry current"><div class="release-title">v1.0.0 <span>2026-11-25</span></div><ul><li>v0.3.12から正式運用版v1.0.0へ移行。機能・画面・帳票・保存形式は変更なし。</li></ul></div><div class="release-entry"><div class="release-title">v0.3.12 <span>2026-11-25</span></div><ul><li>PDF帳票の巡視員名横の「印」欄を削除し、氏名欄に統合</li><li>巡視者写真の撮影用と端末写真の選択用ボタンを分離。撮影では前面カメラを優先</li><li>画像付き取説を更新。既存の保存データ・A4 PDF・一括出力・Excel・キャッシュ更新を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.11 <span>2026-11-25</span></div><ul><li>印刷用HTMLをA4縦のPDF実ファイルに変更。通常30項目・備考を1件1ページに収めるよう修正</li><li>現在の記録・保存データの個別出力・一括出力で同じPDF方式を使用。iPhone/iPadでは共有画面から印刷可能</li><li>長文は文字を切り捨てず、収まらない場合のみ続紙へ出力</li><li>既存のExcel帳票、保存キー、写真、下書き、設定、点検項目、画像キャッシュ保護を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.10 <span>2026-11-25</span></div><ul><li>取説画像とアプリアイコンの旧キャッシュのみ自動削除・更新</li><li>保存履歴・巡視者写真・下書き・設定・点検項目を保持</li><li>最新版の取得が完了してから更新を有効化。既存機能と表示を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.9 <span>2026-11-24</span></div><ul><li>「かんたん取説」「詳細取説」を画像付きガイドに変更</li><li>取説画像の縦横比を維持して表示し、拡大表示にも対応</li><li>スマホで「巡視結果」の見出し・説明文が縦詰まりしないようレイアウトを修正</li><li>保存キー・保存データ形式・一括PDF/印刷・元帳票.xlsx出力はv0.3.8から変更なし</li></ul></div>
         <div class="release-entry"><div class="release-head"><b>v0.3.8</b><span>2026/11/24</span></div><ul><li>保存データを複数選択して一括PDF・印刷できる機能を追加</li><li>アプリ内に「かんたん取説」「詳細取説」を追加</li><li>v0.3.7の保存キー・保存データ形式・Excel帳票出力を変更せず維持</li></ul></div>
         <div class="release-entry"><div class="release-head"><b>v0.3.7</b><span>2026/11/23</span></div><ul><li>Excel帳票・空白Excel様式の出力スクリプト読み込み漏れを修正</li><li>完成版としてZIP構成・スマホ表示・保存・帳票出力・バージョン情報を再点検</li><li>スマホの「点検項目を編集」ボタンを全幅表示へ調整</li></ul></div>
         <div class="release-entry"><div class="release-head"><b>v0.3.6</b><span>2026/11/23</span></div><ul><li>スマホ縦画面の巡視結果をカード表示へ変更し、横スクロールなしで○／×／該当なしを選択可能に改善</li><li>PC・タブレットでは従来の表形式を維持</li></ul></div>
@@ -252,7 +252,7 @@
 <script>
 (()=>{
 'use strict';
-const APP_VERSION='0.3.12';
+const APP_VERSION='1.0.0';
 const STORAGE_KEY='moriken_safety_patrol_v1';
 const SETTINGS_KEY='moriken_safety_patrol_settings_v1';
 const TEMPLATE_KEY='moriken_safety_patrol_template_v1';

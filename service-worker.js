@@ -1,5 +1,5 @@
 const CACHE_PREFIX='moriken-safety-patrol-';
-const CACHE=CACHE_PREFIX+'v0.3.10-r1';
+const CACHE=CACHE_PREFIX+'v0.3.12-r1';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon.svg','./app-info.json','./version.json','./excel-export.js','./templates/safety-patrol-template.xlsx','./guide-quick.png','./guide-detail.png'];
 const base=self.registration.scope;
 const assetURLs=new Set(ASSETS.map(path=>new URL(path,base).href));

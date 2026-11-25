@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b5cab">
-<meta name="app-revision" content="v0.3.10-r1">
+<meta name="app-revision" content="v0.3.12-r1">
 <meta name="description" content="森建設工業 現場安全巡視点検アプリ">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
-<title>現場安全巡視 v0.3.10｜森建設工業DX</title>
+<title>現場安全巡視 v0.3.12｜森建設工業DX</title>
 <style>
 :root{--bg:#f4f7fb;--card:#fff;--text:#18324a;--muted:#66788a;--line:#d6e0ea;--blue:#0b5cab;--blue2:#e8f2fb;--teal:#0a7f82;--orange:#c86b16;--red:#b42318;--shadow:0 8px 24px rgba(25,55,80,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Meiryo",sans-serif}.app-header{display:flex;justify-content:space-between;gap:16px;padding:18px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.eyebrow{font-size:12px;color:var(--muted);font-weight:700}.app-header h1{font-size:22px;margin:3px 0}.subline{font-size:13px;color:var(--muted)}.status-wrap{display:flex;align-items:center;gap:8px}.status-badge,.version,.legend-chip{font-size:12px;padding:6px 9px;border-radius:999px;background:var(--blue2);color:var(--blue);white-space:nowrap}.app-shell{max-width:1280px;margin:0 auto;padding:18px}.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);margin-bottom:16px}.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.section-head>div:first-child{flex:1 1 auto;min-width:0}.section-head h2{font-size:17px;margin:0 0 4px}.hint{margin:0;color:var(--muted);font-size:12px;line-height:1.55;word-break:normal;overflow-wrap:break-word}.form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}.field label,.form-grid label{font-size:12px;font-weight:700;color:#4b6074;display:block}.input-row{display:flex;gap:6px;margin-top:5px}.input-row input,.input-row textarea,.field input,.field select,.field textarea,.form-grid input,.form-grid select{width:100%;border:1px solid #bfcddb;border-radius:10px;padding:11px;font-size:16px;color:var(--text);background:#fff;font-family:inherit}.input-row textarea{min-height:72px;resize:vertical}.voice{flex:0 0 44px;border:1px solid #9db3c5;background:#eef6fd;color:#0b5cab;border-radius:10px;font-size:19px;cursor:pointer}.voice.listening{background:#ffe6e3;border-color:#db6a61;color:#b42318;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.55}}
@@ -96,6 +96,29 @@
 #quickGuideDialog .guide-image-actions .btn,#detailGuideDialog .guide-image-actions .btn{min-width:0;flex:1;white-space:nowrap;padding:8px 5px}
 @media(max-height:550px){#quickGuideDialog .guide-caption,#detailGuideDialog .guide-caption{display:none}#quickGuideDialog .guide-dialog-card,#detailGuideDialog .guide-dialog-card{grid-template-rows:auto auto minmax(0,1fr) auto;gap:4px;padding:8px!important}}
 
+
+/* v0.3.11: fixed A4 PDF output dialog, scoped to this dialog only. */
+#pdfDialog{width:min(560px,94vw);max-height:92vh;max-height:92dvh;margin:auto;overflow:auto;color:var(--text);background:#fff}
+#pdfDialog .pdf-card{padding:15px;display:grid;gap:11px;min-width:0}
+#pdfDialog .pdf-header{display:flex;gap:10px;align-items:center;justify-content:space-between}
+#pdfDialog h2{margin:0;font-size:18px;line-height:1.35}
+#pdfDialog .pdf-header .btn{flex:none;white-space:nowrap}
+#pdfDialog p{font-size:13px;line-height:1.6;margin:0;overflow-wrap:anywhere}
+#pdfDialog #pdfCount{font-weight:700;color:var(--blue);font-size:14px}
+#pdfDialog #pdfProgress{width:100%;height:12px;accent-color:var(--blue)}
+#pdfDialog .pdf-preview-area{background:#edf2f6;border:1px solid var(--line);border-radius:10px;padding:7px;text-align:center}
+#pdfDialog #pdfPreview{display:block;max-width:100%;width:auto;height:auto;max-height:min(42vh,400px);margin:0 auto;border:1px solid #c0ccd6;object-fit:contain}
+#pdfDialog #pdfPreviewCaption{font-size:11px;color:var(--muted);margin-top:5px}
+#pdfDialog .pdf-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+#pdfDialog .pdf-actions .btn{min-width:0;display:block;text-align:center;text-decoration:none;font-size:14px;line-height:1.4;padding:12px 6px}
+#pdfDialog #pdfShareBtn{grid-column:1/-1}
+#pdfDialog .pdf-note{color:var(--muted);font-size:12px}
+#pdfDialog .pdf-error{color:var(--red);font-weight:700}
+
+
+/* v0.3.12: photo controls only. */
+#photoControls .photo-actions>button{min-width:0;white-space:normal;line-height:1.4;text-align:center;min-height:42px}
+@media(max-width:560px){#photoControls .photo-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}#photoControls #removePhoto{grid-column:1/-1;justify-self:start}#photoControls .photo-actions>button{padding:9px 6px}}
 </style>
 </head>
 <body>
@@ -107,7 +130,7 @@
   </div>
   <div class="status-wrap">
     <span id="draftBadge" class="status-badge">自動下書き</span>
-    <span class="version">v0.3.10</span>
+    <span class="version">v0.3.12</span>
   </div>
 </header>
 <main class="app-shell">
@@ -148,8 +171,8 @@
           <p class="small">例：「佐々木かなめ」「佐々木 要」→「佐々木」。自動判定が違う場合だけ印鑑文字を修正してください。</p>
         </div>
         <div id="photoControls" class="hidden">
-          <div class="photo-actions"><label class="btn" for="photoInput">写真を選ぶ／撮る</label><input id="photoInput" type="file" accept="image/*" hidden><button id="removePhoto" class="btn btn-light" type="button">写真を外す</button></div>
-          <p class="small">顔・全身などの区分は設けません。巡視者確認用の写真を1枚設定します。</p>
+          <div class="photo-actions"><button id="takePhotoBtn" class="btn btn-primary" type="button">写真を撮る</button><input id="cameraInput" type="file" accept="image/*" capture="user" hidden><button id="choosePhotoBtn" class="btn" type="button">写真を選ぶ</button><input id="photoInput" type="file" accept="image/*" hidden><button id="removePhoto" class="btn btn-light" type="button">写真を外す</button></div>
+          <p class="small">撮影または端末内の写真から、巡視者確認用の写真を1枚設定します。</p>
         </div>
       </div>
       <div class="identity-preview" id="identityPreview"></div>
@@ -193,8 +216,8 @@
 
   <section class="panel release-history-panel">
     <details>
-      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.10）</summary>
-      <div class="release-history"><div class="release-entry current"><div class="release-title">v0.3.10 <span>2026-11-25</span></div><ul><li>取説画像とアプリアイコンの旧キャッシュのみ自動削除・更新</li><li>保存履歴・巡視者写真・下書き・設定・点検項目を保持</li><li>最新版の取得が完了してから更新を有効化。既存機能と表示を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.9 <span>2026-11-24</span></div><ul><li>「かんたん取説」「詳細取説」を画像付きガイドに変更</li><li>取説画像の縦横比を維持して表示し、拡大表示にも対応</li><li>スマホで「巡視結果」の見出し・説明文が縦詰まりしないようレイアウトを修正</li><li>保存キー・保存データ形式・一括PDF/印刷・元帳票.xlsx出力はv0.3.8から変更なし</li></ul></div>
+      <summary>バージョンアップ情報（変更履歴 v0.1.0 ～ v0.3.12）</summary>
+      <div class="release-history"><div class="release-entry current"><div class="release-title">v0.3.12 <span>2026-11-25</span></div><ul><li>PDF帳票の巡視員名横の「印」欄を削除し、氏名欄に統合</li><li>巡視者写真の撮影用と端末写真の選択用ボタンを分離。撮影では前面カメラを優先</li><li>画像付き取説を更新。既存の保存データ・A4 PDF・一括出力・Excel・キャッシュ更新を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.11 <span>2026-11-25</span></div><ul><li>印刷用HTMLをA4縦のPDF実ファイルに変更。通常30項目・備考を1件1ページに収めるよう修正</li><li>現在の記録・保存データの個別出力・一括出力で同じPDF方式を使用。iPhone/iPadでは共有画面から印刷可能</li><li>長文は文字を切り捨てず、収まらない場合のみ続紙へ出力</li><li>既存のExcel帳票、保存キー、写真、下書き、設定、点検項目、画像キャッシュ保護を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.10 <span>2026-11-25</span></div><ul><li>取説画像とアプリアイコンの旧キャッシュのみ自動削除・更新</li><li>保存履歴・巡視者写真・下書き・設定・点検項目を保持</li><li>最新版の取得が完了してから更新を有効化。既存機能と表示を維持</li></ul></div><div class="release-entry"><div class="release-title">v0.3.9 <span>2026-11-24</span></div><ul><li>「かんたん取説」「詳細取説」を画像付きガイドに変更</li><li>取説画像の縦横比を維持して表示し、拡大表示にも対応</li><li>スマホで「巡視結果」の見出し・説明文が縦詰まりしないようレイアウトを修正</li><li>保存キー・保存データ形式・一括PDF/印刷・元帳票.xlsx出力はv0.3.8から変更なし</li></ul></div>
         <div class="release-entry"><div class="release-head"><b>v0.3.8</b><span>2026/11/24</span></div><ul><li>保存データを複数選択して一括PDF・印刷できる機能を追加</li><li>アプリ内に「かんたん取説」「詳細取説」を追加</li><li>v0.3.7の保存キー・保存データ形式・Excel帳票出力を変更せず維持</li></ul></div>
         <div class="release-entry"><div class="release-head"><b>v0.3.7</b><span>2026/11/23</span></div><ul><li>Excel帳票・空白Excel様式の出力スクリプト読み込み漏れを修正</li><li>完成版としてZIP構成・スマホ表示・保存・帳票出力・バージョン情報を再点検</li><li>スマホの「点検項目を編集」ボタンを全幅表示へ調整</li></ul></div>
         <div class="release-entry"><div class="release-head"><b>v0.3.6</b><span>2026/11/23</span></div><ul><li>スマホ縦画面の巡視結果をカード表示へ変更し、横スクロールなしで○／×／該当なしを選択可能に改善</li><li>PC・タブレットでは従来の表形式を維持</li></ul></div>
@@ -223,12 +246,13 @@
 <dialog id="historyDialog"><div class="dialog-card"><div class="section-head"><div><h2>保存データ</h2><p class="hint">保存した巡視記録を開く・出力・削除できます。複数選択して一括PDF・印刷もできます。</p></div><button class="btn btn-light" id="closeHistory" type="button">閉じる</button></div><div class="history-toolbar"><label class="checkline"><input id="historySelectAll" type="checkbox"> 一覧を全選択</label><span id="historySelectedCount" class="small">0件選択中</span><div class="history-bulk-actions"><button id="bulkPrintBtn" class="btn btn-accent" type="button" disabled>選択データを一括PDF・印刷</button><button id="bulkClearBtn" class="btn btn-light" type="button">選択解除</button></div></div><div id="historyList" class="history-list"></div></div></dialog>
 <dialog id="quickGuideDialog"><div class="dialog-card guide-dialog-card"><div class="section-head guide-dialog-head"><div><h2>かんたん取説</h2><p class="hint">最初は全体が1画面に収まる大きさで表示します。</p></div><button class="btn btn-light" id="closeQuickGuide" type="button">閉じる</button></div><div class="guide-image-controls" aria-label="画像の表示倍率"><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="out" data-guide-target="quickGuideImage">－ 縮小</button><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="fit" data-guide-target="quickGuideImage">全体表示</button><span class="guide-zoom-label" id="quickGuideZoomLabel">全体 100%</span><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="in" data-guide-target="quickGuideImage">＋ 拡大</button></div><div class="guide-image-wrap"><img id="quickGuideImage" src="./guide-quick.png" alt="現場安全巡視アプリ かんたん取説"></div><p class="guide-caption">入力から保存、保存データ、一括PDF・印刷までを1枚で確認できます。</p><div class="guide-image-actions"><button id="openDetailFromQuick" class="btn" type="button">詳細取説へ</button><button id="closeQuickGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
 <dialog id="detailGuideDialog"><div class="dialog-card guide-dialog-card"><div class="section-head guide-dialog-head"><div><h2>詳細取説</h2><p class="hint">最初は全体が1画面に収まる大きさで表示します。</p></div><button class="btn btn-light" id="closeDetailGuide" type="button">閉じる</button></div><div class="guide-image-controls" aria-label="画像の表示倍率"><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="out" data-guide-target="detailGuideImage">－ 縮小</button><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="fit" data-guide-target="detailGuideImage">全体表示</button><span class="guide-zoom-label" id="detailGuideZoomLabel">全体 100%</span><button class="btn btn-light guide-zoom-btn" type="button" data-guide-zoom="in" data-guide-target="detailGuideImage">＋ 拡大</button></div><div class="guide-image-wrap"><img id="detailGuideImage" src="./guide-detail.png" alt="現場安全巡視アプリ 詳細取説"></div><p class="guide-caption">巡視情報、巡視者、30項目判定、期間コピー、保存データ、一括PDF・印刷、Excel帳票、バックアップまで説明しています。</p><div class="guide-image-actions"><button id="closeDetailGuide2" class="btn btn-primary" type="button">閉じる</button></div></div></dialog>
+<dialog id="pdfDialog"><div class="pdf-card"><div class="pdf-header"><h2>PDF・印刷（A4縦）</h2><button id="closePdfDialog" type="button" class="btn btn-light">閉じる</button></div><p id="pdfMessage" role="status" aria-live="polite">PDFを準備しています。</p><progress id="pdfProgress" value="0" max="1"></progress><p id="pdfCount" aria-live="polite"></p><div id="pdfPreviewArea" class="pdf-preview-area hidden"><img id="pdfPreview" alt="PDF先頭ページの印刷プレビュー"><p id="pdfPreviewCaption"></p></div><div class="pdf-actions"><button id="pdfShareBtn" class="btn btn-primary hidden" type="button">PDFを共有・印刷</button><a id="pdfOpenBtn" class="btn btn-primary hidden" target="_blank" rel="noopener">PDFを開く</a><a id="pdfSaveBtn" class="btn hidden" download>PDFを保存</a></div><p class="pdf-note">用紙はA4・縦を選択してください。PDFを使うため印刷時にHTMLの改ページが発生しません。iPhone／iPadは共有画面からプリントできます。対応プリンターが必要です。</p></div></dialog>
 <div id="toast" class="toast"></div>
 <script src="./excel-export.js"></script>
 <script>
 (()=>{
 'use strict';
-const APP_VERSION='0.3.10';
+const APP_VERSION='0.3.12';
 const STORAGE_KEY='moriken_safety_patrol_v1';
 const SETTINGS_KEY='moriken_safety_patrol_settings_v1';
 const TEMPLATE_KEY='moriken_safety_patrol_template_v1';
@@ -356,14 +380,226 @@ function renderHistory(){const box=$('historyList');const validIds=new Set(histo
 function updateHistorySelectionUi(){const count=selectedHistoryIds.size;$('historySelectedCount').textContent=`${count}件選択中`;$('bulkPrintBtn').disabled=count===0;const all=$('historySelectAll');all.checked=history.length>0&&count===history.length;all.indeterminate=count>0&&count<history.length}
 function clearHistorySelection(){selectedHistoryIds.clear();renderHistory()}
 function selectedHistoryRecords(){return history.filter(r=>selectedHistoryIds.has(r.id)).sort((a,b)=>String(a.workDate).localeCompare(String(b.workDate))||String(a.updatedAt).localeCompare(String(b.updatedAt)))}
-function printSelectedRecords(){const records=selectedHistoryRecords();if(!records.length){toast('一括PDF・印刷するデータを選択してください');return}for(const r of records){if(!validateForOutput(r))return}const w=window.open('','_blank');if(!w){toast('ポップアップを許可してください');return}const pages=records.map((r,i)=>{const html=reportHtml(r);const body=(html.match(/<body>([\s\S]*?)<\/body>/i)||[])[1]||html;return `<section class="bulk-page" style="break-after:${i===records.length-1?'auto':'page'};page-break-after:${i===records.length-1?'auto':'always'}">${body}</section>`}).join('');w.document.write(`<!doctype html><html><head><meta charset="utf-8"><style>@page{size:A4 portrait;margin:9mm}body{font-family:Meiryo,sans-serif;color:#111;margin:0}h2{text-align:center;margin:4px 0 8px;font-size:17px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #555;padding:4px;font-size:10px;vertical-align:middle}th{background:#dce8f2}.meta td,.meta th{font-size:10px}.identity{text-align:center;width:95px}.note{white-space:pre-wrap}.bulk-page{margin:0;padding:0}</style></head><body>${pages}</body></html>`);w.document.close();w.onload=()=>setTimeout(()=>w.print(),220)}
-function statusMark(s){return s==='good'?'○':s==='bad'?'×':s==='na'?'／':''}
-function dateJP(s){if(!s)return'';const [y,m,d]=s.split('-');return `${y}年${Number(m)}月${Number(d)}日`}
-function identityHtml(r){if(r.identityMode==='photo')return r.photoData?`<img src="${r.photoData}" style="width:82px;height:82px;object-fit:cover;border:1px solid #777">`:'写真未設定';const t=esc(r.sealText||deriveSurname(r.inspector)||'印');return `<div style="width:70px;height:70px;border:2px solid #c52f2f;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c52f2f;font-family:serif;font-weight:bold;font-size:18px;writing-mode:vertical-rl;margin:auto">${t}</div>`}
-function reportHtml(r){let rows='';let no=0;for(const sec of sections(r.items)){rows+=`<tr><td colspan="4" style="background:#e8edf1;font-weight:bold">${esc(sec)}</td></tr>`;for(const item of r.items.filter(x=>x.section===sec)){no++;const c=(r.checks||[]).find(x=>x.itemId===item.id)||{};rows+=`<tr><td style="text-align:center;width:38px">${no}</td><td>${esc(item.label)}</td><td style="text-align:center;font-size:18px;font-weight:bold;width:58px">${statusMark(c.status)}</td><td style="width:38%;white-space:pre-wrap">${esc(c.note||'')}</td></tr>`}}
-const batch=r.batchMeta?`<div style="font-size:9px;color:#666;margin-top:5px">期間コピー：元日 ${esc(r.batchMeta.sourceDate)} ／ 作成 ${esc(new Date(r.batchMeta.createdAt).toLocaleString('ja-JP'))}</div>`:'';
-return `<!doctype html><html><head><meta charset="utf-8"><style>@page{size:A4 portrait;margin:9mm}body{font-family:Meiryo,sans-serif;color:#111}h2{text-align:center;margin:4px 0 8px;font-size:17px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #555;padding:4px;font-size:10px;vertical-align:middle}th{background:#dce8f2}.meta td,.meta th{font-size:10px}.identity{text-align:center;width:95px}.note{white-space:pre-wrap}</style></head><body><h2>現場安全巡視点検表</h2><table class="meta"><tr><th>工事名</th><td colspan="3">${esc(r.projectName)}</td><th rowspan="3">巡視者<br>${r.identityMode==='photo'?'写真':'電子印鑑'}</th><td rowspan="3" class="identity">${identityHtml(r)}</td></tr><tr><th>巡視日</th><td>${esc(dateJP(r.workDate))}</td><th>巡視時刻</th><td>${esc(r.patrolTime||'')}</td></tr><tr><th>天候</th><td>${esc(r.weather||'')}</td><th>巡視者</th><td>${esc(r.inspector||'')}</td></tr></table><br><table><thead><tr><th>No.</th><th>点検項目</th><th>判定</th><th>巡視者指摘・是正事項</th></tr></thead><tbody>${rows}<tr><th colspan="2">全体備考</th><td colspan="2" class="note">${esc(r.remarks||'')}</td></tr></tbody></table>${batch}<div style="font-size:9px;color:#777;margin-top:5px">森建設工業DX 現場安全巡視 v${APP_VERSION}</div></body></html>`}
-function printRecord(r){if(!validateForOutput(r))return;const w=window.open('','_blank');if(!w){toast('ポップアップを許可してください');return}w.document.write(reportHtml(r));w.document.close();w.onload=()=>setTimeout(()=>w.print(),180)}
+// Fixed-size A4 PDF output. No user data is written by this module.
+// One page per normal record; unusually long content is continued without truncation.
+const PDF_FORM={width:210,height:297,left:10,right:200,top:11,bottom:280,cols:[7,83,10,10,80],remarksLabel:30,pixelsPerMm:240/25.4};
+const PDF_FONT='"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Noto Sans CJK JP",sans-serif';
+let pdfJob=0,pdfPrepared=null;
+function pdfFont(ctx,size,bold=false){ctx.font=`${bold?'700':'400'} ${size}px ${PDF_FONT}`;ctx.textBaseline='middle';}
+function pdfLines(ctx,value,width,size,bold=false){
+  pdfFont(ctx,size,bold);const out=[];
+  for(const paragraph of String(value??'').replace(/\r\n?/g,'\n').replace(/\t/g,'  ').split('\n')){
+    let line='';
+    for(const ch of paragraph){const next=line+ch;if(line&&ctx.measureText(next).width>width){out.push(line);line=ch;}else line=next;}
+    out.push(line);
+  }return out.length?out:[''];
+}
+function pdfText(ctx,lines,x,y,w,h,size,{bold=false,align='left',color='#17212b',lineH=size*1.25,pad=1.2}={}){
+  pdfFont(ctx,size,bold);ctx.fillStyle=color;ctx.textAlign=align==='center'?'center':'left';
+  const tx=align==='center'?x+w/2:x+pad;
+  const start=y+(h-lines.length*lineH)/2+lineH/2;
+  lines.forEach((line,i)=>ctx.fillText(line,tx,start+i*lineH));
+}
+function pdfBox(ctx,x,y,w,h,fill=null){
+  if(fill){ctx.fillStyle=fill;ctx.fillRect(x,y,w,h);}
+  ctx.strokeStyle='#46515a';ctx.lineWidth=.15;ctx.strokeRect(x,y,w,h);
+}
+function pdfCell(ctx,lines,x,y,w,h,size,opts={}){pdfBox(ctx,x,y,w,h,opts.fill||null);pdfText(ctx,lines,x,y,w,h,size,opts);}
+function pdfDate(iso){const d=new Date(String(iso||'')+'T00:00:00');if(isNaN(d.getTime()))return String(iso||'');const y=d.getFullYear();return `${y>=2019?'R'+(y-2018):y}年 ${d.getMonth()+1}月 ${d.getDate()}日（${'日月火水木金土'[d.getDay()]}）`;}
+function pdfHeaderPlan(ctx,r){
+  const s=3.15,lh=s*1.25,project=pdfLines(ctx,r.projectName,165.6,s,true);
+  const date=pdfLines(ctx,pdfDate(r.workDate),95.6,s),time=pdfLines(ctx,r.patrolTime,40.6,s),weather=pdfLines(ctx,r.weather,34,s),name=pdfLines(ctx,r.inspector,95.6,s);
+  const projectH=Math.max(7,project.length*lh+2),titleH=8.7;
+  const h=[Math.max(7,date.length*lh+1.8),Math.max(7,Math.max(time.length,weather.length)*lh+1.8),Math.max(9,name.length*lh+1.8)];
+  const tableY=PDF_FORM.top+projectH+titleH+h.reduce((a,b)=>a+b,0)+2.7;
+  if(tableY>PDF_FORM.bottom-25)throw new Error('工事名などの基本情報が長すぎます。PDFの作成を中止しました。入力データは変更していません。');
+  return {s,lh,project,date,time,weather,name,projectH,titleH,h,tableY};
+}
+function pdfDrawHeader(ctx,r,head,identity,part,total){
+  const x=PDF_FORM.left,w=190,s=head.s,lh=head.lh;let y=PDF_FORM.top;
+  pdfCell(ctx,['工事名'],x,y,22,head.projectH,3.05,{align:'center',fill:'#f3f5f6'});
+  pdfCell(ctx,head.project,x+22,y,w-22,head.projectH,s,{bold:true,lineH:lh});y+=head.projectH;
+  pdfText(ctx,['現場安全巡視点検表'],x,y,w,head.titleH,4.55,{bold:true,align:'center'});
+  if(total>1)pdfText(ctx,[`${part}/${total}ページ`],x+151,y,39,head.titleH,2.8,{align:'center'});
+  y+=head.titleH;
+  const label={align:'center',fill:'#f3f5f6'},val={lineH:lh};
+  const [h1,h2,h3]=head.h;
+  pdfCell(ctx,['作業日'],x,y,22,h1,3.0,label);pdfCell(ctx,head.date,x+22,y,98,h1,s,val);
+  pdfCell(ctx,['点検時刻'],x,y+h1,22,h2,3.0,label);pdfCell(ctx,head.time,x+22,y+h1,43,h2,s,val);
+  pdfCell(ctx,['天候'],x+65,y+h1,19,h2,3.0,label);pdfCell(ctx,head.weather,x+84,y+h1,36,h2,s,val);
+  pdfCell(ctx,['巡視員名'],x,y+h1+h2,22,h3,3.0,label);pdfCell(ctx,head.name,x+22,y+h1+h2,98,h3,s,val);
+  const approvalY=y,approvalH=h1+h2+h3,headingH=6.3,approvals=[['現場代理人',22],['監理技術者',22],['安全巡視員',26]];
+  let ax=x+120;
+  for(let i=0;i<approvals.length;i++){
+    const [text,aw]=approvals[i];pdfCell(ctx,[text],ax,approvalY,aw,headingH,2.85,{align:'center',fill:'#f3f5f6'});
+    pdfBox(ctx,ax,approvalY+headingH,aw,approvalH-headingH);
+    if(i===2){const ah=approvalH-headingH;if(identity){const size=Math.min(aw-2.5,ah-1.8);ctx.drawImage(identity,ax+(aw-size)/2,approvalY+headingH+(ah-size)/2,size,size);}
+      else pdfText(ctx,[r.identityMode==='photo'?'写真未設定':'印鑑未設定'],ax,approvalY+headingH,aw,ah,2.65,{align:'center',color:'#555'});}
+    ax+=aw;
+  }
+}
+function pdfRows(ctx,r,size){
+  const lh=size*1.25,pad=1.25,scale=size/3.25,rows=[];let no=0;
+  for(const sec of sections(r.items)){
+    rows.push({kind:'section',a:pdfLines(ctx,`【${sec}】`,PDF_FORM.cols[1]-2.4,size,true),b:[],lh,pad,minH:4.9*scale});
+    for(const it of r.items.filter(it=>it.section===sec)){
+      const c=(r.checks||[]).find(z=>z.itemId===it.id)||{};
+      rows.push({kind:'item',no:++no,status:c.status,a:pdfLines(ctx,it.label,PDF_FORM.cols[1]-2.4,size),b:pdfLines(ctx,c.note||'',PDF_FORM.cols[4]-2.4,size),lh,pad,minH:5.25*scale});
+    }
+  }
+  rows.push({kind:'remarks',a:[],b:pdfLines(ctx,r.remarks||'',190-PDF_FORM.remarksLabel-2.4,size),lh,pad,minH:18});
+  return rows;
+}
+function pdfRowHeight(r){return Math.max(r.minH||0,Math.max(r.a.length,r.b.length,1)*r.lh+r.pad);}
+function pdfSplitRows(rows,capacity){
+  const pages=[];let page=[],used=0;
+  function next(){if(page.length){pages.push(page);page=[];used=0;}}
+  function add(row){page.push(row);used+=pdfRowHeight(row);}
+  if(capacity<12)throw new Error('PDFの帳票スペースが不足しています。');
+  for(let i=0;i<rows.length;i++){
+    let row=rows[i],height=pdfRowHeight(row);
+    if(row.kind==='section'&&i+1<rows.length&&page.length&&height+Math.min(pdfRowHeight(rows[i+1]),capacity-height)>capacity-used+.0001)next();
+    if(height<=capacity+.0001){if(page.length&&used+height>capacity+.0001)next();add(row);continue;}
+    // A single unusually long note or edited item may span pages; preserve every line.
+    let a=row.a.slice(),b=row.b.slice(),continuation=false;
+    while(a.length||b.length){
+      let room=capacity-used;let count=Math.floor((room-row.pad+.0001)/row.lh);
+      if(count<1){next();continue;}
+      const fragment={...row,a:a.splice(0,count),b:b.splice(0,count),minH:0,continuation};
+      add(fragment);continuation=true;
+      if(a.length||b.length)next();
+    }
+  }
+  next();return pages;
+}
+function pdfPlan(ctx,r){
+  const header=pdfHeaderPlan(ctx,r),capacity=PDF_FORM.bottom-header.tableY-6.7;
+  for(const size of [3.25,3.15,3.05,2.95,2.85,2.75,2.65]){
+    const rows=pdfRows(ctx,r,size);
+    if(rows.reduce((n,row)=>n+pdfRowHeight(row),0)<=capacity+.0001)return {header,size,pages:[rows]};
+  }
+  // If a single readable page is impossible, keep normal type size and use a continuation.
+  const size=3.25;return {header,size,pages:pdfSplitRows(pdfRows(ctx,r,size),capacity)};
+}
+function pdfDrawTable(ctx,plan,page,r,part,total){
+  const x=PDF_FORM.left,cols=PDF_FORM.cols,size=plan.size;let y=plan.header.tableY;
+  const headH=6.7,headOpts={align:'center',bold:true,fill:'#edf1f4'};
+  pdfCell(ctx,['点検項目・内容'],x,y,cols[0]+cols[1],headH,3.2,headOpts);
+  pdfCell(ctx,['良好'],x+90,y,10,headH,3.1,headOpts);
+  pdfCell(ctx,['不良'],x+100,y,10,headH,3.1,headOpts);
+  pdfCell(ctx,['指摘事項および是正内容'],x+110,y,80,headH,3.2,headOpts);y+=headH;
+  for(const row of page){
+    const h=pdfRowHeight(row),opts={lineH:row.lh};
+    if(row.kind==='section'){
+      pdfCell(ctx,row.a,x,y,90,h,size,{...opts,bold:true,fill:'#f2f4f6',pad:1.8});
+      pdfBox(ctx,x+90,y,10,h,'#f2f4f6');pdfBox(ctx,x+100,y,10,h,'#f2f4f6');pdfBox(ctx,x+110,y,80,h,'#f2f4f6');
+    }else if(row.kind==='item'){
+      pdfCell(ctx,[String(row.no)+(row.continuation?'続':'')],x,y,7,h,row.continuation?2.25:3.0,{align:'center'});
+      pdfCell(ctx,row.a,x+7,y,83,h,size,opts);
+      const markGood=row.status==='good'?'○':row.status==='na'?'／':'',markBad=row.status==='bad'?'×':row.status==='na'?'／':'';
+      pdfCell(ctx,[markGood],x+90,y,10,h,Math.min(4,size*1.23),{align:'center',bold:true});
+      pdfCell(ctx,[markBad],x+100,y,10,h,Math.min(4,size*1.23),{align:'center',bold:true});
+      pdfCell(ctx,row.b,x+110,y,80,h,size,opts);
+    }else{
+      const rw=PDF_FORM.remarksLabel;pdfCell(ctx,[row.continuation?'全体備考（続）':'全体備考'],x,y,rw,h,3.15,{align:'center',bold:true,fill:'#f3f5f6'});pdfCell(ctx,row.b,x+rw,y,190-rw,h,size,opts);
+    }
+    y+=h;
+  }
+  if(y>PDF_FORM.bottom+.01)throw new Error('印刷帳票がA4の範囲を超えました。');
+  const copy=r.batchMeta?`　期間コピー：元日 ${r.batchMeta.sourceDate||''}`:'';
+  const draft=r.status!=='complete'?'　要確認（下書き）':'';
+  pdfText(ctx,[`森建設工業DX　現場安全巡視 v${APP_VERSION}${copy}${draft}`],x,y+.6,190,4,2.4,{color:'#555'});
+}
+async function pdfIdentity(r){
+  if(r.identityMode==='photo'&&!r.photoData)return null;
+  return imageLoad(await identityDataUrl(r));
+}
+async function pdfCanvasJpeg(canvas){
+  if(typeof canvas.toBlob==='function')return await new Promise((resolve,reject)=>canvas.toBlob(b=>b&&b.size?resolve(b):reject(new Error('PDF画像の生成に失敗しました。')),'image/jpeg',.95));
+  const base64=canvas.toDataURL('image/jpeg',.95).split(',')[1];if(!base64)throw new Error('PDF画像の生成に失敗しました。');
+  return new Blob([Uint8Array.from(atob(base64),c=>c.charCodeAt(0))],{type:'image/jpeg'});
+}
+function pdfFromImages(images){
+  if(!images.length)throw new Error('PDFに出力するページがありません。');
+  const enc=new TextEncoder(),parts=[],offsets=[0];let pos=0;
+  const push=part=>{const data=typeof part==='string'?enc.encode(part):part;parts.push(data);pos+=data instanceof Blob?data.size:data.byteLength;};
+  const object=(id,body)=>{offsets[id]=pos;push(`${id} 0 obj\n`);for(const part of body)push(part);push('\nendobj\n');};
+  const pw=(210*72/25.4).toFixed(5),ph=(297*72/25.4).toFixed(5),ids=images.map((_,i)=>3+i*3);
+  push('%PDF-1.6\n%');push(new Uint8Array([0xe2,0xe3,0xcf,0xd3,10]));
+  object(1,['<< /Type /Catalog /Pages 2 0 R /ViewerPreferences << /PrintScaling /None >> >>']);
+  object(2,[`<< /Type /Pages /Count ${images.length} /Kids [${ids.map(id=>`${id} 0 R`).join(' ')}] >>`]);
+  images.forEach((img,i)=>{
+    const id=ids[i];object(id,[`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw} ${ph}] /CropBox [0 0 ${pw} ${ph}] /Resources << /XObject << /Im ${id+1} 0 R >> >> /Contents ${id+2} 0 R >>`]);
+    object(id+1,[`<< /Type /XObject /Subtype /Image /Width ${img.width} /Height ${img.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${img.blob.size} >>\nstream\n`,img.blob,'\nendstream']);
+    const stream=`q\n${pw} 0 0 ${ph} 0 0 cm\n/Im Do\nQ\n`;
+    object(id+2,[`<< /Length ${enc.encode(stream).byteLength} >>\nstream\n`,stream,'endstream']);
+  });
+  const xref=pos,count=3+images.length*3;
+  push(`xref\n0 ${count}\n0000000000 65535 f \n`);
+  for(let i=1;i<count;i++)push(`${String(offsets[i]).padStart(10,'0')} 00000 n \n`);
+  push(`trailer\n<< /Size ${count} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`);
+  return new Blob(parts,{type:'application/pdf'});
+}
+function releasePdfPrepared(){
+  if(!pdfPrepared)return;
+  const {url,preview}=pdfPrepared;pdfPrepared=null;
+  // Do not revoke immediately: a new tab, Files or the system share sheet may still be reading it.
+  if(url)setTimeout(()=>URL.revokeObjectURL(url),300000);
+  if(preview)URL.revokeObjectURL(preview);
+}
+function pdfName(records){const safe=s=>String(s||'').replace(/[\\/:*?"<>|\x00-\x1f]/g,'_').slice(0,50);return records.length>1?`現場安全巡視_一括_${records.length}件.pdf`:`現場安全巡視_${safe(records[0].workDate)}_${safe(records[0].projectName)}.pdf`;}
+function pdfCanShare(file){try{return !!(file&&navigator.share&&navigator.canShare&&navigator.canShare({files:[file]}));}catch{return false;}}
+async function startPdf(records){
+  if(!records.length){toast('一括PDF・印刷するデータを選択してください');return;}
+  if(records.some(r=>!validateForOutput(r)))return;
+  // A snapshot protects against later UI edits while a PDF is being generated.
+  records=clone(records);
+  const job=++pdfJob,dialog=$('pdfDialog'),message=$('pdfMessage');releasePdfPrepared();$('pdfOpenBtn').removeAttribute('href');$('pdfSaveBtn').removeAttribute('href');
+  $('pdfShareBtn').classList.add('hidden');$('pdfOpenBtn').classList.add('hidden');$('pdfSaveBtn').classList.add('hidden');$('pdfPreviewArea').classList.add('hidden');$('pdfPreview').removeAttribute('src');
+  message.textContent='A4縦のPDFを準備しています…';message.classList.remove('pdf-error');$('pdfCount').textContent='';$('pdfProgress').classList.remove('hidden');$('pdfProgress').max=records.length;$('pdfProgress').value=0;
+  if(!dialog.open)dialog.showModal();
+  const images=[];let continuation=0;
+  try{
+    if(document.fonts?.ready)await document.fonts.ready;
+    for(let i=0;i<records.length;i++){
+      if(job!==pdfJob||!dialog.open)return;
+      message.textContent=`PDFを作成しています（${i+1}/${records.length}件）…`;
+      const record=records[i],canvas=document.createElement('canvas');
+      canvas.width=Math.round(PDF_FORM.width*PDF_FORM.pixelsPerMm);canvas.height=Math.round(PDF_FORM.height*PDF_FORM.pixelsPerMm);
+      try{
+        const ctx=canvas.getContext('2d',{alpha:false});if(!ctx)throw new Error('PDFの描画機能を利用できません。');
+        const identity=await pdfIdentity(record);if(job!==pdfJob)return;
+        ctx.setTransform(canvas.width/PDF_FORM.width,0,0,canvas.height/PDF_FORM.height,0,0);
+        const plan=pdfPlan(ctx,record);continuation+=Math.max(0,plan.pages.length-1);
+        for(let p=0;p<plan.pages.length;p++){
+          if(job!==pdfJob||!dialog.open)return;
+          ctx.fillStyle='#fff';ctx.fillRect(0,0,210,297);pdfDrawHeader(ctx,record,plan.header,identity,p+1,plan.pages.length);pdfDrawTable(ctx,plan,plan.pages[p],record,p+1,plan.pages.length);
+          images.push({blob:await pdfCanvasJpeg(canvas),width:canvas.width,height:canvas.height});
+        }
+      }finally{canvas.width=1;canvas.height=1;}
+      $('pdfProgress').value=i+1;
+    }
+    if(job!==pdfJob||!dialog.open)return;
+    const blob=pdfFromImages(images),name=pdfName(records),file=typeof File==='function'?new File([blob],name,{type:'application/pdf'}):null;
+    const url=URL.createObjectURL(blob),preview=URL.createObjectURL(images[0].blob),shareable=pdfCanShare(file);
+    pdfPrepared={blob,file,url,preview};
+    $('pdfPreview').src=preview;$('pdfPreviewArea').classList.remove('hidden');$('pdfPreviewCaption').textContent=images.length===1?'生成したA4縦PDFのプレビュー':'先頭ページのプレビュー（全ページはPDFを開いて確認できます）';
+    $('pdfCount').textContent=`A4縦 ${images.length}ページ ／ ${records.length}件`+(continuation?`（長い記録の続紙 ${continuation}ページを含む）`:'');
+    $('pdfOpenBtn').href=url;$('pdfSaveBtn').href=url;$('pdfSaveBtn').download=name;
+    $('pdfOpenBtn').classList.remove('hidden');$('pdfSaveBtn').classList.remove('hidden');
+    $('pdfShareBtn').classList.toggle('hidden',!shareable);
+    message.textContent=shareable?'「PDFを共有・印刷」から共有画面の「プリント」を選んでください。':'「PDFを開く」からPDFの印刷機能をご利用ください。';
+    $('pdfProgress').classList.add('hidden');
+  }catch(e){if(job!==pdfJob)return;console.error(e);message.textContent=e?.message||'PDFの生成に失敗しました。もう一度お試しください。';message.classList.add('pdf-error');$('pdfProgress').classList.add('hidden');releasePdfPrepared();}
+}
+async function sharePreparedPdf(){
+  const prepared=pdfPrepared;if(!prepared)return;
+  if(!pdfCanShare(prepared.file)){$('pdfMessage').textContent='「PDFを開く」または「PDFを保存」から印刷してください。';return;}
+  try{await navigator.share({files:[prepared.file],title:'現場安全巡視点検表'});}
+  catch(e){if(e?.name==='AbortError')return;$('pdfMessage').textContent='共有できませんでした。「PDFを開く」または「PDFを保存」から印刷してください。';}
+}
+function printSelectedRecords(){return startPdf(selectedHistoryRecords());}
+function printRecord(r){return startPdf([r]);}
 function validateForOutput(r){if(!r.projectName||!r.workDate||!r.inspector){toast('工事名・巡視日・巡視者氏名を入力してください');return false}return true}
 function imageLoad(src){return new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src})}
 async function identityDataUrl(r){const c=document.createElement('canvas');c.width=240;c.height=240;const ctx=c.getContext('2d');ctx.clearRect(0,0,240,240);if(r.identityMode==='photo'&&r.photoData){const im=await imageLoad(r.photoData),side=Math.min(im.naturalWidth,im.naturalHeight),sx=(im.naturalWidth-side)/2,sy=(im.naturalHeight-side)/2;ctx.drawImage(im,sx,sy,side,side,0,0,240,240);return c.toDataURL('image/png')}ctx.fillStyle='#fff';ctx.fillRect(0,0,240,240);ctx.strokeStyle='#c52f2f';ctx.lineWidth=8;ctx.beginPath();ctx.arc(120,120,98,0,Math.PI*2);ctx.stroke();const t=(r.sealText||deriveSurname(r.inspector)||'印').slice(0,4);ctx.fillStyle='#c52f2f';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font=`700 ${t.length>=4?42:t.length===3?48:58}px "Yu Mincho","Hiragino Mincho ProN",serif`;const chars=[...t],gap=t.length>=4?42:t.length===3?48:58,start=120-gap*(chars.length-1)/2;chars.forEach((ch,i)=>ctx.fillText(ch,120,start+i*gap));return c.toDataURL('image/png')}
@@ -379,13 +615,25 @@ function voiceSupported(){return !!(window.SpeechRecognition||window.webkitSpeec
 function cleanVoiceText(t){return String(t||'').trim().replace(/[。．.、，,！？!?；;：:]+$/g,'').trim()}
 function startVoice(target,button){if(!voiceSupported()){toast('音声入力はChrome / Edgeで利用してください');return}try{try{recognition?.abort()}catch{}const SR=window.SpeechRecognition||window.webkitSpeechRecognition;recognition=new SR();recognition.lang='ja-JP';recognition.interimResults=false;recognition.continuous=false;button?.classList.add('listening');recognition.onresult=e=>{const t=cleanVoiceText([...e.results].map(x=>x[0].transcript).join(''));if(target.tagName==='TEXTAREA'&&target.value.trim())target.value=target.value.trim()+' '+t;else target.value=t;target.dispatchEvent(new Event('input',{bubbles:true}))};recognition.onerror=()=>toast('音声入力を開始できませんでした');recognition.onend=()=>button?.classList.remove('listening');recognition.start()}catch{button?.classList.remove('listening');toast('音声入力を開始できませんでした')}}
 function bind(){
+  $('closePdfDialog').onclick=()=>$('pdfDialog').close();
+  $('pdfDialog').addEventListener('close',()=>{if($('pdfDialog').open)return;pdfJob++;releasePdfPrepared();$('pdfPreview').removeAttribute('src');$('pdfOpenBtn').removeAttribute('href');$('pdfSaveBtn').removeAttribute('href');});
+  $('pdfShareBtn').onclick=sharePreparedPdf;
   ['projectName','workDate','patrolTime','weather','remarks'].forEach(id=>$(id).addEventListener('input',()=>syncMeta(true)));
   $('inspector').addEventListener('input',()=>{state.inspector=$('inspector').value;state.sealText=deriveSurname(state.inspector);$('sealText').value=state.sealText;markDirty();renderIdentity()});
   $('sealText').addEventListener('input',()=>{state.sealText=$('sealText').value;markDirty();renderIdentity()});
   $('autoSealBtn').onclick=()=>{state.sealText=deriveSurname($('inspector').value);$('sealText').value=state.sealText;markDirty();renderIdentity()};
   document.querySelectorAll('input[name="identityMode"]').forEach(r=>r.addEventListener('change',()=>{state.identityMode=r.value;markDirty();renderIdentity()}));
-  $('photoInput').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{state.photoData=await compressImage(f);markDirty();renderIdentity();toast('写真を設定しました')}catch{toast('写真を読み込めませんでした')}e.target.value=''};
-  $('removePhoto').onclick=()=>{state.photoData='';markDirty();renderIdentity()};
+  let photoJob=0;
+  const receivePhoto=async e=>{
+    const input=e.target,f=input.files?.[0];input.value='';if(!f)return;
+    const record=state,job=++photoJob;
+    try{const data=await compressImage(f);if(job!==photoJob||state!==record)return;state.photoData=data;markDirty();renderIdentity();toast('写真を設定しました')}
+    catch{if(job===photoJob&&state===record)toast('写真を読み込めませんでした')}
+  };
+  $('takePhotoBtn').onclick=()=>$('cameraInput').click();
+  $('choosePhotoBtn').onclick=()=>$('photoInput').click();
+  $('cameraInput').onchange=receivePhoto;$('photoInput').onchange=receivePhoto;
+  $('removePhoto').onclick=()=>{photoJob++;state.photoData='';markDirty();renderIdentity()};
   document.body.addEventListener('click',e=>{const b=e.target.closest('[data-voice]');if(b)startVoice($(b.dataset.voice),b)});
   $('checkBody').onclick=e=>{const tr=e.target.closest('tr[data-id]');const id=tr?.dataset.id;const j=e.target.closest('.judge-btn');if(j&&id){setStatus(id,j.dataset.status);return}const vn=e.target.closest('[data-voice-note]');if(vn){const ta=document.querySelector(`textarea[data-note="${CSS.escape(vn.dataset.voiceNote)}"]`);if(ta)startVoice(ta,vn);return}const vi=e.target.closest('[data-voice-item]');if(vi){const ta=document.querySelector(`textarea[data-item-label="${CSS.escape(vi.dataset.voiceItem)}"]`);if(ta)startVoice(ta,vi);return}const del=e.target.closest('[data-delete-item]');if(del){deleteItem(del.dataset.deleteItem);return}const add=e.target.closest('[data-add-section]');if(add){addItem(add.dataset.addSection);return}};
   $('checkBody').oninput=e=>{if(e.target.matches('textarea[data-note]')){const c=getCheck(e.target.dataset.note);if(c){c.note=e.target.value;markDirty()}}if(e.target.matches('textarea[data-item-label]')){const it=state.items.find(x=>x.id===e.target.dataset.itemLabel);if(it){it.label=e.target.value;persistTemplateFromState();markDirty()}}};
